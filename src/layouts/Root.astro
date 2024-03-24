@@ -1,4 +1,8 @@
 ---
+import NoiseEffect from "@/components/NoiseEffect.astro"
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
+import PageFrame from "@/components/PageFrame.astro"
 import "@/styles/global.css"
 ---
 
@@ -9,7 +13,14 @@ import "@/styles/global.css"
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <slot />
+  <body class="text-foreground bg-black">
+    <PageFrame>
+      <Header />
+      <div class="size-full flex flex-col">
+        <slot />
+      </div>
+      <Footer />
+    </PageFrame>
+    <!-- <NoiseEffect /> -->
   </body>
 </html>

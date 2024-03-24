@@ -3,5 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0 0;
+  --background: 0 0 12;
+  --foreground: 0 0 70;
+
+  --border: 0 0 50;
+
+  --accent-foreground: 0 0 100;
+
+  --variant-foreground: 0 0 0;
+
+  --primary-foreground: 0 0 0;
+
+  --muted-foreground: 0 0 50;
+}
+
+* {
+  @apply box-border border-border;
+}
+
+a {
+  @apply underline underline-offset-2 hover:text-accent-foreground transition;
 }

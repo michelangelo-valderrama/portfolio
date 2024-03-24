@@ -1,0 +1,93 @@
+<canvas
+  class="z-50 absolute top-0 left-0 size-full pointer-events-none opacity-15"
+  id="canvas-noise"></canvas>
+
+<script>
+  class NoiseEffect {
+    canvas!: HTMLCanvasElement
+    ctx!: CanvasRenderingContext2D
+
+    wWidth!: number
+    wHeight!: number
+
+    noiseData: ImageData[] = []
+    frame = 0
+
+    loopTimeout!: number
+    resizeThrottle!: number
+
+    constructor() {
+      this.canvas = document.getElementById("canvas-noise") as HTMLCanvasElement
+      this.ctx = this.canvas.getContext("2d")!
+
+      this.setup()
+    }
+
+    setup() {
+      console.log("[noise] start")
+
+      this.wWidth = window.innerWidth
+      this.wHeight = window.innerHeight
+
+      this.canvas.width = this.wWidth
+      this.canvas.height = this.wHeight
+
+      for (let i = 0; i < 10; i++) {
+        this.createNoise()
+      }
+
+      this.loop()
+      this.reset()
+    }
+
+    createNoise() {
+      const idata = this.ctx.createImageData(this.wWidth, this.wHeight)
+      const buffer32 = new Uint32Array(idata.data.buffer)
+
+      for (let i = 0; i < buffer32.length; i++) {
+        if (Math.random() < 0.5) {
+          buffer32[i] = 0xff000000
+        }
+      }
+
+      this.noiseData.push(idata)
+    }
+
+    loop() {
+      this.paintNoise()
+
+      this.loopTimeout = setTimeout(() => {
+        requestAnimationFrame(this.loop.bind(this))
+      }, 1000 / 15)
+    }
+
+    paintNoise() {
+      if (this.frame === 9) {
+        this.frame = 0
+      } else {
+        this.frame++
+      }
+
+      this.ctx.putImageData(this.noiseData[this.frame], 0, 0)
+    }
+
+    reset() {
+      window.addEventListener(
+        "resize",
+        () => {
+          console.log("[noise] reset")
+
+          window.clearTimeout(this.resizeThrottle)
+
+          this.resizeThrottle = window.setTimeout(() => {
+            window.clearTimeout(this.loopTimeout)
+            this.setup()
+          }, 200)
+        },
+        false
+      )
+    }
+  }
+
+  new NoiseEffect()
+</script>
