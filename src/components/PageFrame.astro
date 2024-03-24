@@ -1,4 +1,8 @@
-<div class="p-[var(--fp)] fixed size-full bg-border">
+<div
+  id="page-frame"
+  style="--bc: var(--border); --tc: var(--foreground);"
+  class="p-[var(--fp)] fixed size-full bg-[hsl(var(--bc))] text-[hsl(var(--tc))]"
+>
   <main class="rounded-2xl size-full bg-background flex flex-col">
     <slot />
   </main>

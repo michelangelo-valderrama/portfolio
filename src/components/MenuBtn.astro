@@ -1,4 +1,5 @@
 ---
+import Link from "./Link.astro"
 import LucideIcon from "./LucideIcon.astro"
 import { ArrowRight } from "lucide"
 ---
@@ -24,32 +25,68 @@ import { ArrowRight } from "lucide"
     opacity-0 pointer-events-none transition duration-300
   `}
 >
-  <div class="flex items-center justify-center h-full">
+  <div
+    class="flex flex-col items-end justify-center h-full gap-y-6 max-w-lg mx-auto"
+  >
     <nav
       class={`
-        text-8xl font-bold flex flex-col items-end max-w-md mx-auto font-sans
-        *:flex *:items-center
+        text-7xl xs:text-8xl font-bold flex flex-col items-end
+        font-sans *:flex *:items-center
       `}
     >
       <p class="text-accent-foreground">
         <LucideIcon class="mr-6 xs:mr-10 sm:mr-14 size-14" icon={ArrowRight} />
-        <span>PRTFL</span>
+        <span>HOME</span>
       </p>
       <p>
         <LucideIcon
           class="hidden mr-6 xs:mr-10 sm:mr-14 size-14"
           icon={ArrowRight}
         />
-        <span>CV</span>
-      </p>
-      <p>
-        <LucideIcon
-          class="hidden mr-6 xs:mr-10 sm:mr-14 size-14"
-          icon={ArrowRight}
-        />
-        <span>ABT</span>
+        <span>RSM</span>
       </p>
     </nav>
+    <div class="text-xs grid grid-cols-2 gap-x-4">
+      <div class="flex flex-col gap-y-8 truncate">
+        <p>
+          WRITE ME AN EMAIL<br />
+          <Link href="mailto:michelangelovalderrama@gmail.com"
+            >MICHELANGELOVALDERRAMA@GMAIL.COM</Link
+          >
+        </p>
+        <p>
+          SOCIAL:
+          <span class="flex gap-x-2"
+            ><Link
+              href="https://github.com/michelangelo-valderrama"
+              target="_blank">GTHB</Link
+            >
+            <Link
+              href="https://www.linkedin.com/in/michelangelo-v-2a71702b1"
+              target="_blank">LI</Link
+            >
+            <Link href="https://twitter.com/VTokyo9" target="_blank">TW</Link
+            ></span
+          >
+        </p>
+      </div>
+      <div>
+        <p>FULL STACK DEVELOPER AND PASSIONATE ABOUT ART AND SCIENCE</p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-12 left-4 md:left-8 right-4 md:right-8 flex justify-between text-xs"
+  >
+    <p>
+      CREATED WITH<br /><Link href="https://astro.build/" target="_blank"
+        >ASTRO</Link
+      >
+    </p>
+    <p class="text-right">
+      POWERED BY<br />
+      <Link href="https://vercel.com/" target="_blank">VERCEL</Link>
+    </p>
   </div>
 </div>
 

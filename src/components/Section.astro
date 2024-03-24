@@ -1,0 +1,12 @@
+---
+interface Props {
+  as: string
+  class?: string
+}
+
+const { as: As = "article" } = Astro.props
+---
+
+<As class:list={["size-full p-4", Astro.props.class]}>
+  <slot />
+</As>
