@@ -1,14 +1,41 @@
-<header class="fixed top-4 left-4 right-4 p-4 flex justify-between text-sm">
-  <p class="font-bold">MICHELANGELO</p>
-  <div class="text-xs flex gap-x-12">
-    <p>WRITE ME AN EMAIL<br />MICHELANGELOVALDERRAMA@GMAIL.COM</p>
-    <p>SOCIAL:<br />GTHB LI TW</p>
-  </div>
-  <nav class="*:flex *:items-center *:justify-end *:gap-x-2">
-    <p class="text-accent-foreground">
-      <span>{"->"}</span><span>PRTFL</span>
+---
+import Link from "./Link.astro"
+import Menu from "@/svgs/Menu.svg.astro"
+---
+
+<header class="fixed top-4 left-4 right-4 p-4 flex items-center lg:items-start justify-between text-sm">
+  <p class="font-bold text-accent-foreground select-none">MICHELANGELO</p>
+  <div class="hidden lg:flex text-xs gap-x-12">
+    <p>
+      WRITE ME AN EMAIL<br />
+      <Link href="mailto:michelangelovalderrama@gmail.com"
+        >MICHELANGELOVALDERRAMA@GMAIL.COM</Link
+      >
     </p>
-    <p>CV</p>
-    <p>BLG</p>
+    <p>
+      SOCIAL:
+      <span class="flex gap-x-2"
+        ><Link href="https://github.com/michelangelo-valderrama" target="_blank"
+          >GTHB</Link
+        >
+        <Link
+          href="https://www.linkedin.com/in/michelangelo-v-2a71702b1"
+          target="_blank">LI</Link
+        >
+        <Link href="https://twitter.com/VTokyo9" target="_blank">TW</Link></span
+      >
+    </p>
+  </div>
+  <nav class="hidden lg:block *:flex *:items-center *:justify-end *:gap-x-2">
+    <p class="text-accent-foreground font-extrabold">
+      <span>{"->"}</span><a href="/">PRTFL</a>
+    </p>
+    <p><a href="/#cv">CV</a></p>
+    <p><a href="https://imangelo.dev/" target="_blank">BLG</a></p>
   </nav>
+  <div class="lg:hidden">
+    <button type="button" class="size-8 flex items-center justify-center">
+      <Menu class="size-6" />
+    </button>
+  </div>
 </header>

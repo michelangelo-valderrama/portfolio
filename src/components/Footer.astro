@@ -1,13 +1,17 @@
+---
+import Link from "./Link.astro"
+---
+
 <footer
-  class="fixed bottom-4 left-4 right-4 flex justify-between text-xs pb-12 px-4 md:px-16 mx-auto"
+  class="hidden fixed bottom-4 left-4 right-4 lg:flex justify-between text-xs pb-12 px-4 lg:px-16 mx-auto"
 >
   <p>
-    CREATED WITH<br /><a href="#" target="_blank" rel="noopener noreferrer"
-      >ASTRO</a
+    CREATED WITH<br /><Link href="https://astro.build/" target="_blank"
+      >ASTRO</Link
     >
   </p>
   <p class="text-right">
     POWERED BY<br />
-    <a href="#" target="_blank" rel="noopener noreferrer"> VERCEL</a>
+    <Link href="https://vercel.com/" target="_blank">VERCEL</Link>
   </p>
 </footer>

@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -13,6 +15,13 @@ export default {
         accent: {
           foreground: "hsl(var(--accent-foreground))",
         },
+      },
+      fontFamily: {
+        sans: ["Eudoxus Sans", ...defaultTheme.fontFamily.sans],
+        mono: ["Modern Era Mono", ...defaultTheme.fontFamily.mono],
+      },
+      screens: {
+        xs: "440px",
       },
     },
   },
