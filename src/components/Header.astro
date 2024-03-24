@@ -1,9 +1,13 @@
 ---
 import Link from "./Link.astro"
-import Menu from "@/svgs/Menu.svg.astro"
+import MenuBtn from "@/components/MenuBtn.astro"
+import LucideIcon from "./LucideIcon.astro"
+import { ArrowRight } from "lucide"
 ---
 
-<header class="fixed top-4 left-4 right-4 p-4 flex items-center lg:items-start justify-between text-sm">
+<header
+  class="fixed top-[var(--fp)] left-[var(--fp)] right-[var(--fp)] p-4 flex items-center lg:items-start justify-between text-sm font-mono"
+>
   <p class="font-bold text-accent-foreground select-none">MICHELANGELO</p>
   <div class="hidden lg:flex text-xs gap-x-12">
     <p>
@@ -28,14 +32,13 @@ import Menu from "@/svgs/Menu.svg.astro"
   </div>
   <nav class="hidden lg:block *:flex *:items-center *:justify-end *:gap-x-2">
     <p class="text-accent-foreground font-extrabold">
-      <span>{"->"}</span><a href="/">PRTFL</a>
+      <LucideIcon class="size-3.5" icon={ArrowRight} />
+      <a href="/">PRTFL</a>
     </p>
     <p><a href="/#cv">CV</a></p>
     <p><a href="https://imangelo.dev/" target="_blank">BLG</a></p>
   </nav>
   <div class="lg:hidden">
-    <button type="button" class="size-8 flex items-center justify-center">
-      <Menu class="size-6" />
-    </button>
+    <MenuBtn />
   </div>
 </header>

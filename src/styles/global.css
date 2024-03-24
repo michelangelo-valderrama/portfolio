@@ -15,6 +15,12 @@
   --primary-foreground: 0 0 0;
 
   --muted-foreground: 0 0 50;
+
+  --fp: 0.5rem;
+
+  @media (min-width: 768px) {
+    --fp: 1rem;
+  }
 }
 
 * {
@@ -34,35 +40,35 @@ p {
 
 @font-face {
   font-family: "Eudoxus Sans";
-  src: url("/public/fonts/EudoxusSans-Regular.woff2") format("woff2");
+  src: url("/fonts/EudoxusSans-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Eudoxus Sans";
-  src: url("/public/fonts/EudoxusSans-Bold.woff2") format("woff2");
+  src: url("/fonts/EudoxusSans-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Eudoxus Sans";
-  src: url("/public/fonts/EudoxusSans-ExtraBold.woff2") format("woff2");
+  src: url("/fonts/EudoxusSans-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Modern Era Mono";
-  src: url("/public/fonts/ModernEraMono-Medium.woff2") format("woff2");
+  src: url("/fonts/ModernEraMono-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Modern Era Mono";
-  src: url("/public/fonts/ModernEraMono-ExtraBold.woff2") format("woff2");
+  src: url("/fonts/ModernEraMono-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
 }

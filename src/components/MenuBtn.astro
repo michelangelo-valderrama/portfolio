@@ -1,0 +1,77 @@
+---
+import LucideIcon from "./LucideIcon.astro"
+import { ArrowRight } from "lucide"
+---
+
+<button
+  id="btn-menu"
+  type="button"
+  class={`
+    absolute top-3 right-4 z-30
+    size-9 flex flex-col gap-y-1.5 justify-center p-1.5
+    *:w-full *:h-[2px] *:rounded-lg *:bg-foreground
+    *:translate-y-0 *:rotate-0 *:transition *:duration-[500ms]
+  `}
+>
+  <span id="menu-bar-top"></span>
+  <span id="menu-bar-bottom"></span>
+</button>
+
+<div
+  id="ctn-menu"
+  class={`
+    fixed top-0 left-0 w-full h-full bg-background p-4
+    opacity-0 pointer-events-none transition duration-300
+  `}
+>
+  <div class="flex items-center justify-center h-full">
+    <nav
+      class={`
+        text-8xl font-bold flex flex-col items-end max-w-md mx-auto font-sans
+        *:flex *:items-center
+      `}
+    >
+      <p class="text-accent-foreground">
+        <LucideIcon class="mr-6 xs:mr-10 sm:mr-14 size-14" icon={ArrowRight} />
+        <span>PRTFL</span>
+      </p>
+      <p>
+        <LucideIcon
+          class="hidden mr-6 xs:mr-10 sm:mr-14 size-14"
+          icon={ArrowRight}
+        />
+        <span>CV</span>
+      </p>
+      <p>
+        <LucideIcon
+          class="hidden mr-6 xs:mr-10 sm:mr-14 size-14"
+          icon={ArrowRight}
+        />
+        <span>ABT</span>
+      </p>
+    </nav>
+  </div>
+</div>
+
+<style>
+  .open #menu-bar-top {
+    @apply rotate-[40deg] translate-y-[5px];
+  }
+  .open #menu-bar-bottom {
+    @apply -rotate-[40deg] -translate-y-[3px] w-full;
+  }
+
+  .show-menu {
+    @apply opacity-100 pointer-events-auto;
+  }
+</style>
+
+<script>
+  const btnMenu = document.getElementById("btn-menu") as HTMLButtonElement
+  const ctnMenu = document.getElementById("ctn-menu") as HTMLDivElement
+
+  btnMenu.addEventListener("click", () => {
+    btnMenu.classList.toggle("open")
+    ctnMenu.classList.toggle("show-menu")
+  })
+</script>

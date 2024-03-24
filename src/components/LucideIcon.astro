@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types"
+import { Accessibility } from "lucide"
+
+interface Props extends HTMLAttributes<"svg"> {
+  icon: typeof Accessibility
+}
+
+const { icon, ...props } = Astro.props
+
+const [, attributes, children] = icon
+
+const componentChildren = children
+  ?.map(
+    ([shape, attributes]) =>
+      `<${shape} ${Object.entries(attributes)
+        .map(([k, v]) => `${k}="${v}"`)
+        .join(" ")} />`
+  )
+  .join("")
+
+const componentAttributes = { ...attributes, ...props }
+---
+
+<svg {...componentAttributes} set:html={componentChildren} />
