@@ -1,84 +1,51 @@
 ---
+import Project from "@/components/Project.astro"
 import Section from "@/components/Section.astro"
+import StarsEffect from "@/components/StarsEffect.astro"
 import Root from "@/layouts/Root.astro"
 import Mesh from "@/svgs/Mesh.svg.astro"
+
+const projects = [
+  {
+    title: "Personal Blog",
+    subtitle: "My blog about anything I want to write.",
+    type: "Web",
+    stack: ["Astro", "React", "Tailwind CSS"],
+    date: 2024,
+  },
+]
 ---
 
 <Root>
   <!--Home-->
-  <article class="flex flex-col justify-end items-center size-full">
-    <div class="mb-8 flex items-center justify-center flex-1 mt-20">
-      <Mesh class="min-h-[300px] max-h-[400px] md:h-auto" />
-    </div>
-    <section class="text-center mb-12 px-2">
-      <h1
-        class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-bold font-serif"
-      >
-        MICHELANGELO
-      </h1>
-      <p class="text-sm sm:text-base">
-        FULL STACK DEVELOPER AND PASSIONATE ABOUT ART AND SCIENCE
-      </p>
-    </section>
-  </article>
-  <!--Projects-->
-  <Section class="flex flex-col justify-start xl:justify-between gap-x-12 pb-0">
-    <h2 class="font-extrabold text-5xl xs:text-6xl md:text-7xl xl:text-8xl text-right mt-20 mb-16 xl:mb-0">PROJECTS</h2>
-    <div
-      class="hidden xl:flex items-end gap-x-4 text-xs font-mono md:px-12 flex-1 max-w-screen-2xl mx-auto"
-    >
-      <div class="mb-32 w-full max-w-36 flex flex-col gap-y-4">
-        <p class="text-base font-bold font-sans mb-16">Personal Blog</p>
-        <p>My blog about anything I want to write.</p>
-        <p>Project Type:<br />Web</p>
+  <div class="size-full relative">
+    <article class="flex flex-col justify-end items-center size-full absolute top-0 left-0 z-20">
+      <div class="mb-8 flex items-center justify-center flex-1 mt-20">
+        <Mesh class="min-h-[300px] max-h-[400px] md:h-auto" />
       </div>
-      <div>
-        <img
-          class="rounded-t-2xl max-w-[900px] w-full mx-auto"
-          src="/img/imangelo-screenshot.png"
-          alt=""
-        />
-      </div>
-      <div class="mb-32 flex flex-col gap-y-4 w-full max-w-36">
-        <p>Date Created:<br />-2024</p>
-        <p>
-          Stack:
-          <span class="flex flex-col">
-            <span>Astro</span>
-            <span>React</span>
-            <span>Tailwind CSS</span>
-          </span>
+      <section class="text-center mb-12 px-2">
+        <h1
+          class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-bold font-serif"
+        >
+          MICHELANGELO
+        </h1>
+        <p class="text-sm sm:text-base">
+          FULL STACK DEVELOPER AND PASSIONATE ABOUT ART AND SCIENCE
         </p>
-      </div>
-    </div>
-    <div class="xl:hidden max-w-screen-xl mx-auto flex flex-col gap-y-4">
-      <div>
-        <img
-          class="rounded-2xl max-w-screen-sm w-full mx-auto"
-          src="/img/imangelo-screenshot.png"
-          alt=""
-        />
-      </div>
-      <div class="grid grid-cols-2 gap-x-8 font-mono text-xs sm:px-4">
-        <div>
-          <p class="text-base font-bold font-sans mb-6">Personal Blog</p>
-          <div class="flex flex-col gap-y-4">
-            <p>My blog about anything I want to write.</p>
-            <p>Project Type:<br />Web</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-y-4">
-          <p>Date Created:<br />-2024</p>
-          <p>
-            Stack:
-            <span class="flex flex-col">
-              <span>Astro</span>
-              <span>React</span>
-              <span>Tailwind CSS</span>
-            </span>
-          </p>
-        </div>
-      </div>
+      </section>
+    </article>
+    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-background to-transparent h-24 z-10"></div>
+    <StarsEffect class="relative -top-8 -left-8 z-0" />
+  </div>
+  <!--Projects-->
+  <Section class="pb-0 flex flex-col justify-start xl:justify-between">
+    <h2
+      class="font-extrabold text-5xl xs:text-6xl md:text-7xl xl:text-8xl text-right mt-28 mb-16 xl:mb-28"
+    >
+      PROJECTS
+    </h2>
+    <div class="flex flex-col gap-y-64">
+      {projects.map((p) => <Project {...p} />)}
     </div>
   </Section>
 </Root>
