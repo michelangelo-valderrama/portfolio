@@ -4,9 +4,9 @@ interface Props {
   class?: string
 }
 
-const { as: As = "article" } = Astro.props
+const { as: As = "section" } = Astro.props
 ---
 
-<As class:list={["size-full p-4", Astro.props.class]}>
+<As class:list={["size-full p-4 overflow-hidden", Astro.props.class]}>
   <slot />
 </As>

@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0 12;
-  --foreground: 0 0 70;
+  --background: 0 0 0;
+  --foreground: 0 0 72;
 
-  --border: 0 0 50;
+  --border: 0 0 72;
 
   --accent-foreground: 0 0 100;
 
@@ -19,7 +19,7 @@
   --fp: 0.5rem;
 
   @media (min-width: 768px) {
-    --fp: 1rem;
+    --fp: 2dvh;
   }
 }
 

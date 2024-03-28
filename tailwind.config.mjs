@@ -21,7 +21,7 @@ export default {
         mono: ["Modern Era Mono", ...defaultTheme.fontFamily.mono],
       },
       screens: {
-        xs: "440px",
+        xs: "400px",
       },
     },
   },

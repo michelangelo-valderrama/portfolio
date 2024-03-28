@@ -3,91 +3,34 @@
   id="canvas-noise"></canvas>
 
 <script>
-  class NoiseEffect {
-    canvas!: HTMLCanvasElement
-    ctx!: CanvasRenderingContext2D
+  const canvas = document.getElementById("canvas-noise") as HTMLCanvasElement
+  const ctx = canvas.getContext("2d")!
 
-    wWidth!: number
-    wHeight!: number
+  resize()
+  window.onresize = resize
 
-    noiseData: ImageData[] = []
-    frame = 0
-
-    loopTimeout!: number
-    resizeThrottle!: number
-
-    constructor() {
-      this.canvas = document.getElementById("canvas-noise") as HTMLCanvasElement
-      this.ctx = this.canvas.getContext("2d")!
-
-      this.setup()
-    }
-
-    setup() {
-      console.log("[noise] start")
-
-      this.wWidth = window.innerWidth
-      this.wHeight = window.innerHeight
-
-      this.canvas.width = this.wWidth
-      this.canvas.height = this.wHeight
-
-      for (let i = 0; i < 10; i++) {
-        this.createNoise()
-      }
-
-      this.loop()
-      this.reset()
-    }
-
-    createNoise() {
-      const idata = this.ctx.createImageData(this.wWidth, this.wHeight)
-      const buffer32 = new Uint32Array(idata.data.buffer)
-
-      for (let i = 0; i < buffer32.length; i++) {
-        if (Math.random() < 0.5) {
-          buffer32[i] = 0xff000000
-        }
-      }
-
-      this.noiseData.push(idata)
-    }
-
-    loop() {
-      this.paintNoise()
-
-      this.loopTimeout = setTimeout(() => {
-        requestAnimationFrame(this.loop.bind(this))
-      }, 1000 / 25)
-    }
-
-    paintNoise() {
-      if (this.frame === 9) {
-        this.frame = 0
-      } else {
-        this.frame++
-      }
-
-      this.ctx.putImageData(this.noiseData[this.frame], 0, 0)
-    }
-
-    reset() {
-      window.addEventListener(
-        "resize",
-        () => {
-          console.log("[noise] reset")
-
-          window.clearTimeout(this.resizeThrottle)
-
-          this.resizeThrottle = window.setTimeout(() => {
-            window.clearTimeout(this.loopTimeout)
-            this.setup()
-          }, 200)
-        },
-        false
-      )
-    }
+  function resize() {
+    canvas.width = window.innerWidth * window.devicePixelRatio
+    canvas.height = window.innerHeight * window.devicePixelRatio
+    canvas.style.width = `${window.innerWidth}px`
+    canvas.style.height = `${window.innerHeight}px`
   }
 
-  new NoiseEffect()
+  function noise(ctx: CanvasRenderingContext2D) {
+    const w = ctx.canvas.width,
+      h = ctx.canvas.height,
+      iData = ctx.createImageData(w, h),
+      buffer32 = new Uint32Array(iData.data.buffer)
+
+    for (let i = 0; i < buffer32.length; i++) {
+      if (Math.random() < 0.5) buffer32[i] = 0xffffffff
+    }
+
+    ctx.putImageData(iData, 0, 0)
+  }
+
+  ;(function loop() {
+    noise(ctx)
+    requestAnimationFrame(loop)
+  })()
 </script>
