@@ -1,115 +1,82 @@
-<canvas class={Astro.props.class} id="canvas-stars"></canvas>
+<div id="cnt" class={Astro.props.class}></div>
 
 <script>
-  "use strict"
+  import * as THREE from "three"
+  import Stats from "three/examples/jsm/libs/stats.module.js"
 
-  const canvas = document.getElementById("canvas-stars") as HTMLCanvasElement,
-    ctx = canvas.getContext("2d")!,
-    hue = 217,
-    stars: Star[] = [],
-    maxStars = 500
+  const STARS_QTY = 200,
+    width = window.innerWidth,
+    height = window.innerHeight
+  const scene = new THREE.Scene(),
+    camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000),
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }),
+    stats = new Stats()
+  let sphere: THREE.Points,
+    mouseX = 0,
+    mouseY = 0
 
-  let count = 0,
-    w = (canvas.width = window.innerWidth),
-    h = (canvas.height = window.innerHeight)
+  init()
+  animate()
 
-  const canvas2 = document.createElement("canvas") as HTMLCanvasElement,
-    ctx2 = canvas2.getContext("2d")!
-  canvas2.width = 100
-  canvas2.height = 100
+  function init() {
+    const container = document.getElementById("cnt") as HTMLDivElement
 
-  const half = canvas2.width / 2,
-    gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half)
+    scene.fog = new THREE.FogExp2(0x000000, 0.0003)
+    camera.position.z = 500
 
-  gradient2.addColorStop(0.025, "#fff")
-  gradient2.addColorStop(0.1, "hsl(" + hue + ", 0%, 25%)")
-  gradient2.addColorStop(0.25, "hsl(" + hue + ", 0%, 3%)")
-  gradient2.addColorStop(1, "transparent")
+    stars()
 
-  ctx2.fillStyle = gradient2
-  ctx2.beginPath()
-  ctx2.arc(half, half, half, 0, Math.PI * 2)
-  ctx2.fill()
+    renderer.setClearColor(0x000000, 1)
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(width, height)
+    container.appendChild(renderer.domElement)
 
-  function random(min: number, max?: number) {
-    if (!max) {
-      max = min
-      min = 0
-    }
+    window.addEventListener("resize", onWindowResize, false)
+    document.addEventListener("mousemove", onMouseMove, false)
 
-    if (min > max) {
-      var hold = max
-      max = min
-      min = hold
-    }
-
-    return Math.floor(Math.random() * (max - min + 1)) + min
+    document.body.appendChild(stats.dom)
   }
 
-  function maxOrbit(x: number, y: number) {
-    var max = Math.max(x, y),
-      diameter = Math.round(Math.sqrt(max ** 2 + max ** 2))
-    return diameter / 2
+  function animate() {
+    requestAnimationFrame(animate)
+    sphere.rotation.x += (5 + mouseX * 0.005) / 1000
+    sphere.rotation.y += (5 + mouseY * 0.005) / 1000
+    renderer.render(scene, camera)
+    stats.update()
   }
 
-  class Star {
-    orbitRadius = random(maxOrbit(w, h))
-    radius = random(60, this.orbitRadius) / 12
-    orbitX = w / 2
-    orbitY = h / 2
-    timePassed = random(0, maxStars)
-    speed = random(this.orbitRadius) / 500000
-    alpha = random(2, 10) / 10
+  function stars() {
+    const geometry = new THREE.SphereGeometry()
+    const material = new THREE.PointsMaterial({
+      size: 1.5,
+      opacity: 0.7,
+      transparent: true,
+    })
 
-    constructor() {
-      count++
-      stars[count] = this
-    }
-
-    draw() {
-      var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
-        y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
-        twinkle = random(40)
-      if (twinkle === 1 && this.alpha > 0) {
-        this.alpha -= 0.05
-      } else if (twinkle === 2 && this.alpha < 1) {
-        this.alpha += 0.05
-      }
-
-      ctx.globalAlpha = this.alpha
-      ctx.drawImage(
-        canvas2,
-        x - this.radius / 2,
-        y - this.radius / 2,
-        this.radius,
-        this.radius
+    for (let i = 0; i < STARS_QTY; i++) {
+      geometry.attributes.position.setXYZ(
+        i,
+        Math.random() * 1000 - 500,
+        Math.random() * 1000 - 500,
+        Math.random() * 1000 - 500
       )
-      this.timePassed += this.speed
-    }
-  }
-
-  for (var i = 0; i < maxStars; i++) {
-    new Star()
-  }
-
-  function animation() {
-    ctx.globalCompositeOperation = "source-over"
-    ctx.globalAlpha = 0.8
-    ctx.fillStyle = "hsl(0, 0%, 12%)"
-    ctx.fillRect(0, 0, w, h)
-    ctx.globalCompositeOperation = "lighter"
-
-    for (var i = 1; i < stars.length; i++) {
-      stars[i].draw()
     }
 
-    window.requestAnimationFrame(animation)
+    sphere = new THREE.Points(geometry, material)
+    scene.add(sphere)
   }
 
-  animation()
+  function onWindowResize() {
+    const width = window.innerWidth,
+      height = window.innerHeight
 
-  window.addEventListener("resize", () => {
-    w = canvas.width = window.innerWidth
-    h = canvas.height = window.innerHeight
-  })
+    camera.aspect = width / height
+    camera.updateProjectionMatrix()
+    renderer.setSize(width, height)
+  }
+
+  function onMouseMove(e: MouseEvent) {
+    mouseX = e.clientX - width / 2
+    mouseY = e.clientY - height / 2
+  }
 </script>
