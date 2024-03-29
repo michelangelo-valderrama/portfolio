@@ -72,3 +72,8 @@ p {
   font-weight: 800;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "NevradaNeue";
+  src: url("/fonts/NevradaNeue.otf") format("opentype");
+}

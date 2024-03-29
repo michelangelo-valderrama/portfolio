@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         sans: ["Eudoxus Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Modern Era Mono", ...defaultTheme.fontFamily.mono],
+        serif: ["NevradaNeue", ...defaultTheme.fontFamily.serif],
       },
       screens: {
         xs: "400px",
