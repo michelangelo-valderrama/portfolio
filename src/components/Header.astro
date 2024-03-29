@@ -3,27 +3,32 @@ import Link from "./Link.astro"
 import MenuBtn from "@/components/MenuBtn.astro"
 import LucideIcon from "./LucideIcon.astro"
 import { ArrowRight } from "lucide"
+import TextAnim from "./TextAnim.astro"
 ---
 
 <header
-  class="fixed top-[var(--fp)] left-[var(--fp)] right-[var(--fp)] p-4 z-30"
+  class="fixed top-[var(--fp)] left-[var(--fp)] right-[var(--fp)] p-4 z-30 uppercase"
 >
   <div
     class="flex items-center lg:items-start justify-between text-xs font-mono"
   >
-    <p class="text-base font-bold select-none">MICHELANGELO</p>
+    <p class="text-base font-bold select-none">
+      <TextAnim>Michelangelo</TextAnim>
+    </p>
     <!-- Desktop -->
     <div class="hidden lg:flex text-xs gap-x-12">
       <p>
-        WRITE ME AN EMAIL<br />
-        <Link href="mailto:michelangelovalderrama@gmail.com"
-          >MICHELANGELOVALDERRAMA@GMAIL.COM</Link
-        >
+        <TextAnim>Write me an email</TextAnim>
+        <TextAnim>
+          <Link href="mailto:michelangelovalderrama@gmail.com"
+            >email@gmail.com</Link
+          >
+        </TextAnim>
       </p>
       <p>
-        SOCIAL:
-        <span class="flex gap-x-2"
-          ><Link
+        <TextAnim>Social:</TextAnim>
+        <TextAnim class="flex gap-x-2">
+          <Link
             href="https://github.com/michelangelo-valderrama"
             target="_blank">GTHB</Link
           >
@@ -31,17 +36,29 @@ import { ArrowRight } from "lucide"
             href="https://www.linkedin.com/in/michelangelo-v-2a71702b1"
             target="_blank">LI</Link
           >
-          <Link href="https://twitter.com/VTokyo9" target="_blank">TW</Link
-          ></span
-        >
+          <Link href="https://twitter.com/VTokyo9" target="_blank">TW</Link>
+        </TextAnim>
       </p>
     </div>
-    <nav class="hidden lg:block *:flex *:items-center *:justify-end *:gap-x-1.5">
+    <nav
+      class="hidden lg:block *:flex *:items-center *:justify-end *:gap-x-1.5"
+    >
       <p>
-        <LucideIcon class="size-3.5" icon={ArrowRight} />
-        <a href="/">HOME</a>
+        <TextAnim>
+          <LucideIcon class="size-3.5" icon={ArrowRight} />
+        </TextAnim>
+        <TextAnim>
+          <a href="/">Home</a>
+        </TextAnim>
       </p>
-      <p><a href="/#cv">RSM</a></p>
+      <p>
+        <TextAnim>
+          <LucideIcon class="hidden size-3.5" icon={ArrowRight} />
+        </TextAnim>
+        <TextAnim>
+          <a href="/#cv">Rsm</a>
+        </TextAnim>
+      </p>
     </nav>
     <!-- Mobile -->
     <MenuBtn />

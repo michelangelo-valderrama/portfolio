@@ -1,5 +1,6 @@
 ---
 import Link from "./Link.astro"
+import TextAnim from "./TextAnim.astro"
 ---
 
 <footer
@@ -9,16 +10,31 @@ import Link from "./Link.astro"
   ]}
 >
   <div
-    class="flex justify-between pb-4 px-4 lg:px-16 mx-auto font-mono text-xs"
+    class="flex justify-between pb-4 px-4 lg:px-16 mx-auto font-mono text-xs uppercase"
   >
-    <p>
-      CREATED WITH<br /><Link href="https://astro.build/" target="_blank"
-        >ASTRO</Link
-      >
+    <p class="lg:hidden">
+      <TextAnim trigger>Created with</TextAnim>
+      <TextAnim trigger
+        ><Link href="https://astro.build/" target="_blank">Astro</Link>
+      </TextAnim>
     </p>
-    <p class="text-right">
-      POWERED BY<br />
-      <Link href="https://vercel.com/" target="_blank">VERCEL</Link>
+    <p class="text-right lg:hidden">
+      <TextAnim trigger>Powered by</TextAnim>
+      <TextAnim trigger
+        ><Link href="https://vercel.com/" target="_blank">Vercel</Link>
+      </TextAnim>
+    </p>
+    <p class="hidden lg:inline">
+      <TextAnim>Created with</TextAnim>
+      <TextAnim
+        ><Link href="https://astro.build/" target="_blank">Astro</Link>
+      </TextAnim>
+    </p>
+    <p class="text-right hidden lg:inline">
+      <TextAnim>Powered by</TextAnim>
+      <TextAnim
+        ><Link href="https://vercel.com/" target="_blank">Vercel</Link>
+      </TextAnim>
     </p>
   </div>
 </footer>
