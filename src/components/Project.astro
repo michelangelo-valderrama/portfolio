@@ -1,73 +1,15 @@
 ---
 import { MoveUpRight } from "lucide"
+import type { Project } from "@/interfaces/project.interface"
 import LucideIcon from "./LucideIcon.astro"
 
-interface Props {
-  title: string
-  subtitle: string
-  type: string
-  stack: string[]
-  date: number
+interface Props extends Project {
+  class?: string
 }
 
-const { date, stack, subtitle, title, type } = Astro.props
+const { date, stack, description, title, type } = Astro.props
 ---
 
-<div
-  class="hidden xl:flex items-end gap-x-4 text-xs font-mono md:px-12 max-w-screen-2xl mx-auto"
->
-  <div class="mb-32 w-full max-w-36 flex flex-col gap-y-4">
-    <p class="text-base font-bold font-sans mb-16">{title}</p>
-    <p>{subtitle}</p>
-    <p>Project Type:<br />{type}</p>
-  </div>
-  <div class="relative">
-    <img
-      class="rounded-t-2xl max-w-[900px] w-full mx-auto"
-      src="/img/imangelo-screenshot.png"
-      alt=""
-    />
-    <button
-      type="button"
-      class="size-10 flex items-center justify-center bg-background absolute top-4 right-4 rounded-full hover:scale-125 transition"
-    >
-      <LucideIcon icon={MoveUpRight} class="size-5 text-accent-foreground" />
-    </button>
-  </div>
-  <div class="mb-32 flex flex-col gap-y-4 w-full max-w-36">
-    <p>Date Created:<br />-{date}</p>
-    <p>
-      Stack:
-      <span class="flex flex-col">
-        {stack.map((s) => <span>{s}</span>)}
-      </span>
-    </p>
-  </div>
-</div>
-<div class="xl:hidden max-w-screen-xl mx-auto flex flex-col gap-y-4">
-  <div>
-    <img
-      class="rounded-2xl max-w-screen-sm w-full mx-auto"
-      src="/img/imangelo-screenshot.png"
-      alt=""
-    />
-  </div>
-  <div class="grid grid-cols-2 gap-x-8 font-mono text-xs sm:px-4">
-    <div class="max-w-48">
-      <p class="text-base font-bold font-sans mb-6">{title}</p>
-      <div class="flex flex-col gap-y-4">
-        <p>{subtitle}</p>
-        <p>Project Type:<br />{type}</p>
-      </div>
-    </div>
-    <div class="flex flex-col gap-y-4 max-w-48">
-      <p>Date Created:<br />-{date}</p>
-      <p>
-        Stack:
-        <span class="flex flex-col">
-          {stack.map((s) => <span>{s}</span>)}
-        </span>
-      </p>
-    </div>
-  </div>
-</div>
+<article class:list={["grid grid-cols-12 grid-rows-2", Astro.props.class]}>
+  <p>{title}</p>
+</article>
