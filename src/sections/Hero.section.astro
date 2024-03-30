@@ -6,12 +6,14 @@ import Mesh from "@/svgs/Mesh.svg.astro"
 ---
 
 <Section class="flex flex-col justify-end items-center absolute top-0 left-0">
-  <div class="text-center mb-6 lg:mb-12 px-2 uppercase">
-    <h1 class="text-5xl sm:text-6xl md:text-8xl font-serif relative select-none">
-      <TextAnim h="4.25rem">Michelangelo</TextAnim>
-      <TextAnim h="4.25rem" class="absolute top-0 left-0 blur-lg md:blur-2xl"
+  <div class="text-center px-2 uppercase select-none mb-6">
+    <h1 class="text-5xl sm:text-6xl md:text-8xl font-serif relative">
+      <TextAnim h="5rem">Michelangelo</TextAnim>
+      <!-- <TextAnim
+        h="4.25rem"
+        class="absolute top-0 left-0 blur-lg md:blur-2xl w-full text-center"
         >Michelangelo</TextAnim
-      >
+      > -->
     </h1>
     <p class="text-sm sm:text-base">
       <TextAnim d="400ms" h="2.5rem">
@@ -30,7 +32,8 @@ import Mesh from "@/svgs/Mesh.svg.astro"
     />
   </div>
 </Section>
-<StarsEffect />
+<!-- <StarsEffect /> -->
+<div class="h-full"></div>
 
 <style>
   #mesh {
@@ -38,12 +41,8 @@ import Mesh from "@/svgs/Mesh.svg.astro"
   }
 
   @keyframes dash {
-    from {
-      filter: blur(10px);
-    }
     to {
       stroke-dashoffset: 0;
-      filter: blur(0px);
     }
   }
 </style>

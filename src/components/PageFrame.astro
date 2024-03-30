@@ -1,0 +1,28 @@
+<div
+  id="page-frame"
+  style="--color: #000;"
+  class="p-[var(--fp)] size-full fixed top-0 left-0 bg-[var(--color)] transition-all duration-300 ease-in-out"
+>
+  <div class="relative size-full rounded-2xl bg-background"></div>
+</div>
+
+<script>
+  const frame = document.querySelector("#page-frame") as HTMLDivElement
+  const sections = document.querySelectorAll<HTMLDivElement>("[section]")
+
+  sections.forEach((s) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            frame.style.setProperty("--color", `${s.dataset.color}`)
+          }
+        })
+      },
+      {
+        threshold: 0.5,
+      }
+    )
+    observer.observe(s)
+  })
+</script>

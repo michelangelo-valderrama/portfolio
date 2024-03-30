@@ -6,7 +6,7 @@
   --background: 0 0 0;
   --foreground: 0 0 72;
 
-  --border: 0 0 72;
+  --border: 0 0 42;
 
   --accent-foreground: 0 0 100;
 
@@ -74,6 +74,9 @@ p {
 }
 
 @font-face {
-  font-family: "NevradaNeue";
+  font-family: "Nevrada Neue";
   src: url("/fonts/NevradaNeue.otf") format("opentype");
+  src: url("/fonts/NevradaNeue.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
