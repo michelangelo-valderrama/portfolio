@@ -1,4 +1,6 @@
 ---
+import { cn } from "@/lib/utils"
+
 interface Props {
   as: string
   class?: string
@@ -12,7 +14,7 @@ const { as: As = "section", frameColor = "#000", ...props } = Astro.props
   {...props}
   section
   data-color={Astro.props.frameColor}
-  class:list={["size-full p-4 overflow-hidden", Astro.props.class]}
+  class={cn("size-full p-4 overflow-hidden", Astro.props.class)}
 >
   <slot />
 </As>

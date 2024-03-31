@@ -24,6 +24,9 @@ export default {
       screens: {
         xs: "400px",
       },
+      fontSize: {
+        "2xs": "0.625rem",
+      },
     },
   },
   plugins: [],

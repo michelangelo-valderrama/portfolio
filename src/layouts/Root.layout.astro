@@ -3,8 +3,8 @@ import NoiseEffect from "@/components/NoiseEffect.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 import GridOverlay from "@/components/GridOverlay.astro"
-import "@/styles/global.css"
 import PageFrame from "@/components/PageFrame.astro"
+import "@/styles/global.css"
 ---
 
 <!doctype html>
@@ -20,7 +20,8 @@ import PageFrame from "@/components/PageFrame.astro"
     <Header />
     <main class="h-full p-[var(--fp)]">
       <div
-        class="relative h-full rounded-2xl overflow-x-hidden overflow-y-scroll"
+        id="content"
+        class="relative h-full rounded-2xl overflow-x-hidden overflow-y-scroll space-y-[var(--fp)]"
       >
         <slot />
       </div>

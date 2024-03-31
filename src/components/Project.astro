@@ -2,14 +2,49 @@
 import { MoveUpRight } from "lucide"
 import type { Project } from "@/interfaces/project.interface"
 import LucideIcon from "./LucideIcon.astro"
+import { cn } from "@/lib/utils"
 
 interface Props extends Project {
   class?: string
 }
 
-const { date, stack, description, title, type } = Astro.props
+const { date, stack, description, title, type, img, ...props } = Astro.props
 ---
 
-<article class:list={["grid grid-cols-12 grid-rows-2", Astro.props.class]}>
-  <p>{title}</p>
+<article
+  class={cn(
+    "grid grid-cols-12 grid-rows-12 text-xs font-mono",
+    Astro.props.class
+  )}
+  {...props}
+>
+  <div
+    class="col-start-3 col-end-11 row-start-4 2xl:col-start-4 2xl:col-end-10 row-span-full"
+  >
+    <div class="h-full px-4 pt-4">
+      <img {...img} class="size-full object-cover rounded-t-xl" />
+    </div>
+  </div>
+  <p class="col-start-2 2xl:col-start-3 row-end-8">
+    <span class="font-bold text-sm">
+      {title}
+    </span>
+  </p>
+  <p class="col-start-2 2xl:col-start-3 row-start-8 row-end-11">
+    {description}
+  </p>
+  <p class="col-start-2 2xl:col-start-3 row-start-11">
+    <span>Project Type:</span>
+    <br />
+    <span>{type}</span>
+  </p>
+  <p class="col-start-11 2xl:col-start-10 row-start-10">
+    <span>Date Created:</span>
+    <br />
+    <span>-{date}</span>
+  </p>
+  <ul class="col-start-11 2xl:col-start-10 row-start-11">
+    <li>Stack:</li>
+    {stack.map((item) => <li>{item}</li>)}
+  </ul>
 </article>

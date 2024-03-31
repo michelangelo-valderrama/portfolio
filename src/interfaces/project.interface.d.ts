@@ -1,12 +1,12 @@
 export interface Project {
   title: string
   description: string
-  type: "web"
+  type: "Web"
   stack: string[]
   date: string | Date
   link?: string
   commentary?: string
-  img?: Image
+  img: Image
 }
 
 interface Image {
