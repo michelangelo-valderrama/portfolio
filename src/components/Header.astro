@@ -8,16 +8,16 @@ import TextAnim from "./TextAnim.astro"
 
 <header
   style="--foreground: var(--header-foreground)"
-  class="fixed top-[var(--fp)] left-[var(--fp)] right-[var(--fp)] p-4 z-30 uppercase text-foreground"
+  class="fixed top-[var(--fp)] left-[var(--fp)] right-[var(--fp)] p-4 z-30 uppercase"
 >
   <div
     class="flex items-center xl:items-start justify-between text-xs font-mono"
   >
-    <p class="text-base font-bold select-none">
+    <p class="text-base font-bold select-none text-foreground">
       <TextAnim>Michelangelo</TextAnim>
     </p>
     <!-- Desktop -->
-    <div class="hidden xl:flex text-xs gap-x-12">
+    <div class="hidden xl:flex text-xs gap-x-12 text-foreground">
       <p>
         <TextAnim>Write me an email</TextAnim>
         <TextAnim>
