@@ -5,15 +5,25 @@ interface Props {
   as: string
   class?: string
   frameColor?: string
+  headerForeground?: string
+  frameThreshold?: number
 }
 
-const { as: As = "section", frameColor = "#000", ...props } = Astro.props
+const {
+  as: As = "section",
+  frameColor = "var(--border)",
+  headerForeground = "var(--foreground)",
+  frameThreshold = 0.5,
+  ...props
+} = Astro.props
 ---
 
 <As
   {...props}
   section
-  data-color={Astro.props.frameColor}
+  data-frame-color={frameColor}
+  data-header-foreground={headerForeground}
+  data-threshold={frameThreshold}
   class={cn("size-full p-4 overflow-hidden", Astro.props.class)}
 >
   <slot />

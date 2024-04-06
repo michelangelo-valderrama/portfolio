@@ -1,0 +1,68 @@
+[
+  {
+    "date": "2k24",
+    "stack": ["Astro", "React", "TailwindCSS", "Docker"],
+    "title": "IF7SPORTS·WEB",
+    "link": "https://if7sports.com/en",
+    "color": "140 50 50",
+    "img": {
+      "alt": "",
+      "height": 1200,
+      "width": 800,
+      "src": "/img/if7sports-screenshot.png"
+    },
+    "description": "Migration from Angular to Astro of the IF7SPORTS website. Improvements in SEO and optimization. Implementation of an i18n system in Astro."
+  },
+  {
+    "date": "2K24",
+    "stack": ["Astro", "React", "TailwindCSS"],
+    "title": "Personal·Blog",
+    "link": "https://imangelo.dev",
+    "img": {
+      "alt": "",
+      "height": 1200,
+      "width": 800,
+      "src": "/img/imangelo-screenshot.png"
+    },
+    "description": "My blog about anything I want to write."
+  },
+  {
+    "date": "2K24",
+    "stack": ["React", "Capacitor", "Resend", "Netlify", "TailwindCSS"],
+    "title": "Send",
+    "link": "https://github.com/michelangelo-valderrama/send-app",
+    "img": {
+      "alt": "",
+      "height": 1200,
+      "width": 800,
+      "src": "/img/send-screenshot.png"
+    },
+    "description": "Mobile application to send emails to my newsletter subscribers with a netlify function."
+  },
+  {
+    "date": "2K24",
+    "stack": ["Astro", "React", "TailwindCSS"],
+    "title": "ndrstndng·str",
+    "link": "https://understanding-astro-webook.vercel.app/",
+    "img": {
+      "alt": "",
+      "height": 1200,
+      "width": 800,
+      "src": "/img/understanding-astro-screenshot-light.png"
+    },
+    "description": "Web version of a book about Astro with a cool card effect."
+  },
+  {
+    "date": "2022",
+    "stack": ["Python", "Manim"],
+    "title": "Phtgrn·Thrm",
+    "link": "https://github.com/michelangelo-valderrama/python-mini-projects/tree/main/manim-theorem",
+    "img": {
+      "alt": "",
+      "height": 1920,
+      "width": 1080,
+      "src": "/img/phytagorean-screenshot.png"
+    },
+    "description": "A purely visual proof of the Pythagorean theorem."
+  }
+]

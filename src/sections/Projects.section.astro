@@ -1,134 +1,59 @@
 ---
-import Section from "@/components/Section.astro"
-import Project from "@/components/Project.astro"
-import type { Project as ProyectInterface } from "@/interfaces/project.interface"
-
-const projects: ProyectInterface[] = [
-  {
-    date: "2024",
-    stack: ["React", "TypeScript", "TailwindCSS"],
-    title: "Project 1",
-    type: "Web",
-    img: {
-      alt: "",
-      height: 1200,
-      width: 800,
-      src: "/img/imangelo-screenshot.png",
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.",
-  },
-  {
-    date: "2024",
-    stack: ["React", "TypeScript", "TailwindCSS"],
-    title: "Project 2",
-    type: "Web",
-    img: {
-      alt: "",
-      height: 1200,
-      width: 800,
-      src: "/img/imangelo-screenshot.png",
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.",
-  },
-  {
-    date: "2024",
-    stack: ["React", "TypeScript", "TailwindCSS"],
-    title: "Project 3",
-    type: "Web",
-    img: {
-      alt: "",
-      height: 1200,
-      width: 800,
-      src: "/img/imangelo-screenshot.png",
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.",
-  },
-  {
-    date: "2024",
-    stack: ["React", "TypeScript", "TailwindCSS"],
-    title: "Project 4",
-    type: "Web",
-    img: {
-      alt: "",
-      height: 1200,
-      width: 800,
-      src: "/img/imangelo-screenshot.png",
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.",
-  },
-  {
-    date: "2024",
-    stack: ["React", "TypeScript", "TailwindCSS"],
-    title: "Project 5",
-    type: "Web",
-    img: {
-      alt: "",
-      height: 1200,
-      width: 800,
-      src: "/img/imangelo-screenshot.png",
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.",
-  },
-  {
-    date: "2024",
-    stack: ["React", "TypeScript", "TailwindCSS"],
-    title: "Project 6",
-    type: "Web",
-    img: {
-      alt: "",
-      height: 1080,
-      width: 1920,
-      src: "/img/imangelo-screenshot.png",
-    },
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.",
-  },
-]
+import ProjectsDesktop from "./ProjectsDesktop.section.astro"
+import ProjectsMobile from "./ProjectsMobile.section.astro"
 ---
 
 <div
   id="projects-section"
-  class="relative"
-  style={`height: ${projects.length - 1}00vh;`}
+  class="text-foreground transition-all duration-500 ease-in-out"
 >
-  <Section
-    frameColor="hsl(var(--border))"
-    class="flex sticky top-0 h-[calc(100vh-var(--fp)*2)] p-0"
-  >
-    <h2 class="text-8xl font-black absolute right-4 top-20 uppercase">
-      Projects
-    </h2>
-    {
-      projects.map((p) => (
-        <Project project-item class="flex-none size-full" {...p} />
-      ))
-    }
-  </Section>
+  <ProjectsDesktop />
+  <ProjectsMobile />
 </div>
 
 <script>
   import { scroll, animate } from "motion"
 
+  const section = document.getElementById("projects-section")!
+  const projects = document.querySelectorAll<HTMLDivElement>(
+    "[project-item-color]"
+  )
+  const projectsLen = document.querySelectorAll<HTMLDivElement>(
+    "[project-item-scroll]"
+  )!.length
+
   scroll(
-    animate("[project-item]", {
-      transform: ["translateX(10%)", `translateX(-510%)`],
+    animate("[project-item-scroll]", {
+      transform: ["translateX(10%)", `translateX(-${projectsLen - 1}10%)`],
     }),
     {
       container: document.getElementById("content")!,
-      target: document.getElementById("projects-section")!,
+      target: document.getElementById("projects-section-desktop")!,
     }
   )
 
-  document.querySelectorAll("[project-item]").forEach((el) => {
-    scroll(animate(el, { opacity: [0, 1, 1, 0] }), {
-      container: document.getElementById("content")!,
-      target: el,
-      offset: ["start end", "end end", "start start", "end start"],
-    })
+  projects.forEach((s) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            section.style.setProperty("--foreground", `${s.dataset.color}`)
+            section.style.setProperty("--border", `${s.dataset.color}`)
+            document.body.style.setProperty(
+              "--frame-color",
+              `${s.dataset.color}`
+            )
+            document.body.style.setProperty(
+              "--header-foreground",
+              `${s.dataset.color}`
+            )
+          }
+        })
+      },
+      {
+        threshold: 0.5,
+      }
+    )
+    observer.observe(s)
   })
 </script>

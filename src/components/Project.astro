@@ -8,43 +8,78 @@ interface Props extends Project {
   class?: string
 }
 
-const { date, stack, description, title, type, img, ...props } = Astro.props
+const {
+  date,
+  stack,
+  description,
+  title,
+  link,
+  img,
+  color = "0 0 72",
+  ...props
+} = Astro.props
 ---
 
 <article
+  data-color={color}
   class={cn(
-    "grid grid-cols-12 grid-rows-12 text-xs font-mono",
+    "flex items-center justify-center mt-16 text-foreground",
     Astro.props.class
   )}
   {...props}
 >
   <div
-    class="col-start-3 col-end-11 row-start-4 2xl:col-start-4 2xl:col-end-10 row-span-full"
+    class="flex flex-col lg:flex-row justify-center gap-y-8 gap-x-14 xl:max-w-screen-xl px-12 2xl:px-8"
   >
-    <div class="h-full px-4 pt-4">
-      <img {...img} class="size-full object-cover rounded-t-xl" />
+    <div class="flex-1">
+      <img
+        class="rounded-lg size-full shadow-[0_2px_40px_-4px] shadow-foreground/60"
+        {...img}
+      />
+    </div>
+    <div class="flex flex-1 justify-between uppercase gap-x-8">
+      <div class="text-center relative">
+        <h3
+          class="font-black text-2xl lg:text-4xl leading-none -rotate-90 flex justify-start absolute top-0 left-0"
+        >
+          <span class="absolute top-0 right-0">{title}</span>
+        </h3>
+        <div
+          class="font-bold text-lg lg:text-2xl *:block ml-8 lg:ml-12 leading-none"
+        >
+          <span class="mb-2">|</span>
+          {`${date}`.split("").map((a) => <span>{a}</span>)}
+        </div>
+      </div>
+      <div
+        class="flex flex-1 flex-col justify-between items-end max-w-screen-sm gap-y-14 text-2xs md:text-xs"
+      >
+        <div class="flex flex-col gap-y-2 lg:gap-y-4 w-full">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full px-5 py-1 flex justify-between items-center bg-foreground hover:bg-foreground/80 rounded-full text-background transition"
+          >
+            <span class="font-bold">Visit</span>
+            <LucideIcon icon={MoveUpRight} class="size-4" />
+          </a>
+          <ul
+            class="flex gap-x-2 lg:gap-x-4 gap-y-1 lg:gap-y-2 font-bold text-2xs flex-wrap"
+          >
+            {
+              stack.map((item) => (
+                <li class="border rounded-full px-5 py-0.5">{item}</li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="p-2 w-full border-t border-b">
+          <p class="w-2/3 ml-auto text-right leading-relaxed tracking-widest">
+            {description}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-  <p class="col-start-2 2xl:col-start-3 row-end-8">
-    <span class="font-bold text-sm">
-      {title}
-    </span>
-  </p>
-  <p class="col-start-2 2xl:col-start-3 row-start-8 row-end-11">
-    {description}
-  </p>
-  <p class="col-start-2 2xl:col-start-3 row-start-11">
-    <span>Project Type:</span>
-    <br />
-    <span>{type}</span>
-  </p>
-  <p class="col-start-11 2xl:col-start-10 row-start-10">
-    <span>Date Created:</span>
-    <br />
-    <span>-{date}</span>
-  </p>
-  <ul class="col-start-11 2xl:col-start-10 row-start-11">
-    <li>Stack:</li>
-    {stack.map((item) => <li>{item}</li>)}
-  </ul>
 </article>

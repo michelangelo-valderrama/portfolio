@@ -1,8 +1,6 @@
 ---
 import NoiseEffect from "@/components/NoiseEffect.astro"
 import Header from "@/components/Header.astro"
-import Footer from "@/components/Footer.astro"
-import GridOverlay from "@/components/GridOverlay.astro"
 import PageFrame from "@/components/PageFrame.astro"
 import "@/styles/global.css"
 ---
@@ -15,19 +13,21 @@ import "@/styles/global.css"
     <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
     <title>Document</title>
   </head>
-  <body class="font-sans text-foreground bg-black h-dvh">
+  <body
+    class="font-sans text-foreground bg-black h-dvh"
+    style="--frame-color: var(--border); --header-foreground: var(--foreground)"
+  >
     <PageFrame />
     <Header />
     <main class="h-full p-[var(--fp)]">
       <div
         id="content"
-        class="relative h-full rounded-2xl overflow-x-hidden overflow-y-scroll space-y-[var(--fp)]"
+        class="relative h-full rounded-2xl overflow-x-hidden overflow-y-scroll space-y-[var(--fp)] snap-mandatory snap-y"
       >
         <slot />
       </div>
     </main>
-    <Footer class="hidden lg:block" />
-    <!-- <NoiseEffect /> -->
+    <NoiseEffect />
     <!-- <GridOverlay /> -->
   </body>
 </html>

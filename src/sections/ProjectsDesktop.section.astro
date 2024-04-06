@@ -1,0 +1,36 @@
+---
+import Section from "@/components/Section.astro"
+import Project from "@/components/Project.astro"
+import type { Project as ProyectInterface } from "@/interfaces/project.interface"
+import projects from "@/data/projects.json"
+---
+
+<div
+  id="projects-section-desktop"
+  class="relative hidden xl:block"
+  style={`height: ${projects.length - 1}00vh;`}
+>
+  <Section class="flex sticky top-0 h-[calc(100vh-var(--fp)*2)] p-0">
+    <h2
+      projects-title
+      class={`
+        text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+        absolute right-4 top-20
+        uppercase text-foreground font-black
+        transition
+      `}
+    >
+      Projects
+    </h2>
+    {
+      projects.map((p) => (
+        <Project
+          project-item-color
+          project-item-scroll
+          class="flex-none size-full"
+          {...(p as ProyectInterface)}
+        />
+      ))
+    }
+  </Section>
+</div>

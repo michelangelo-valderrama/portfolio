@@ -1,11 +1,10 @@
 export interface Project {
   title: string
   description: string
-  type: "Web"
   stack: string[]
   date: string | Date
   link?: string
-  commentary?: string
+  color?: string
   img: Image
 }
 
