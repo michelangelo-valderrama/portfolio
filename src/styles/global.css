@@ -24,7 +24,7 @@
 }
 
 * {
-  @apply box-border border-border text-wrap;
+  @apply box-border border-border text-wrap transition-all duration-500 ease-in-out;
 }
 h1,
 h2,

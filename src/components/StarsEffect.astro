@@ -1,4 +1,4 @@
-<div id="cnt" class={Astro.props.class}></div>
+<div id="cnt" class:list={["bg-transparent", Astro.props.class]}></div>
 
 <script>
   import * as THREE from "three"
@@ -21,12 +21,12 @@
   function init() {
     const container = document.getElementById("cnt") as HTMLDivElement
 
-    scene.fog = new THREE.FogExp2(0x000000, 0.0003)
+    scene.fog = new THREE.FogExp2(0x00000000, 0.0003)
     camera.position.z = 500
 
     stars()
 
-    renderer.setClearColor(0x000000, 1)
+    renderer.setClearColor(0x00000000, 0)
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(width, height)
     container.appendChild(renderer.domElement)

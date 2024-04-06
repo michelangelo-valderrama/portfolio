@@ -33,17 +33,20 @@ import ProjectsMobile from "./ProjectsMobile.section.astro"
           if (entry.isIntersecting) {
             document.body.style.setProperty(
               "--frame-color",
-              `${s.dataset.color}`
+              `${s.dataset.foreground}`
             )
             document.body.style.setProperty(
               "--header-foreground",
-              `${s.dataset.color}`
+              `${s.dataset.foreground}`
             )
             document.body.style.setProperty(
               "--foreground",
-              `${s.dataset.color}`
+              `${s.dataset.foreground}`
             )
-            document.body.style.setProperty("--border", `${s.dataset.color}`)
+            document.body.style.setProperty(
+              "--background",
+              `${s.dataset.background}`
+            )
           }
         })
       },

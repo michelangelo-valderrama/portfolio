@@ -16,15 +16,17 @@ const {
   title,
   link,
   img,
-  color = "0 0 72",
+  foreground = "0 0 72",
+  background = "0 0 0",
   ...props
 } = Astro.props
 ---
 
 <article
-  data-color={color}
+  data-foreground={foreground}
+  data-background={background}
   class={cn(
-    "flex items-center justify-center mt-16 text-foreground font-semibold",
+    "flex items-center justify-center mt-16 text-foreground",
     Astro.props.class
   )}
   {...props}
@@ -53,32 +55,36 @@ const {
         </div>
       </div>
       <div
-        class="flex flex-1 flex-col justify-between items-end max-w-screen-sm gap-y-14 text-2xs md:text-xs"
+        class="flex flex-1 flex-col justify-between items-end max-w-screen-sm gap-y-14 text-2xs md:text-xs lg:text-base"
       >
         <div class="flex flex-col gap-y-2 lg:gap-y-4 w-full">
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full px-5 py-1 flex justify-between items-center bg-foreground hover:bg-foreground/80 rounded-full text-background transition"
+            class="w-full px-5 py-1 flex justify-between items-center bg-foreground hover:bg-foreground/80 rounded-full text-background"
           >
             <span class="font-bold">Visit</span>
             <LucideIcon icon={MoveUpRight} class="size-4" />
           </a>
           <ul
-            class="flex gap-x-2 lg:gap-x-4 gap-y-1 lg:gap-y-2 font-bold text-2xs flex-wrap"
+            class="flex gap-x-2 lg:gap-x-4 gap-y-1 lg:gap-y-2 font-bold text-2xs md:text-xs flex-wrap"
           >
             {
               stack.map((item) => (
-                <li class="border rounded-full px-5 py-0.5">{item}</li>
+                <li class="border-foreground border rounded-full px-5 py-0.5">
+                  {item}
+                </li>
               ))
             }
           </ul>
         </div>
-        <div class="p-2 w-full border-t border-b">
+        <div
+          class="p-2 w-full border-foreground border-t border-b text-2xs sm:text-xs xl:text-base"
+        >
           <p
             description-md
-            class="w-2/3 ml-auto text-right leading-relaxed tracking-widest"
+            class="md:w-3/4 ml-auto text-right leading-relaxed tracking-widest"
             set:html={md(description)}
           />
         </div>

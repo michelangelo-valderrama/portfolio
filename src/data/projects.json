@@ -4,8 +4,10 @@
     "stack": ["Astro", "React", "Tailwind CSS", "Resend"],
     "title": "Personal·Blog",
     "link": "https://imangelo.dev",
+    "foreground": "0 0 10",
+    "background": "0 0 100",
     "img": {
-      "alt": "",
+      "alt": "Imangelo blog screenshot",
       "height": 1200,
       "width": 800,
       "src": "/img/imangelo-screenshot.png"
@@ -17,9 +19,10 @@
     "stack": ["Astro", "Preact", "Tailwind CSS", "Docker"],
     "title": "IF7SPORTS·WEB",
     "link": "https://if7sports.com/en",
-    "color": "140 50 50",
+    "foreground": "0 0 10",
+    "background": "140 50 50",
     "img": {
-      "alt": "",
+      "alt": "IF7SPORTS web screenshot",
       "height": 1200,
       "width": 800,
       "src": "/img/if7sports-screenshot.png"
@@ -31,8 +34,10 @@
     "stack": ["React", "Capacitor", "Resend", "Netlify", "Tailwind CSS"],
     "title": "Send",
     "link": "https://github.com/michelangelo-valderrama/send-app",
+    "foreground": "0 0 10",
+    "background": "0 0 100",
     "img": {
-      "alt": "",
+      "alt": "Send mobile app screenshot",
       "height": 1200,
       "width": 800,
       "src": "/img/send-screenshot.png"
@@ -44,11 +49,13 @@
     "stack": ["Astro", "React", "Tailwind CSS"],
     "title": "ndrstndng·str",
     "link": "https://understanding-astro-webook.vercel.app/",
+    "foreground": "0 0 10",
+    "background": "0 0 100",
     "img": {
-      "alt": "",
+      "alt": "Understanding Astro web book screenshot",
       "height": 1200,
       "width": 800,
-      "src": "/img/understanding-astro-screenshot-light.png"
+      "src": "/img/understanding-astro-screenshot-dark.png"
     },
     "description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP)."
   },
@@ -57,8 +64,10 @@
     "stack": ["Python", "Manim"],
     "title": "Phtgrn·Thrm",
     "link": "https://github.com/michelangelo-valderrama/python-mini-projects/tree/main/manim-theorem",
+    "foreground": "0 0 10",
+    "background": "0 0 100",
     "img": {
-      "alt": "",
+      "alt": "Pythagorean theorem screenshot",
       "height": 1920,
       "width": 1080,
       "src": "/img/phytagorean-screenshot.png"

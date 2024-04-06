@@ -1,6 +1,6 @@
 <div
   id="page-frame"
-  class="p-[var(--fp)] size-full fixed top-0 left-0 bg-[hsl(var(--frame-color))] transition-all duration-500 ease-in-out"
+  class="p-[var(--fp)] size-full fixed top-0 left-0 bg-[hsl(var(--frame-color))]"
 >
   <div class="relative size-full rounded-2xl bg-background"></div>
 </div>
@@ -24,6 +24,10 @@
             document.body.style.setProperty(
               "--foreground",
               `${s.dataset.bodyForeground}`
+            )
+            document.body.style.setProperty(
+              "--background",
+              `${s.dataset.bodyBackground}`
             )
           }
         })

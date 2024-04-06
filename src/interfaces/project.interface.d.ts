@@ -4,7 +4,8 @@ export interface Project {
   stack: string[]
   date: string | Date
   link?: string
-  color?: string
+  foreground?: string
+  background?: string
   img: Image
 }
 
