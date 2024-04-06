@@ -35,10 +35,8 @@ const {
     class="flex flex-col lg:flex-row justify-center gap-y-8 gap-x-14 xl:max-w-screen-xl px-4 sm:px-12 2xl:px-8"
   >
     <div class="flex-1">
-      <img
-        class="rounded-lg size-full shadow-[0_2px_40px_-4px] shadow-foreground/60"
-        {...img}
-      />
+      <!-- shadow-[0_2px_40px_-4px] shadow-foreground/60 -->
+      <img class="rounded-lg size-full" {...img} />
     </div>
     <div class="flex flex-1 justify-between uppercase gap-x-8">
       <div class="text-center relative">
@@ -48,7 +46,7 @@ const {
           <span class="absolute top-0 right-0">{title}</span>
         </h3>
         <div
-          class="font-bold text-lg lg:text-2xl *:block ml-8 lg:ml-12 leading-none"
+          class="font-bold text-lg lg:text-2xl *:block ml-8 lg:ml-12 *:leading-none"
         >
           <span class="mb-2">|</span>
           {`${date}`.split("").map((a) => <span>{a}</span>)}
@@ -72,15 +70,13 @@ const {
           >
             {
               stack.map((item) => (
-                <li class="border-foreground border rounded-full px-5 py-0.5">
-                  {item}
-                </li>
+                <li class="border rounded-full px-5 py-0.5">{item}</li>
               ))
             }
           </ul>
         </div>
         <div
-          class="p-2 w-full border-foreground border-t border-b text-2xs sm:text-xs xl:text-base"
+          class="p-2 w-full border-t border-b text-2xs sm:text-xs xl:text-base"
         >
           <p
             description-md

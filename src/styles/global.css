@@ -4,7 +4,7 @@
 
 :root {
   --background: 0 0 0;
-  --foreground: 0 0 72;
+  --foreground: 40 100 80;
 
   --border: 0 0 42;
 
@@ -14,8 +14,6 @@
 
   --primary-foreground: 0 0 0;
 
-  --muted-foreground: 0 0 50;
-
   --fp: 0.5rem;
 
   @media (min-width: 768px) {
@@ -24,7 +22,7 @@
 }
 
 * {
-  @apply box-border border-border text-wrap transition-all duration-500 ease-in-out;
+  @apply box-border border-foreground text-wrap transition-all duration-500 ease-in-out;
 }
 h1,
 h2,

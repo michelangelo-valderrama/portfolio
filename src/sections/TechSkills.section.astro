@@ -1,7 +1,251 @@
 ---
-import Section from "@/components/Section.astro";
+import Section from "@/components/Section.astro"
+import Bun from "@/svgs/Bun.svg.astro"
+import Express from "@/svgs/Express.svg.astro"
+import MongoDB from "@/svgs/MongoDB.svg.astro"
+import Nest from "@/svgs/Nest.svg.astro"
+import Node from "@/svgs/Node.svg.astro"
+import PostgreSQL from "@/svgs/PostgreSQL.svg.astro"
+import Python from "@/svgs/Python.svg.astro"
+import Prisma from "@/svgs/Prisma.svg.astro"
+import Postman from "@/svgs/Postman.astro"
+import Jest from "@/svgs/Jest.svg.astro"
+import Mongoose from "@/svgs/Mongoose.svg.astro"
+import React from "@/svgs/React.svg.astro"
+import TailwindCSS from "@/svgs/TailwindCSS.svg.astro"
+import TypeScript from "@/svgs/TypeScript.svg.astro"
+import JavaScript from "@/svgs/JavaScript.svg.astro"
+import HTML from "@/svgs/HTML.svg.astro"
+import CSS from "@/svgs/CSS.svg.astro"
+import Firebase from "@/svgs/Firebase.svg.astro"
+import Supabase from "@/svgs/Supabase.svg.astro"
+import Vercel from "@/svgs/Vercel.svg.astro"
+import Bash from "@/svgs/Bash.svg.astro"
+import Docker from "@/svgs/Docker.svg.astro"
+import AWS from "@/svgs/AWS.svg.astro"
+import Git from "@/svgs/Git.svg.astro"
+import AstroBuild from "@/svgs/AstroBuild.svg.astro"
+import Angular from "@/svgs/Angular.svg.astro"
+
+const skills = [
+  {
+    name: "Node.js",
+    type: "backend",
+    icon: Node,
+  },
+  {
+    name: "Express",
+    type: "backend",
+    icon: Express,
+  },
+  {
+    name: "Nest",
+    type: "backend",
+    icon: Nest,
+  },
+  {
+    name: "Prisma",
+    type: "backend",
+    icon: Prisma,
+  },
+  {
+    name: "PostgreSQL",
+    type: "backend",
+    icon: PostgreSQL,
+  },
+  {
+    name: "MongoDB",
+    type: "backend",
+    icon: MongoDB,
+  },
+  {
+    name: "Bun",
+    type: "backend",
+    icon: Bun,
+  },
+  {
+    name: "Python",
+    type: "backend",
+    icon: Python,
+  },
+  {
+    name: "Jest",
+    type: "backend",
+    icon: Jest,
+  },
+  {
+    name: "Postman",
+    type: "backend",
+    icon: Postman,
+  },
+  {
+    name: "Mongoose",
+    type: "backend",
+    icon: Mongoose,
+  },
+  {
+    name: "React",
+    type: "frontend",
+    icon: React,
+  },
+  {
+    name: "Tailwind CSS",
+    type: "frontend",
+    icon: TailwindCSS,
+  },
+  {
+    name: "TypeScript",
+    type: "frontend",
+    icon: TypeScript,
+  },
+  {
+    name: "JavaScript",
+    type: "frontend",
+    icon: JavaScript,
+  },
+  {
+    name: "HTML",
+    type: "frontend",
+    icon: HTML,
+  },
+  {
+    name: "CSS",
+    type: "frontend",
+    icon: CSS,
+  },
+  {
+    name: "Astro",
+    type: "frontend",
+    icon: AstroBuild,
+  },
+  {
+    name: "Angular",
+    type: "frontend",
+    icon: Angular,
+  },
+  {
+    name: "Firebase",
+    type: "frontend",
+    icon: Firebase,
+  },
+  {
+    name: "Supabase",
+    type: "frontend",
+    icon: Supabase,
+  },
+  {
+    name: "Vercel",
+    type: "frontend",
+    icon: Vercel,
+  },
+  {
+    name: "Bash",
+    type: "devops",
+    icon: Bash,
+  },
+  {
+    name: "Docker",
+    type: "devops",
+    icon: Docker,
+  },
+  {
+    name: "AWS",
+    type: "devops",
+    icon: AWS,
+  },
+  {
+    name: "Git",
+    type: "devops",
+    icon: Git,
+  },
+]
 ---
 
-<Section>
-  <h1>TechSkills</h1>
+<Section
+  class="uppercase flex flex-col"
+  frameColor="0 0 100"
+  headerForeground="0 0 100"
+  bodyForeground="0 0 100"
+>
+  <h1 class="font-black text-8xl mt-20">
+    Tech<span class="text-stroke">Skills</span>
+  </h1>
+  <div class="flex justify-between flex-1">
+    <div class="flex-1 flex items-center justify-center">
+      <!-- backend -->
+      <div id="backend" class="flex gap-x-6 gap-y-4 flex-wrap max-w-screen-lg">
+        {
+          skills.map(({ icon: Icon, name, type }) => (
+            <article class={`${type} ${type != "backend" ? "hidden" : ""}`}>
+              <div class="w-64 h-28 border-foreground/20 border rounded-2xl flex items-center justify-center flex-col gap-y-2 text-sm font-bold">
+                <Icon class="size-10" />
+                <span>{name}</span>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <div
+      class={`
+        text-lg font-bold
+        *:px-8 *:py-6 *:uppercase *:border hover:*:bg-foreground hover:*:text-background
+        flex flex-col gap-4 justify-end
+      `}
+    >
+      <button type="button" id="btn-backend" class="active">Backend</button>
+      <button type="button" id="btn-frontend">Frontend</button>
+      <button type="button" id="btn-devops">DevOps</button>
+    </div>
+  </div>
 </Section>
+
+<script>
+  const backend = document.querySelectorAll(".backend")
+  const frontend = document.querySelectorAll(".frontend")
+  const devops = document.querySelectorAll(".devops")
+
+  const btnBackend = document.getElementById("btn-backend") as HTMLButtonElement
+  const btnFrontend = document.getElementById(
+    "btn-frontend"
+  ) as HTMLButtonElement
+  const btnDevOps = document.getElementById("btn-devops") as HTMLButtonElement
+
+  btnBackend.addEventListener("click", () => {
+    btnBackend.classList.add("active")
+    btnFrontend.classList.remove("active")
+    btnDevOps.classList.remove("active")
+    backend.forEach((el) => el.classList.remove("hidden"))
+    frontend.forEach((el) => el.classList.add("hidden"))
+    devops.forEach((el) => el.classList.add("hidden"))
+  })
+
+  btnFrontend.addEventListener("click", () => {
+    btnBackend.classList.remove("active")
+    btnFrontend.classList.add("active")
+    btnDevOps.classList.remove("active")
+    backend.forEach((el) => el.classList.add("hidden"))
+    frontend.forEach((el) => el.classList.remove("hidden"))
+    devops.forEach((el) => el.classList.add("hidden"))
+  })
+
+  btnDevOps.addEventListener("click", () => {
+    btnBackend.classList.remove("active")
+    btnFrontend.classList.remove("active")
+    btnDevOps.classList.add("active")
+    backend.forEach((el) => el.classList.add("hidden"))
+    frontend.forEach((el) => el.classList.add("hidden"))
+    devops.forEach((el) => el.classList.remove("hidden"))
+  })
+</script>
+
+<style>
+  .text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1px hsl(var(--foreground));
+  }
+
+  .active {
+    @apply bg-foreground text-background;
+  }
+</style>

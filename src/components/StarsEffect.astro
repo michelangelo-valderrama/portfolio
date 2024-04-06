@@ -2,15 +2,15 @@
 
 <script>
   import * as THREE from "three"
-  import Stats from "three/examples/jsm/libs/stats.module.js"
+  // import Stats from "three/examples/jsm/libs/stats.module.js"
 
   const STARS_QTY = 600,
     width = window.innerWidth,
     height = window.innerHeight
   const scene = new THREE.Scene(),
     camera = new THREE.PerspectiveCamera(100, width / height, 1, 1000),
-    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }),
-    stats = new Stats()
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+  //, stats = new Stats()
   let sphere: THREE.Points,
     mouseX = 0,
     mouseY = 0
@@ -34,7 +34,7 @@
     window.addEventListener("resize", onWindowResize, false)
     document.addEventListener("mousemove", onMouseMove, false)
 
-    document.body.appendChild(stats.dom)
+    // document.body.appendChild(stats.dom)
   }
 
   function animate() {
@@ -42,7 +42,7 @@
     sphere.rotation.x += (4 + mouseX * 0.004) / 1000
     sphere.rotation.y += (4 + mouseY * 0.004) / 1000
     renderer.render(scene, camera)
-    stats.update()
+    // stats.update()
   }
 
   function stars() {
