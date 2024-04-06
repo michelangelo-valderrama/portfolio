@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from "astro/types"
+interface Props extends HTMLAttributes<"svg"> {}
+---
+
+<svg
+  width="45"
+  height="50"
+  viewBox="0 0 45 50"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  {...Astro.props}
+>
+  <g clip-path="url(#clip0_207_375)">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M4.71159 44.2308L0.769287 0H44.1347L40.1924 44.2308L22.4039 49.2308L4.71159 44.2308ZM22.5 20H9.80773L10.2885 25.4808H22.5H22.5H29.1346L28.4615 32.5L22.5 34.1346H22.5L10.577 30.9615L11.25 36.7308L22.5 39.8077H22.5L33.5577 36.7308L36.0577 9.03845H22.5H22.5H8.84619L9.32696 14.4231H22.5H22.5H30.1923L29.6154 20H22.5H22.5Z"
+      fill="white"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_207_375">
+      <rect
+        width="43.4615"
+        height="50"
+        fill="white"
+        transform="translate(0.769287)"></rect>
+    </clipPath>
+  </defs>
+</svg>
