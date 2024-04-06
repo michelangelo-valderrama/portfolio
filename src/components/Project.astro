@@ -3,6 +3,7 @@ import { MoveUpRight } from "lucide"
 import type { Project } from "@/interfaces/project.interface"
 import LucideIcon from "./LucideIcon.astro"
 import { cn } from "@/lib/utils"
+import md from "@/lib/md"
 
 interface Props extends Project {
   class?: string
@@ -23,7 +24,7 @@ const {
 <article
   data-color={color}
   class={cn(
-    "flex items-center justify-center mt-16 text-foreground",
+    "flex items-center justify-center mt-16 text-foreground font-semibold",
     Astro.props.class
   )}
   {...props}
@@ -75,11 +76,19 @@ const {
           </ul>
         </div>
         <div class="p-2 w-full border-t border-b">
-          <p class="w-2/3 ml-auto text-right leading-relaxed tracking-widest">
-            {description}
-          </p>
+          <p
+            description-md
+            class="w-2/3 ml-auto text-right leading-relaxed tracking-widest"
+            set:html={md(description)}
+          />
         </div>
       </div>
     </div>
   </div>
 </article>
+
+<style is:global>
+  [description-md] a {
+    text-decoration: underline;
+  }
+</style>

@@ -20,6 +20,7 @@ export default {
         sans: ["Eudoxus Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Modern Era Mono", ...defaultTheme.fontFamily.mono],
         serif: ["Nevrada Neue", ...defaultTheme.fontFamily.serif],
+        impact: ["Roboto Flex", ...defaultTheme.fontFamily.sans],
       },
       screens: {
         xs: "400px",

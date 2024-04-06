@@ -3,18 +3,12 @@ import ProjectsDesktop from "./ProjectsDesktop.section.astro"
 import ProjectsMobile from "./ProjectsMobile.section.astro"
 ---
 
-<div
-  id="projects-section"
-  class="text-foreground transition-all duration-500 ease-in-out"
->
-  <ProjectsDesktop />
-  <ProjectsMobile />
-</div>
+<ProjectsDesktop />
+<ProjectsMobile />
 
 <script>
   import { scroll, animate } from "motion"
 
-  const section = document.getElementById("projects-section")!
   const projects = document.querySelectorAll<HTMLDivElement>(
     "[project-item-color]"
   )
@@ -37,8 +31,6 @@ import ProjectsMobile from "./ProjectsMobile.section.astro"
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            section.style.setProperty("--foreground", `${s.dataset.color}`)
-            section.style.setProperty("--border", `${s.dataset.color}`)
             document.body.style.setProperty(
               "--frame-color",
               `${s.dataset.color}`
@@ -47,6 +39,11 @@ import ProjectsMobile from "./ProjectsMobile.section.astro"
               "--header-foreground",
               `${s.dataset.color}`
             )
+            document.body.style.setProperty(
+              "--foreground",
+              `${s.dataset.color}`
+            )
+            document.body.style.setProperty("--border", `${s.dataset.color}`)
           }
         })
       },

@@ -6,13 +6,15 @@ interface Props {
   class?: string
   frameColor?: string
   headerForeground?: string
+  bodyForeground?: string
   frameThreshold?: number
 }
 
 const {
   as: As = "section",
-  frameColor = "var(--border)",
-  headerForeground = "var(--foreground)",
+  frameColor = "0 0 42",
+  headerForeground = "0 0 72",
+  bodyForeground = "0 0 72",
   frameThreshold = 0.5,
   ...props
 } = Astro.props
@@ -23,8 +25,12 @@ const {
   section
   data-frame-color={frameColor}
   data-header-foreground={headerForeground}
+  data-body-foreground={bodyForeground}
   data-threshold={frameThreshold}
-  class={cn("size-full p-4 overflow-hidden", Astro.props.class)}
+  class={cn(
+    "size-full p-4 overflow-hidden text-[hsl(var(--foreground))] transition-all duration-300 ease-in-out",
+    Astro.props.class
+  )}
 >
   <slot />
 </As>

@@ -5,23 +5,50 @@ import TextAnim from "@/components/TextAnim.astro"
 import Mesh from "@/svgs/Mesh.svg.astro"
 ---
 
-<Section class="flex flex-col justify-end items-center absolute top-0 left-0">
-  <div class="text-center px-2 uppercase select-none mb-6">
-    <h1 class="text-5xl sm:text-6xl md:text-8xl font-serif relative">
-      <TextAnim h="5rem">Michelangelo</TextAnim>
-      <!-- <TextAnim
-        h="4.25rem"
-        class="absolute top-0 left-0 blur-lg md:blur-2xl w-full text-center"
-        >Michelangelo</TextAnim
-      > -->
-    </h1>
-    <p class="text-sm sm:text-base">
+<Section
+  class="flex flex-col justify-end items-center absolute top-0 left-0"
+  frameColor="0 0 0"
+  headerForeground="40 100 80"
+  bodyForeground="40 100 80"
+>
+  <div
+    class="size-full relative overflow-hidden mt-10 md:mt-12 max-w-screen-xl mx-auto"
+  >
+    <div
+      class="flex items-center justify-center h-full *:rounded-xl *:size-full *:object-cover"
+    >
+      <img src="/img/rocket.webp" alt="rocket :>" class="md:hidden" />
+      <img
+        src="/img/rocket-90.webp"
+        alt="rocket :>"
+        class="hidden md:inline-block"
+      />
+    </div>
+    <div
+      class="*:block absolute top-4 right-4 font-black font-impact text-xl md:text-2xl"
+    >
+      <TextAnim h="2.5rem">ミ</TextAnim>
+      <TextAnim h="2.5rem" d="100ms">ケ</TextAnim>
+      <TextAnim h="2.5rem" d="200ms">ラ</TextAnim>
+      <TextAnim h="2.5rem" d="300ms">ン</TextAnim>
+      <TextAnim h="2.5rem" d="400ms">ジ</TextAnim>
+      <TextAnim h="2.5rem" d="500ms">ェ</TextAnim>
+      <TextAnim h="2.5rem" d="600ms">ロ</TextAnim>
+    </div>
+  </div>
+  <div class="text-center px-2 mt-2 uppercase select-none">
+    <p class="text-xs sm:text-base md:text-lg font-bold">
       <TextAnim d="400ms" h="2.5rem">
         Full stack developer & passionate about art and science
       </TextAnim>
     </p>
+    <h1
+      class="text-4xl xs:text-5xl sm:text-6xl md:text-8xl relative font-black font-impact"
+    >
+      <TextAnim h="5rem">Michelangelo</TextAnim>
+    </h1>
   </div>
-  <div
+  <!-- <div
     class="flex items-center justify-center absolute top-0 left-0 size-full pointer-events-none pb-20 px-8"
   >
     <Mesh
@@ -30,7 +57,7 @@ import Mesh from "@/svgs/Mesh.svg.astro"
       stroke-dasharray="1000"
       stroke-dashoffset="1000"
     />
-  </div>
+  </div> -->
 </Section>
 <StarsEffect class="h-full" />
 
@@ -39,9 +66,24 @@ import Mesh from "@/svgs/Mesh.svg.astro"
     animation: dash 1500ms forwards ease-in;
   }
 
+  img {
+    animation: show 1500ms forwards ease-out;
+  }
+
   @keyframes dash {
     to {
       stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0px);
     }
   }
 </style>

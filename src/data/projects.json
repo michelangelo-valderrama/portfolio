@@ -1,7 +1,20 @@
 [
   {
+    "date": "2K24",
+    "stack": ["Astro", "React", "Tailwind CSS", "Resend"],
+    "title": "Personal·Blog",
+    "link": "https://imangelo.dev",
+    "img": {
+      "alt": "",
+      "height": 1200,
+      "width": 800,
+      "src": "/img/imangelo-screenshot.png"
+    },
+    "description": "My personal blog where I write about: [**science**](https://imangelo.dev/el-principio-del-universo), [**reflections**](https://imangelo.dev/las-matematicas-no-son-una-ciencia), [**tutorials**](https://imangelo.dev/como-hacer-un-videojuego-con-pico-8), etc... Small personal project where I create some **Remark** and **Rehype** plugins for the articles. Additionally, I implemented a [**newsletter**](https://imangelo.dev/newsletter) with **Resend**."
+  },
+  {
     "date": "2k24",
-    "stack": ["Astro", "React", "TailwindCSS", "Docker"],
+    "stack": ["Astro", "Preact", "Tailwind CSS", "Docker"],
     "title": "IF7SPORTS·WEB",
     "link": "https://if7sports.com/en",
     "color": "140 50 50",
@@ -11,24 +24,11 @@
       "width": 800,
       "src": "/img/if7sports-screenshot.png"
     },
-    "description": "Migration from Angular to Astro of the IF7SPORTS website. Improvements in SEO and optimization. Implementation of an i18n system in Astro."
+    "description": "Migration from **Angular** to **Astro** of the **IF7SPORTS** website. Improvements in SEO and optimization. Implementation of an i18n system in Astro. Here is an article about the migration: [**Presenting our new website**](https://if7sports.com/en/blog/presenting-our-new-website/)."
   },
   {
     "date": "2K24",
-    "stack": ["Astro", "React", "TailwindCSS"],
-    "title": "Personal·Blog",
-    "link": "https://imangelo.dev",
-    "img": {
-      "alt": "",
-      "height": 1200,
-      "width": 800,
-      "src": "/img/imangelo-screenshot.png"
-    },
-    "description": "My blog about anything I want to write."
-  },
-  {
-    "date": "2K24",
-    "stack": ["React", "Capacitor", "Resend", "Netlify", "TailwindCSS"],
+    "stack": ["React", "Capacitor", "Resend", "Netlify", "Tailwind CSS"],
     "title": "Send",
     "link": "https://github.com/michelangelo-valderrama/send-app",
     "img": {
@@ -37,11 +37,11 @@
       "width": 800,
       "src": "/img/send-screenshot.png"
     },
-    "description": "Mobile application to send emails to my newsletter subscribers with a netlify function."
+    "description": "Mobile application to send emails to my newsletter subscribers. To send the emails I call a **netlify function** that uses the **Resend** api. I used **React Emal** to create the templates."
   },
   {
     "date": "2K24",
-    "stack": ["Astro", "React", "TailwindCSS"],
+    "stack": ["Astro", "React", "Tailwind CSS"],
     "title": "ndrstndng·str",
     "link": "https://understanding-astro-webook.vercel.app/",
     "img": {
@@ -50,7 +50,7 @@
       "width": 800,
       "src": "/img/understanding-astro-screenshot-light.png"
     },
-    "description": "Web version of a book about Astro with a cool card effect."
+    "description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP)."
   },
   {
     "date": "2022",
