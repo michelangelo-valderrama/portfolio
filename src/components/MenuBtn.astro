@@ -61,7 +61,7 @@ import TextAnim from "./TextAnim.astro"
           </TextAnim>
         </p>
         <p>
-          <TextAnim trigger> SOCIAL: </TextAnim>
+          <TextAnim trigger>SOCIAL:</TextAnim>
           <TextAnim trigger class="flex gap-x-2">
             <Link
               href="https://github.com/michelangelo-valderrama"
@@ -95,6 +95,12 @@ import TextAnim from "./TextAnim.astro"
   .show-menu {
     @apply opacity-100 pointer-events-auto;
   }
+
+  :global(.up-text-anim-trigger-menu) :global([up-text-anim-active]) {
+    animation: up 1s forwards;
+    top: 2rem;
+    transition: all 1s;
+  }
 </style>
 
 <script>
@@ -105,6 +111,6 @@ import TextAnim from "./TextAnim.astro"
     btnMenu.classList.toggle("open")
 
     ctnMenu.classList.toggle("show-menu")
-    ctnMenu.classList.toggle("up-text-anim-trigger")
+    ctnMenu.classList.toggle("up-text-anim-trigger-menu")
   })
 </script>

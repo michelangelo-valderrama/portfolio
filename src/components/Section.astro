@@ -29,10 +29,13 @@ const {
   data-body-foreground={bodyForeground}
   data-body-background={bodyBackground}
   data-threshold={frameThreshold}
-  class={cn(
-    "size-full p-4 overflow-hidden",
-    Astro.props.class
-  )}
+  class={cn("size-full p-4 overflow-hidden xs:opacity-0 xs:blur-md", Astro.props.class)}
 >
   <slot />
 </As>
+
+<style>
+  .in-view {
+    @apply xs:opacity-100 xs:blur-none;
+  }
+</style>

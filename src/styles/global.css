@@ -22,7 +22,7 @@
 }
 
 * {
-  @apply box-border border-foreground text-wrap transition-all duration-500 ease-in-out;
+  @apply box-border border-foreground text-wrap xs:transition-all xs:duration-500 xs:ease-in-out;
 }
 h1,
 h2,

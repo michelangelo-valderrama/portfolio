@@ -29,11 +29,14 @@
               "--background",
               `${s.dataset.bodyBackground}`
             )
+            s.classList.add("in-view")
+          } else {
+            s.classList.remove("in-view")
           }
         })
       },
       {
-        threshold: s.dataset.threshold ? +s.dataset.threshold : 0.5,
+        threshold: +s.dataset.threshold!,
       }
     )
     observer.observe(s)

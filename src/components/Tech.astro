@@ -1,0 +1,81 @@
+---
+import type { TechItem } from "@/interfaces/tech-item.interface"
+import { translateArr } from "@/lib/utils"
+
+interface Props {
+  items: TechItem[]
+  delay?: number
+  translate?: number
+  class?: string
+}
+
+const { items, delay = 30, translate = 0 } = Astro.props
+
+const arr = [
+  ...translateArr(items, translate),
+  ...translateArr(items, translate),
+]
+---
+
+<div class:list={["slide-ctn", Astro.props.class]}>
+  <div class="flex slide-track">
+    {
+      arr.map(({ icon: Icon, name }) => (
+        <article
+          class={`
+            w-40 h-24
+            text-sm font-bold
+            flex items-center justify-center flex-col gap-y-2
+          `}
+        >
+          <Icon class="size-8" />
+          <span>{name}</span>
+        </article>
+      ))
+    }
+  </div>
+</div>
+
+<style define:vars={{ len: items.length, delay }}>
+  .slide-ctn {
+    position: relative;
+    width: 100%;
+  }
+
+  .slide-ctn::before,
+  .slide-ctn::after {
+    background: linear-gradient(
+      to right,
+      hsl(var(--background)) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    content: "";
+    height: 96px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+  .slide-ctn::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  .slide-ctn::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    width: calc(160px * calc(var(--len) * 2));
+    animation: scroll calc(var(--delay) * 1s) linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-160px * var(--len)));
+    }
+  }
+</style>

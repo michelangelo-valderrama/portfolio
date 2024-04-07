@@ -1,4 +1,4 @@
-<div id="cnt" class:list={["bg-transparent", Astro.props.class]}></div>
+<div id="starts-effect-cnt" class:list={["bg-transparent", Astro.props.class]}></div>
 
 <script>
   import * as THREE from "three"
@@ -19,7 +19,7 @@
   animate()
 
   function init() {
-    const container = document.getElementById("cnt") as HTMLDivElement
+    const container = document.getElementById("starts-effect-cnt") as HTMLDivElement
 
     scene.fog = new THREE.FogExp2(0x00000000, 0.0003)
     camera.position.z = 500
