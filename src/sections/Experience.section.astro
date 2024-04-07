@@ -1,0 +1,50 @@
+---
+import { ChevronDown } from "lucide"
+import LucideIcon from "@/components/LucideIcon.astro"
+import Section from "@/components/Section.astro"
+---
+
+<Section
+  class="flex flex-col justify-center"
+  bodyForeground="46 100 56"
+  headerForeground="46 100 56"
+>
+  <h2
+    class="font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase mb-10"
+  >
+    Experience
+  </h2>
+  <details class="group">
+    <summary
+      class="flex flex-col sm:flex-row gap-x-6 md:gap-x-8 sm:items-end py-6 px-4 border-b hover:cursor-pointer"
+    >
+      <span class="font-bold font-mono block text-sm md:text-base"
+        >2024/now</span
+      >
+      <div class="flex flex-col sm:flex-row flex-1 gap-x-4 sm:items-center">
+        <div class="flex gap-x-4 items-center">
+          <span class="text-xl md:text-2xl font-bold">IF7SPORTS</span>
+          <span>
+            <hr class="w-10" />
+          </span>
+        </div>
+        <div class="flex flex-1 gap-x-4 justify-between">
+          <span class="text-lg md:text-xl w-full">Full Stack Developer</span>
+          <LucideIcon
+            icon={ChevronDown}
+            class="size-8 duration-300 group-open:rotate-180"
+          />
+        </div>
+      </div>
+    </summary>
+    <p class="mt-6 px-4 md:text-lg max-w-screen-lg">
+      Full time developer. Working on the development of the Dashboard, the App
+      and the Web. Development of internal tools: script to generate an endpoint
+      for the API, script to fill the development database... Implementing new
+      technologies: migration from the Web to <strong>Astro</strong> with
+      <strong>Preact</strong>. Learning technologies: <strong>Docker</strong>, <strong
+        >Nest</strong
+      >, <strong>SEO</strong>...
+    </p>
+  </details>
+</Section>
