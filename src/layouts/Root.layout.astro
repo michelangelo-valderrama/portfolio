@@ -32,9 +32,11 @@ import "@/styles/global.css"
 </html>
 
 <script>
-  if (navigator.userAgentData) {
+  if ((navigator as any).userAgentData) {
     if (
-      navigator.userAgentData.brands.some((b: any) => b.brand == "Chromium")
+      (navigator as any).userAgentData.brands.some(
+        (b: any) => b.brand == "Chromium"
+      )
     ) {
       console.log("chromium")
       document
