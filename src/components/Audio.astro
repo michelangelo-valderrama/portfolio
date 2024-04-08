@@ -1,0 +1,140 @@
+---
+import { SkipBack, Play, Pause, SkipForward } from "lucide"
+import LucideIcon from "./LucideIcon.astro"
+
+interface Props {
+  audio: string
+  title: string
+}
+
+const { audio, title } = Astro.props
+
+const [id] = audio.split(".")
+const img = `img/${id}.png`
+---
+
+<div class="max-w-xs flex flex-col gap-y-4 text-sm font-mono mx-auto mt-10">
+  <audio data-id={id} src={`/audio/${audio}`}></audio>
+  <div class="relative">
+    <span
+      class="absolute top-0 left-0 py-1.5 pl-2 pr-4 bg-background rounded-br-xl"
+      >{title}</span
+    >
+    <img
+      src={img}
+      alt={title}
+      width="600"
+      height="600"
+      class="size-full aspect-square rounded-xl"
+    />
+  </div>
+  {/* Audio Controls */}
+  <div>
+    <div class="flex justify-between mb-1 text-foreground/80">
+      <span data-id={id} current-time>0:00</span>
+      <span data-id={id} total-time>0:00</span>
+    </div>
+    <div class="h-0.5 bg-foreground/50 rounded-full">
+      <div
+        data-id={id}
+        progress-bar
+        class="h-full bg-foreground rounded-full w-0 relative transition-none"
+      >
+        <div class="absolute top-1/2 -right-1 -translate-y-1/2">
+          <div class="size-2.5 rounded-full bg-foreground"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center mt-2">
+      <!-- <button skip-back-btn type="button">
+        <LucideIcon icon={SkipBack} class="size-5" />
+      </button> -->
+      <button
+        data-playing="false"
+        data-id={id}
+        play-btn
+        type="button"
+        class="flex items-center justify-center size-11 rounded-full bg-foreground text-background"
+      >
+        <LucideIcon play-icon icon={Play} class="size-6 fill-current" />
+        <LucideIcon pause-icon icon={Pause} class="size-6 fill-current" />
+      </button>
+      <!-- <button skip-forward-btn type="button">
+        <LucideIcon icon={SkipForward} class="size-5" />
+      </button> -->
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-playing="true"] [play-icon] {
+    display: none;
+  }
+  [data-playing="true"] [pause-icon] {
+    display: inline-block;
+  }
+  [data-playing="false"] [play-icon] {
+    display: inline-block;
+  }
+  [data-playing="false"] [pause-icon] {
+    display: none;
+  }
+</style>
+
+<script>
+  const audios = document.querySelectorAll<HTMLAudioElement>("audio")!
+  console.log(audios)
+
+  function formatTime(time: number) {
+    if (!time) return "0:00"
+
+    const minutes = Math.floor(time / 60)
+    const seconds = Math.floor(time % 60)
+
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`
+  }
+
+  for (const audio of audios) {
+    const audioId = audio.dataset.id!,
+      playBtn = document.querySelector<HTMLButtonElement>(
+        `[data-id="${audioId}"][play-btn]`
+      )!,
+      currentTime = document.querySelector<HTMLSpanElement>(
+        `[data-id="${audioId}"][current-time]`
+      )!,
+      totalTime = document.querySelector<HTMLSpanElement>(
+        `[data-id="${audioId}"][total-time]`
+      )!,
+      progressBar = document.querySelector<HTMLDivElement>(
+        `[data-id="${audioId}"][progress-bar]`
+      )!
+
+    let isPlaying = false
+
+    currentTime.textContent = "0:00"
+    totalTime.textContent = formatTime(audio.duration)
+
+    playBtn.addEventListener("click", () => {
+      if (audio.paused) audio.play()
+      else audio.pause()
+
+      isPlaying = !isPlaying
+      playBtn.dataset.playing = `${isPlaying}`
+    })
+
+    audio.addEventListener("timeupdate", () => {
+      const { currentTime: ct, duration } = audio
+
+      currentTime.textContent = formatTime(ct)
+      totalTime.textContent = formatTime(duration)
+
+      const progress = (ct / duration) * 100
+      progressBar.style.width = `${progress}%`
+    })
+
+    audio.addEventListener("ended", () => {
+      isPlaying = false
+      playBtn.dataset.playing = `${isPlaying}`
+    })
+  }
+</script>

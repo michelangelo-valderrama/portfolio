@@ -1,0 +1,22 @@
+---
+import Audio from "@/components/Audio.astro"
+import LucideIcon from "@/components/LucideIcon.astro"
+import Section from "@/components/Section.astro"
+import { Play, Pause, SkipBack, SkipForward } from "lucide"
+---
+
+<Section class="relative">
+  <div class="flex flex-col items-center gap-y-4">
+    <h1 class="mt-32 text-center font-black text-8xl uppercase">Personal</h1>
+    <div class="flex gap-x-20 font-mono font-bold text-lg">
+      <span>[music]</span>
+      <span>[draws]</span>
+    </div>
+  </div>
+
+  <div class="flex">
+    <Audio audio="where-is-my-mind.mp3" title="Where Is My Mind - Cover" />
+    <Audio audio="moonlight-sonata.mp3" title="Moonlight Sonata - Cover" />
+    <Audio audio="mst-mgn.mp3" title="Mst Mgn" />
+  </div>
+</Section>
