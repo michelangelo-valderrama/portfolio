@@ -14,3 +14,48 @@ import TechSkills from "@/sections/TechSkills.section.astro"
   <Experience />
   <Personal />
 </Root>
+
+<style is:global>
+  .in-view {
+    @apply xs:opacity-100;
+  }
+
+  .in-view [up-text-anim-active] {
+    animation: up 1s forwards;
+    top: 2rem;
+    transition: all 1s;
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll<HTMLDivElement>("[section-ctn]")
+  const body = document.body
+
+  const options: IntersectionObserverInit = {
+    root: document.querySelector("#content")!,
+    rootMargin: "0px",
+    threshold: 0.5,
+  }
+
+  sections.forEach((section) => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const { fg, bg, frame, pBg } = (entry.target as HTMLDivElement)
+            .dataset
+
+          entry.target.classList.add("in-view")
+
+          if (fg) body.style.setProperty("--foreground", fg)
+          if (bg) body.style.setProperty("--background", bg)
+          if (frame) body.style.setProperty("--frame", frame)
+          if (pBg) body.style.setProperty("--p-bg", pBg)
+        } else {
+          entry.target.classList.remove("in-view")
+        }
+      })
+    }, options)
+
+    observer.observe(section)
+  })
+</script>

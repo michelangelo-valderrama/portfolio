@@ -5,7 +5,13 @@ import Section from "@/components/Section.astro"
 import { Play, Pause, SkipBack, SkipForward } from "lucide"
 ---
 
-<Section class="relative">
+<Section
+  anim
+  frame="0 0 100"
+  fg="0 0 100"
+  bg="0 0 0"
+  class="xs:transition-all xs:duration-500 xs:opacity-0"
+>
   <div class="flex flex-col items-center gap-y-4">
     <h1 class="mt-32 text-center font-black text-8xl uppercase">Personal</h1>
     <div class="flex gap-x-20 font-mono font-bold text-lg">

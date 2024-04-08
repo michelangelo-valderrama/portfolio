@@ -27,6 +27,7 @@ import Git from "@/svgs/Git.svg.astro"
 import AstroBuild from "@/svgs/AstroBuild.svg.astro"
 import Angular from "@/svgs/Angular.svg.astro"
 import Tech from "@/components/Tech.astro"
+import TextAnim from "@/components/TextAnim.astro"
 
 const backend = [
   {
@@ -143,15 +144,21 @@ const stack = [...backend, ...frontend, ...devops]
 ---
 
 <Section
-  class="uppercase flex flex-col"
-  frameColor="0 0 100"
-  headerForeground="0 0 100"
-  bodyForeground="0 0 100"
+  anim
+  frame="0 0 100"
+  fg="0 0 100"
+  bg="0 0 0"
+  class="xs:transition-all xs:duration-500 xs:opacity-0 uppercase flex flex-col"
 >
   <h1 class="font-black text-5xl md:text-8xl mt-20 mb-10 md:mb-0 md:mt-32">
-    Tech<span class="text-stroke">Skills</span>
+    <TextAnim trigger h="5.5rem">
+      Tech<span class="text-stroke">Skills</span>
+    </TextAnim>
   </h1>
-  <div class="flex-1 overflow-hidden flex flex-col justify-center mb-20 max-w-screen-md mx-auto">
+  <div
+    tech-skills-items
+    class="opacity-0 blur-sm transition duration-1000 flex-1 overflow-hidden flex flex-col justify-center mb-20 max-w-screen-md mx-auto"
+  >
     <Tech items={stack} delay={30} translate={0} />
     <Tech items={stack} delay={70} translate={6} />
     <Tech items={stack} delay={50} translate={12} />
@@ -166,5 +173,10 @@ const stack = [...backend, ...frontend, ...devops]
 
   .active {
     @apply bg-foreground text-background;
+  }
+
+  .in-view [tech-skills-items] {
+    opacity: 1;
+    filter: blur(0);
   }
 </style>

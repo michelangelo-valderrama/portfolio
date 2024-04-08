@@ -6,7 +6,7 @@ import "@/styles/global.css"
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overscroll-none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,18 +14,32 @@ import "@/styles/global.css"
     <meta name="theme-color" content="#000" />
     <title>Document</title>
   </head>
-  <body class="font-sans text-foreground bg-background h-dvh select-none">
+  <body
+    class="font-sans text-foreground bg-background h-dvh select-none xs:transition-all"
+  >
     <PageFrame />
     <Header />
-    <main class="h-full p-[var(--fp)]">
+    <main class="h-full p-[--fp]">
       <div
         id="content"
-        class="relative h-full rounded-2xl overflow-x-hidden space-y-[var(--fp)] snap-mandatory snap-y"
+        class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp] snap-proximity snap-y"
       >
         <slot />
       </div>
     </main>
     <NoiseEffect />
-    <!-- <GridOverlay /> -->
   </body>
 </html>
+
+<script>
+  if (navigator.userAgentData) {
+    if (
+      navigator.userAgentData.brands.some((b: any) => b.brand == "Chromium")
+    ) {
+      console.log("chromium")
+      document
+        .querySelector("#content")!
+        .classList.remove("snap-proximity", "snap-y")
+    }
+  }
+</script>

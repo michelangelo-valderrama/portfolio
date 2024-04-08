@@ -1,41 +1,44 @@
 ---
 import { cn } from "@/lib/utils"
 
+type Hsl = `${number} ${number} ${number}`
+
 interface Props {
   as: string
   class?: string
-  frameColor?: string
-  headerForeground?: string
-  bodyForeground?: string
-  frameThreshold?: number
+  anim?: boolean
+  frame?: Hsl
+  fg?: Hsl
+  bg?: Hsl
+  pBg?: Hsl
 }
 
 const {
   as: As = "section",
-  frameColor,
-  headerForeground = "0 0 72",
-  bodyForeground = "0 0 72",
-  bodyBackground = "0 0 0",
-  frameThreshold = 0.5,
+  anim = false,
+  frame,
+  fg,
+  bg,
+  pBg = bg,
   ...props
 } = Astro.props
+
+const animObj = {
+  "section-ctn": true,
+  "data-frame": frame,
+  "data-fg": fg,
+  "data-bg": bg,
+  "data-p-bg": pBg,
+}
 ---
 
 <As
   {...props}
-  section
-  data-frame-color={frameColor}
-  data-header-foreground={headerForeground}
-  data-body-foreground={bodyForeground}
-  data-body-background={bodyBackground}
-  data-threshold={frameThreshold}
-  class={cn("size-full p-4 overflow-hidden xs:opacity-0 xs:blur-sm", Astro.props.class)}
+  {...anim ? animObj : {}}
+  class={cn(
+    "size-full p-4 overflow-hidden snap-center rounded-2xl",
+    Astro.props.class
+  )}
 >
   <slot />
 </As>
-
-<style>
-  .in-view {
-    @apply xs:opacity-100 xs:blur-none;
-  }
-</style>

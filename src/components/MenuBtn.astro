@@ -5,7 +5,7 @@ import LucideIcon from "./LucideIcon.astro"
 import TextAnim from "./TextAnim.astro"
 ---
 
-<div class="xl:hidden absolute top-[var(--fp)] right-[var(--fp)] z-40">
+<div class="xl:hidden absolute top-[--fp] right-[--fp] z-40">
   <button
     id="btn-menu"
     type="button"
@@ -24,7 +24,7 @@ import TextAnim from "./TextAnim.astro"
   id="ctn-menu"
   class={`
     xl:hidden
-    fixed top-0 left-0 size-full bg-background p-4 uppercase
+    fixed top-0 left-0 size-full bg-[hsl(var(--p-bg))] p-4 uppercase
     opacity-0 pointer-events-none transition duration-300
   `}
 >
@@ -109,7 +109,6 @@ import TextAnim from "./TextAnim.astro"
 
   btnMenu.addEventListener("click", () => {
     btnMenu.classList.toggle("open")
-
     ctnMenu.classList.toggle("show-menu")
     ctnMenu.classList.toggle("up-text-anim-trigger-menu")
   })

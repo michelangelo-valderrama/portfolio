@@ -1,44 +1,7 @@
 <div
   id="page-frame"
-  class="p-[var(--fp)] size-full fixed top-0 left-0 bg-[hsl(var(--frame-color))]"
+  class="p-[var(--fp)] size-full fixed top-0 left-0 bg-[hsl(var(--frame))] xs:transition-all xs:duration-400"
 >
-  <div class="relative size-full rounded-2xl bg-background"></div>
+  <div class="relative size-full rounded-2xl bg-background xs:transition-all xs:duration-400">
+  </div>
 </div>
-
-<script>
-  const sections = document.querySelectorAll<HTMLDivElement>("[section]")
-
-  sections.forEach((s) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            document.body.style.setProperty(
-              "--frame-color",
-              `${s.dataset.frameColor}`
-            )
-            document.body.style.setProperty(
-              "--header-foreground",
-              `${s.dataset.headerForeground}`
-            )
-            document.body.style.setProperty(
-              "--foreground",
-              `${s.dataset.bodyForeground}`
-            )
-            document.body.style.setProperty(
-              "--background",
-              `${s.dataset.bodyBackground}`
-            )
-            s.classList.add("in-view")
-          } else {
-            s.classList.remove("in-view")
-          }
-        })
-      },
-      {
-        threshold: +s.dataset.threshold!,
-      }
-    )
-    observer.observe(s)
-  })
-</script>

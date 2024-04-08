@@ -3,57 +3,31 @@ import ProjectsDesktop from "./ProjectsDesktop.section.astro"
 import ProjectsMobile from "./ProjectsMobile.section.astro"
 ---
 
-<ProjectsDesktop />
-<ProjectsMobile />
+<div
+  class={`
+    bg-[hsl(var(--p-bg))] text-foreground
+    border-foreground rounded-2xl
+    transition-colors duration-300
+  `}
+>
+  <ProjectsDesktop />
+  <ProjectsMobile />
+</div>
 
 <script>
   import { scroll, animate } from "motion"
 
-  const projects = document.querySelectorAll<HTMLDivElement>(
-    "[project-item-color]"
-  )
   const projectsLen = document.querySelectorAll<HTMLDivElement>(
     "[project-item-scroll]"
   )!.length
 
   scroll(
     animate("[project-item-scroll]", {
-      transform: ["translateX(10%)", `translateX(-${projectsLen - 1}10%)`],
+      transform: ["translateX(0)", `translateX(-${projectsLen - 1}00%)`],
     }),
     {
       container: document.getElementById("content")!,
       target: document.getElementById("projects-section-desktop")!,
     }
   )
-
-  projects.forEach((s) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            document.body.style.setProperty(
-              "--frame-color",
-              `${s.dataset.foreground}`
-            )
-            document.body.style.setProperty(
-              "--header-foreground",
-              `${s.dataset.foreground}`
-            )
-            document.body.style.setProperty(
-              "--foreground",
-              `${s.dataset.foreground}`
-            )
-            document.body.style.setProperty(
-              "--background",
-              `${s.dataset.background}`
-            )
-          }
-        })
-      },
-      {
-        threshold: 0.5,
-      }
-    )
-    observer.observe(s)
-  })
 </script>

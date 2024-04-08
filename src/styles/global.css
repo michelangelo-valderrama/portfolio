@@ -6,13 +6,7 @@
   --background: 0 0 0;
   --foreground: 40 100 80;
 
-  --border: 0 0 42;
-
-  --accent-foreground: 0 0 100;
-
-  --variant-foreground: 0 0 0;
-
-  --primary-foreground: 0 0 0;
+  --border: 40 100 80;
 
   --fp: 0.5rem;
 
@@ -22,7 +16,7 @@
 }
 
 * {
-  @apply box-border border-foreground text-wrap xs:transition-all xs:duration-500 xs:ease-in-out;
+  @apply box-border border-foreground text-wrap;
 }
 h1,
 h2,

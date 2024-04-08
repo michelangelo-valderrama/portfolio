@@ -8,12 +8,6 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        muted: {
-          foreground: "hsl(var(--muted))",
-        },
-        accent: {
-          foreground: "hsl(var(--accent-foreground))",
-        },
       },
       fontFamily: {
         sans: ["Eudoxus Sans", ...defaultTheme.fontFamily.sans],

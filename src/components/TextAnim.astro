@@ -8,13 +8,7 @@ interface Props extends HTMLAttributes<"span"> {
   trigger?: boolean
 }
 
-const {
-  d = "0u",
-  h = "2rem",
-  s = "1s",
-  trigger = false,
-  ...props
-} = Astro.props
+const { d = "0", h = "2rem", s = "1s", trigger = false, ...props } = Astro.props
 ---
 
 <span up-text-anim-ctn {...props}>

@@ -1,5 +1,5 @@
 ---
-import { MoveUpRight } from "lucide"
+import { ArrowUpRight } from "lucide"
 import type { Project } from "@/interfaces/project.interface"
 import LucideIcon from "./LucideIcon.astro"
 import { cn } from "@/lib/utils"
@@ -10,23 +10,25 @@ interface Props extends Project {
 }
 
 const {
-  date,
-  stack,
-  description,
-  title,
-  link,
-  img,
   foreground = "0 0 72",
   background = "0 0 0",
+  description,
+  stack,
+  title,
+  date,
+  link,
+  img,
   ...props
 } = Astro.props
 ---
 
 <article
-  data-foreground={foreground}
-  data-background={background}
+  section-ctn
+  data-frame={foreground}
+  data-fg={foreground}
+  data-p-bg={background}
   class={cn(
-    "flex items-center justify-center mt-16 text-foreground",
+    "xs:transition xs:opacity-0 xs:duration-500 flex items-center justify-center mt-16",
     Astro.props.class
   )}
   {...props}
@@ -60,10 +62,10 @@ const {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full px-5 py-1 flex justify-between items-center bg-foreground hover:bg-foreground/80 rounded-full text-background"
+            class="w-full px-5 py-1 flex justify-between items-center bg-foreground hover:bg-foreground/80 rounded-full text-[hsl(var(--p-bg))]"
           >
             <span class="font-bold">Visit</span>
-            <LucideIcon icon={MoveUpRight} class="size-4" />
+            <LucideIcon icon={ArrowUpRight} class="size-4" />
           </a>
           <ul
             class="flex gap-x-2 lg:gap-x-4 gap-y-1 lg:gap-y-2 font-bold text-2xs md:text-xs flex-wrap"

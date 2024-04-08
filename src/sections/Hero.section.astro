@@ -5,10 +5,16 @@ import TextAnim from "@/components/TextAnim.astro"
 ---
 
 <Section
-  class="flex flex-col justify-end items-center absolute top-0 left-0"
-  frameColor="0 0 0"
-  headerForeground="40 90 70"
-  bodyForeground="40 90 70"
+  anim
+  frame="0 0 0"
+  fg="40 100 80"
+  bg="0 0 0"
+  class={`
+    flex flex-col justify-end items-center
+    xs:transition-all xs:duration-500 xs:opacity-0
+    bg-background text-foreground
+    absolute top-0 left-0
+  `}
 >
   <div
     class="size-full relative overflow-hidden mt-10 md:mt-12 max-w-screen-xl mx-auto"
@@ -47,34 +53,12 @@ import TextAnim from "@/components/TextAnim.astro"
       <TextAnim h="5rem">Michelangelo</TextAnim>
     </h1>
   </div>
-  <!-- <div
-    class="flex items-center justify-center absolute top-0 left-0 size-full pointer-events-none pb-20 px-8"
-  >
-    <Mesh
-      id="mesh"
-      class="h-full max-h-[500px] w-auto text-accent-foreground"
-      stroke-dasharray="1000"
-      stroke-dashoffset="1000"
-    />
-  </div> -->
 </Section>
 <StarsEffect />
-
 <style>
-  #mesh {
-    animation: dash 1500ms forwards ease-in;
-  }
-
   img {
     animation: show 1500ms forwards ease-out;
   }
-
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
   @keyframes show {
     from {
       opacity: 0;

@@ -2,23 +2,26 @@
 import { ChevronDown } from "lucide"
 import LucideIcon from "@/components/LucideIcon.astro"
 import Section from "@/components/Section.astro"
+import TextAnim from "@/components/TextAnim.astro"
 ---
 
 <Section
-  class="flex flex-col justify-center"
-  bodyForeground="46 100 56"
-  headerForeground="46 100 56"
+  anim
+  frame="0 0 0"
+  fg="46 100 56"
+  bg="0 0 0"
+  class="xs:transition xs:duration-500 xs:opacity-0 flex flex-col justify-center"
 >
   <h2
     class="font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase mb-10"
   >
-    Experience
+    <TextAnim trigger h="5.5rem">Experience</TextAnim>
   </h2>
   <details class="group">
     <summary
       class="flex flex-col sm:flex-row gap-x-6 md:gap-x-8 sm:items-end py-6 px-4 border-b hover:cursor-pointer"
     >
-      <span class="font-mono block text-sm md:text-base">2024/now</span>
+      <span class="font-mono block text-sm md:text-base"> 2024/now</span>
       <div class="flex flex-col sm:flex-row flex-1 gap-x-4 sm:items-center">
         <div class="flex gap-x-4 items-center">
           <span class="text-xl md:text-2xl font-bold">IF7SPORTS</span>
