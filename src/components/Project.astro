@@ -10,7 +10,6 @@ interface Props extends Project {
 }
 
 const {
-  foreground = "0 0 72",
   background = "0 0 0",
   description,
   stack,
@@ -24,8 +23,8 @@ const {
 
 <article
   section-ctn
-  data-frame={foreground}
-  data-fg={foreground}
+  data-frame="0 0% 0%"
+  data-fg="0 0% 0%"
   data-p-bg={background}
   class={cn(
     "xs:transition xs:opacity-0 xs:duration-500 flex items-center justify-center mt-16",
@@ -34,11 +33,11 @@ const {
   {...props}
 >
   <div
-    class="flex flex-col lg:flex-row justify-center gap-y-8 gap-x-14 xl:max-w-screen-xl px-4 sm:px-12 2xl:px-8"
+    class="flex flex-col lg:flex-row justify-center gap-y-8 md:gap-y-14 gap-x-14 xl:max-w-screen-xl px-4 sm:px-12 2xl:px-8"
   >
     <div class="flex-1">
       <!-- shadow-[0_2px_40px_-4px] shadow-foreground/60 -->
-      <img class="rounded-lg size-full" {...img} />
+      <img class="rounded-lg size-full max-w-screen-sm mx-auto" {...img} />
     </div>
     <div class="flex flex-1 justify-between uppercase gap-x-8">
       <div class="text-center relative">

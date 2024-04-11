@@ -6,55 +6,47 @@ import TextAnim from "@/components/TextAnim.astro"
 
 <Section
   anim
-  frame="0 0 0"
-  fg="40 100 80"
-  bg="0 0 0"
+  frame="20 8% 0%"
+  fg="51 22% 69%"
+  bg="20 8% 0%"
   class={`
-    flex flex-col justify-end items-center
+    flex justify-center items-center
     xs:transition-all xs:duration-500 xs:opacity-0
-    bg-background text-foreground
+    text-foreground
     absolute top-0 left-0
   `}
 >
   <div
-    class="size-full relative overflow-hidden mt-10 md:mt-12 max-w-screen-xl mx-auto"
+    class="px-2 uppercase select-none flex items-center justify-center"
   >
     <div
-      class="flex items-center justify-center h-full *:rounded-xl *:size-full *:object-cover"
+      class="*:block absolute top-20 right-4 font-black font-impact text-2xl md:text-3xl"
     >
-      <img src="/img/rocket.webp" alt="rocket :>" class="md:hidden" />
-      <img
-        src="/img/rocket-90.webp"
-        alt="rocket :>"
-        class="hidden md:inline-block"
-      />
+      <TextAnim h="3.5rem">ミ</TextAnim>
+      <TextAnim h="3.5rem" d="100ms">ケ</TextAnim>
+      <TextAnim h="3.5rem" d="200ms">ラ</TextAnim>
+      <TextAnim h="3.5rem" d="300ms">ン</TextAnim>
+      <TextAnim h="3.5rem" d="400ms">ジ</TextAnim>
+      <TextAnim h="3.5rem" d="500ms">ェ</TextAnim>
+      <TextAnim h="3.5rem" d="600ms">ロ</TextAnim>
     </div>
-    <div
-      class="*:block absolute top-4 right-4 font-black font-impact text-xl md:text-2xl"
-    >
-      <TextAnim h="2.5rem">ミ</TextAnim>
-      <TextAnim h="2.5rem" d="100ms">ケ</TextAnim>
-      <TextAnim h="2.5rem" d="200ms">ラ</TextAnim>
-      <TextAnim h="2.5rem" d="300ms">ン</TextAnim>
-      <TextAnim h="2.5rem" d="400ms">ジ</TextAnim>
-      <TextAnim h="2.5rem" d="500ms">ェ</TextAnim>
-      <TextAnim h="2.5rem" d="600ms">ロ</TextAnim>
+    <div class="text-center">
+      <h1
+        class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl relative font-black font-serif italic"
+      >
+        <TextAnim class="px-2" h="5rem">Michelangelo</TextAnim>
+      </h1>
+      <p class="text-xs sm:text-base md:text-lg font-bold">
+        <TextAnim d="400ms" h="2.5rem">
+          Full stack developer & passionate about art and science
+        </TextAnim>
+      </p>
     </div>
-  </div>
-  <div class="text-center px-2 mt-2 uppercase select-none">
-    <p class="text-xs sm:text-base md:text-lg font-bold">
-      <TextAnim d="400ms" h="2.5rem">
-        Full stack developer & passionate about art and science
-      </TextAnim>
-    </p>
-    <h1
-      class="text-4xl xs:text-5xl sm:text-6xl md:text-8xl relative font-black font-impact"
-    >
-      <TextAnim h="5rem">Michelangelo</TextAnim>
-    </h1>
   </div>
 </Section>
-<StarsEffect />
+<!-- <StarsEffect /> -->
+<div class="h-full"></div>
+
 <style>
   img {
     animation: show 1500ms forwards ease-out;
