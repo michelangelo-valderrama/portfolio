@@ -1,8 +1,11 @@
 ---
+import { SEO } from "astro-seo"
 import NoiseEffect from "@/components/NoiseEffect.astro"
 import Header from "@/components/Header.astro"
 import PageFrame from "@/components/PageFrame.astro"
 import "@/styles/global.css"
+
+const image = `${Astro.site}img/banner.png`
 ---
 
 <!doctype html>
@@ -12,7 +15,27 @@ import "@/styles/global.css"
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#000" />
-    <title>Document</title>
+    <SEO
+      title="Michelangelo's Portfolio"
+      description="Michelangelo - Full Stack Developer & passionate about art and science."
+      openGraph={{
+        basic: {
+          title: "Michelangelo's Portfolio",
+          type: "website",
+          image,
+        },
+      }}
+      twitter={{
+        title: "Michelangelo's Portfolio",
+        card: "summary_large_image",
+        creator: "@VTokyo9",
+        image,
+        imageAlt: "Michelangelo's Portfolio",
+        description:
+          "Michelangelo - Full Stack Developer & passionate about art and science.",
+        site: "@VTokyo9",
+      }}
+    />
   </head>
   <body
     class="font-sans text-foreground bg-background h-dvh select-none xs:transition-all"
@@ -28,20 +51,19 @@ import "@/styles/global.css"
       </div>
     </main>
     <NoiseEffect />
+    <script>
+      if ((navigator as any).userAgentData) {
+        if (
+          (navigator as any).userAgentData.brands.some(
+            (b: any) => b.brand == "Chromium"
+          )
+        ) {
+          console.log("chromium")
+          document
+            .querySelector("#content")!
+            .classList.remove("md:snap-proximity", "md:snap-y")
+        }
+      }
+    </script>
   </body>
 </html>
-
-<script>
-  if ((navigator as any).userAgentData) {
-    if (
-      (navigator as any).userAgentData.brands.some(
-        (b: any) => b.brand == "Chromium"
-      )
-    ) {
-      console.log("chromium")
-      document
-        .querySelector("#content")!
-        .classList.remove("md:snap-proximity", "md:snap-y")
-    }
-  }
-</script>

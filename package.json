@@ -15,6 +15,7 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.5.9",
+    "astro-seo": "^0.8.3",
     "lucide": "^0.363.0",
     "motion": "^10.17.0",
     "tailwind-merge": "^2.2.2",
