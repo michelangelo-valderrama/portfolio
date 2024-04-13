@@ -1,10 +1,11 @@
 ---
-import { SkipBack, Play, Pause, SkipForward } from "lucide"
+import { Play, Pause } from "lucide"
 import LucideIcon from "./LucideIcon.astro"
 
 interface Props {
   audio: string
   title: string
+  class?: string
 }
 
 const { audio, title } = Astro.props
@@ -13,11 +14,16 @@ const [id] = audio.split(".")
 const img = `img/${id}.png`
 ---
 
-<div class="max-w-xs flex flex-col gap-y-4 text-sm font-mono mx-auto mt-10">
+<div
+  class:list={[
+    "flex flex-col gap-y-2 text-[8px] md:text-2xs font-mono w-[160px] md:w-[200px]",
+    Astro.props.class,
+  ]}
+>
   <audio data-id={id} src={`/audio/${audio}`}></audio>
   <div class="relative">
     <span
-      class="absolute top-0 left-0 py-1.5 pl-2 pr-4 bg-background rounded-br-xl"
+      class="absolute top-0 left-0 py-1.5 pl-2 pr-4 bg-background rounded-tl-xl rounded-br-xl"
       >{title}</span
     >
     <img
@@ -46,9 +52,6 @@ const img = `img/${id}.png`
       </div>
     </div>
     <div class="flex justify-center mt-2">
-      <!-- <button skip-back-btn type="button">
-        <LucideIcon icon={SkipBack} class="size-5" />
-      </button> -->
       <button
         data-playing="false"
         data-id={id}
@@ -59,9 +62,6 @@ const img = `img/${id}.png`
         <LucideIcon play-icon icon={Play} class="size-6 fill-current" />
         <LucideIcon pause-icon icon={Pause} class="size-6 fill-current" />
       </button>
-      <!-- <button skip-forward-btn type="button">
-        <LucideIcon icon={SkipForward} class="size-5" />
-      </button> -->
     </div>
   </div>
 </div>
@@ -83,7 +83,6 @@ const img = `img/${id}.png`
 
 <script>
   const audios = document.querySelectorAll<HTMLAudioElement>("audio")!
-  console.log(audios)
 
   function formatTime(time: number) {
     if (!time) return "0:00"

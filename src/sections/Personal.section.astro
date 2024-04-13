@@ -1,28 +1,48 @@
 ---
 import Audio from "@/components/Audio.astro"
+import Carousel from "@/components/Carousel.astro"
 import LucideIcon from "@/components/LucideIcon.astro"
 import Section from "@/components/Section.astro"
-import { Play, Pause, SkipBack, SkipForward } from "lucide"
+import { SkipBack, SkipForward } from "lucide"
 ---
 
 <Section
   anim
-  frame="0 0 100"
-  fg="0 0 100"
-  bg="0 0 0"
+  fg="0 0% 72%"
+  bg="0 0% 0%"
   class="xs:transition-all xs:duration-500 xs:opacity-0"
 >
-  <div class="flex flex-col items-center gap-y-4">
-    <h1 class="mt-32 text-center font-black text-8xl uppercase">Personal</h1>
-    <div class="flex gap-x-20 font-mono font-bold text-lg">
-      <span>[music]</span>
-      <span>[draws]</span>
-    </div>
-  </div>
-
-  <div class="flex">
-    <Audio audio="where-is-my-mind.mp3" title="Where Is My Mind - Cover" />
-    <Audio audio="moonlight-sonata.mp3" title="Moonlight Sonata - Cover" />
-    <Audio audio="mst-mgn.mp3" title="Mst Mgn" />
-  </div>
+  <h1
+    class="mt-20 sm:mt-24 md:mt-28 text-center font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase mb-2 sm:mb-4 md:mb-10"
+  >
+    Personal
+  </h1>
+  <Carousel>
+    <Audio
+      slot="1"
+      audio="where-is-my-mind.mp3"
+      title="Where Is My Mind - Cover"
+    />
+    <Audio
+      slot="2"
+      audio="moonlight-sonata.mp3"
+      title="Moonlight Sonata - Cover"
+    />
+    <Audio slot="3" audio="prisma.mp3" title="Prisma" />
+    <Audio slot="4" audio="mst-mgn.mp3" title="Mst Mgn" />
+    <button
+      id="prev"
+      type="button"
+      class="absolute bottom-[-12px] md:bottom-[-118px] left-[-28px] md:left-[-40px]"
+    >
+      <LucideIcon icon={SkipBack} class="size-5" /></button
+    >
+    <button
+      id="next"
+      type="button"
+      class="absolute bottom-[-12px] md:bottom-[-118px] right-[-28px] md:right-[-40px]"
+    >
+      <LucideIcon icon={SkipForward} class="size-5" /></button
+    >
+  </Carousel>
 </Section>

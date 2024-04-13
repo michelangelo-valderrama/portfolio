@@ -22,7 +22,7 @@ import "@/styles/global.css"
     <main class="h-full p-[--fp]">
       <div
         id="content"
-        class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp] snap-proximity snap-y"
+        class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp] md:snap-proximity md:snap-y"
       >
         <slot />
       </div>
@@ -41,7 +41,7 @@ import "@/styles/global.css"
       console.log("chromium")
       document
         .querySelector("#content")!
-        .classList.remove("snap-proximity", "snap-y")
+        .classList.remove("md:snap-proximity", "md:snap-y")
     }
   }
 </script>
