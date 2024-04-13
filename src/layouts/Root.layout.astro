@@ -4,6 +4,7 @@ import NoiseEffect from "@/components/NoiseEffect.astro"
 import Header from "@/components/Header.astro"
 import PageFrame from "@/components/PageFrame.astro"
 import "@/styles/global.css"
+import KeyNav from "@/components/KeyNav.astro"
 
 const image = `${Astro.site}img/banner.png`
 ---
@@ -51,6 +52,8 @@ const image = `${Astro.site}img/banner.png`
       </div>
     </main>
     <NoiseEffect />
+    <KeyNav />
+    {/* Snap prosimity */}
     <script>
       if ((navigator as any).userAgentData) {
         if (

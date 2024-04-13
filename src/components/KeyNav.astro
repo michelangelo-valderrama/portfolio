@@ -1,0 +1,102 @@
+---
+import { Command } from "lucide"
+import LucideIcon from "./LucideIcon.astro"
+---
+
+<div
+  style="--foreground: var(--header-foreground);"
+  class="fixed bottom-4 left-0 right-0 z-20 text-foreground/60 hover:text-foreground transition-colors"
+>
+  <button
+    id="open-ninja-keys"
+    title="Cmd + K"
+    class="flex items-center justify-center text-xs md:text-sm gap-x-2 font-mono mx-auto"
+    ><LucideIcon icon={Command} class="size-3 md:size-4" /> Open Command Menu</button
+  >
+</div>
+
+<ninja-keys class="dark" hideBreadcrumbs="true" placeholder="Type a section..."
+></ninja-keys>
+
+<style is:global>
+  ninja-keys {
+    --ninja-modal-shadow: 0 10px 40px 4px hsl(var(--header-foreground) / 20%);
+    --ninja-backdrop-filter: blur(4px);
+    --ninja-z-index: 40;
+
+    --ninja-footer-background: hsl(var(--p-bg));
+    --ninja-modal-background: hsl(var(--p-bg) / 70%);
+    --ninja-selected-background: hsl(var(--header-foreground) / 80%);
+    --ninja-secondary-background-color: hsl(var(--p-bg) / 80%);
+
+    --ninja-separate-border: 1px solid hsl(var(--header-foreground) / 40%);
+    --ninja-accent-color: hsl(var(--header-foreground));
+    --ninja-text-color: hsl(var(--header-foreground));
+    --ninja-secondary-text-color: hsl(var(--header-foreground));
+    --ninja-group-text-color: hsl(var(--header-foreground) / 80%);
+    --ninja-placeholder-color: hsl(var(--header-foreground) / 80%);
+    --ninja-selected-text-color: hsl(var(--p-bg));
+  }
+</style>
+
+<script>
+  import "ninja-keys"
+
+  const ninja = document.querySelector("ninja-keys")!
+  const openNinjaKeys = document.getElementById("open-ninja-keys")!
+
+  openNinjaKeys.addEventListener("click", () => {
+    ninja.open()
+  })
+
+  ninja.data = [
+    {
+      id: "home",
+      title: "Home",
+      hotkey: "ctrl+H",
+      handler: () => {
+        window.location.href = "#home"
+      },
+    },
+    {
+      id: "projects",
+      title: "Projects",
+      hotkey: "ctrl+P",
+      handler: () => {
+        window.location.href = "#projects"
+      },
+    },
+    {
+      id: "tech-skills",
+      title: "Tech Skills",
+      hotkey: "ctrl+X",
+      handler: () => {
+        window.location.href = "#tech-skills"
+      },
+    },
+    {
+      id: "experience",
+      title: "Experience",
+      hotkey: "ctrl+E",
+      handler: () => {
+        window.location.href = "#experience"
+      },
+    },
+    {
+      id: "personal",
+      title: "Personal",
+      hotkey: "ctrl+J",
+      handler: () => {
+        window.location.href = "#personal"
+      },
+    },
+    {
+      id: "resume",
+      title: "Resume",
+      hotkey: "ctrl+M",
+      handler: () => {
+        window.location.href = "#cv"
+      },
+    },
+  ]
+</script>

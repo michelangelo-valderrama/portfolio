@@ -47,7 +47,7 @@ import TextAnim from "./TextAnim.astro"
         <LucideIcon class="size-12 sm:size-14" icon={ArrowRight} />
       </TextAnim>
       <TextAnim trigger h="5.5rem">
-        <a href="/">Home</a>
+        <a href="/#home">Home</a>
       </TextAnim>
       <TextAnim trigger h="5.5rem">
         <a href="/#cv">Rsm</a>
@@ -128,10 +128,13 @@ import TextAnim from "./TextAnim.astro"
     }
   }
 
-  window.addEventListener("hashchange", updateNavArrow)
-  btnMenu.addEventListener("click", () => {
-    toggleMenu()
+  btnMenu.addEventListener("click", toggleMenu)
+  
+  window.addEventListener("hashchange", () => {
     updateNavArrow()
+    if (ctnMenu.classList.contains("show-menu")) {
+      toggleMenu()
+    }
   })
 
   window.onload = updateNavArrow
