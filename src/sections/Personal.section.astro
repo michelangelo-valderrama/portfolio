@@ -3,6 +3,7 @@ import Audio from "@/components/Audio.astro"
 import Carousel from "@/components/Carousel.astro"
 import LucideIcon from "@/components/LucideIcon.astro"
 import Section from "@/components/Section.astro"
+import TextAnim from "@/components/TextAnim.astro"
 import { SkipBack, SkipForward } from "lucide"
 ---
 
@@ -13,9 +14,14 @@ import { SkipBack, SkipForward } from "lucide"
   class="xs:transition-all xs:duration-500 xs:opacity-0"
 >
   <h1
-    class="mt-20 sm:mt-24 md:mt-28 text-center font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase mb-2 sm:mb-4 md:mb-10"
+    class={`
+      mt-20 sm:mt-24 md:mt-28
+      mb-2 sm:mb-4 md:mb-10
+      uppercase text-center font-black
+      text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+    `}
   >
-    Personal
+    <TextAnim trigger h="5.5rem">Personal</TextAnim>
   </h1>
   <Carousel>
     <Audio
@@ -33,16 +39,22 @@ import { SkipBack, SkipForward } from "lucide"
     <button
       id="prev"
       type="button"
-      class="absolute bottom-[-12px] md:bottom-[-118px] left-[-28px] md:left-[-40px]"
+      class="absolute bottom-[-12px] md:bottom-[-112px] left-[-28px] md:left-[-40px] group"
     >
-      <LucideIcon icon={SkipBack} class="size-5" /></button
+      <LucideIcon
+        icon={SkipBack}
+        class="size-5 group-hover:fill-foreground"
+      /></button
     >
     <button
       id="next"
       type="button"
-      class="absolute bottom-[-12px] md:bottom-[-118px] right-[-28px] md:right-[-40px]"
+      class="absolute bottom-[-12px] md:bottom-[-112px] right-[-28px] md:right-[-40px] group"
     >
-      <LucideIcon icon={SkipForward} class="size-5" /></button
+      <LucideIcon
+        icon={SkipForward}
+        class="size-5 group-hover:fill-foreground"
+      /></button
     >
   </Carousel>
 </Section>

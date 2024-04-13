@@ -1,6 +1,5 @@
 ---
 import Section from "@/components/Section.astro"
-import StarsEffect from "@/components/StarsEffect.astro"
 import TextAnim from "@/components/TextAnim.astro"
 ---
 
@@ -13,39 +12,34 @@ import TextAnim from "@/components/TextAnim.astro"
     flex justify-center items-center
     xs:transition-all xs:duration-500 xs:opacity-0
     text-foreground
-    absolute top-0 left-0
   `}
 >
-  <div
-    class="px-2 uppercase select-none flex items-center justify-center"
-  >
+  <div class="px-2 uppercase select-none flex items-center justify-center">
     <div
-      class="*:block absolute top-20 right-4 font-black font-impact text-2xl md:text-3xl"
+      class="*:block absolute top-12 sm:top-20 right-4 font-black font-impact text-lg sm:text-2xl md:text-3xl"
     >
-      <TextAnim h="3.5rem">ミ</TextAnim>
-      <TextAnim h="3.5rem" d="100ms">ケ</TextAnim>
-      <TextAnim h="3.5rem" d="200ms">ラ</TextAnim>
-      <TextAnim h="3.5rem" d="300ms">ン</TextAnim>
-      <TextAnim h="3.5rem" d="400ms">ジ</TextAnim>
-      <TextAnim h="3.5rem" d="500ms">ェ</TextAnim>
-      <TextAnim h="3.5rem" d="600ms">ロ</TextAnim>
+      <TextAnim trigger h="3.5rem">ミ</TextAnim>
+      <TextAnim trigger h="3.5rem" d="100ms">ケ</TextAnim>
+      <TextAnim trigger h="3.5rem" d="200ms">ラ</TextAnim>
+      <TextAnim trigger h="3.5rem" d="300ms">ン</TextAnim>
+      <TextAnim trigger h="3.5rem" d="400ms">ジ</TextAnim>
+      <TextAnim trigger h="3.5rem" d="500ms">ェ</TextAnim>
+      <TextAnim trigger h="3.5rem" d="600ms">ロ</TextAnim>
     </div>
     <div class="text-center">
       <h1
-        class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl relative font-black font-serif italic"
+        class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl relative font-serif italic"
       >
-        <TextAnim class="px-2" h="5rem">Michelangelo</TextAnim>
+        <TextAnim trigger class="px-2" h="5rem">Michelangelo</TextAnim>
       </h1>
       <p class="text-xs sm:text-base md:text-lg font-bold">
-        <TextAnim d="400ms" h="2.5rem">
+        <TextAnim trigger d="400ms" h="2.5rem">
           Full stack developer & passionate about art and science
         </TextAnim>
       </p>
     </div>
   </div>
 </Section>
-<!-- <StarsEffect /> -->
-<div class="h-full"></div>
 
 <style>
   img {

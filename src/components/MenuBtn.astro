@@ -34,21 +34,24 @@ import TextAnim from "./TextAnim.astro"
     <nav
       class={`
         text-7xl xs:text-8xl font-bold flex flex-col items-end
-        font-sans *:flex *:items-center
+        font-sans *:flex *:items-center relative ml-6
       `}
     >
-      <p>
-        <TextAnim trigger class="flex items-center mr-4" h="5.5rem">
-          <LucideIcon class="size-14" icon={ArrowRight} />
-        </TextAnim>
-        <TextAnim trigger h="5.5rem">Home</TextAnim>
-      </p>
-      <p>
-        <TextAnim trigger class="mr-4">
-          <LucideIcon class="size-14 hidden" icon={ArrowRight} />
-        </TextAnim>
-        <TextAnim trigger h="5.5rem">Rsm</TextAnim>
-      </p>
+      <TextAnim
+        id="big-nav-arrow"
+        trigger
+        h="5.5rem"
+        class="absolute -left-16 transition-all"
+        style="top: 10%;"
+      >
+        <LucideIcon class="size-12 sm:size-14" icon={ArrowRight} />
+      </TextAnim>
+      <TextAnim trigger h="5.5rem">
+        <a href="/">Home</a>
+      </TextAnim>
+      <TextAnim trigger h="5.5rem">
+        <a href="/#cv">Rsm</a>
+      </TextAnim>
     </nav>
     <div class="text-xs grid grid-cols-2 gap-x-4">
       <div class="flex flex-col gap-y-8 truncate">
@@ -106,10 +109,30 @@ import TextAnim from "./TextAnim.astro"
 <script>
   const btnMenu = document.getElementById("btn-menu") as HTMLButtonElement
   const ctnMenu = document.getElementById("ctn-menu") as HTMLDivElement
+  const navArrow = document.querySelector<HTMLDivElement>("#nav-arrow")!
+  const bigNavArrow = document.querySelector<HTMLDivElement>("#big-nav-arrow")!
 
-  btnMenu.addEventListener("click", () => {
+  function toggleMenu() {
     btnMenu.classList.toggle("open")
     ctnMenu.classList.toggle("show-menu")
     ctnMenu.classList.toggle("up-text-anim-trigger-menu")
+  }
+
+  function updateNavArrow() {
+    if (location.hash.includes("#cv")) {
+      navArrow.style.top = "16px"
+      bigNavArrow.style.top = "60%"
+    } else {
+      navArrow.style.top = "0"
+      bigNavArrow.style.top = "10%"
+    }
+  }
+
+  window.addEventListener("hashchange", updateNavArrow)
+  btnMenu.addEventListener("click", () => {
+    toggleMenu()
+    updateNavArrow()
   })
+
+  window.onload = updateNavArrow
 </script>

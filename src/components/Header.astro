@@ -41,24 +41,17 @@ import TextAnim from "./TextAnim.astro"
       </p>
     </div>
     <nav
-      class="hidden xl:block *:flex *:items-center *:justify-end *:gap-x-1.5"
+      class="hidden xl:block *:flex *:items-center *:justify-end *:gap-x-1.5 relative"
     >
-      <p>
-        <TextAnim>
-          <LucideIcon class="size-3.5" icon={ArrowRight} />
-        </TextAnim>
-        <TextAnim>
-          <a href="/">Home</a>
-        </TextAnim>
-      </p>
-      <p>
-        <TextAnim>
-          <LucideIcon class="hidden size-3.5" icon={ArrowRight} />
-        </TextAnim>
-        <TextAnim>
-          <a href="/#cv">Rsm</a>
-        </TextAnim>
-      </p>
+      <TextAnim id="nav-arrow" class="absolute -left-5 transition-all">
+        <LucideIcon class="size-3.5" icon={ArrowRight} />
+      </TextAnim>
+      <TextAnim>
+        <a href="/">Home</a>
+      </TextAnim>
+      <TextAnim>
+        <a href="/#cv">Rsm</a>
+      </TextAnim>
     </nav>
     <!-- Mobile -->
     <MenuBtn />
