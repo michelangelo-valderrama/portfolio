@@ -17,6 +17,7 @@ import TextAnim from "./TextAnim.astro"
   >
     <span id="menu-bar-top"></span>
     <span id="menu-bar-bottom"></span>
+    <span class="sr-only">Menu button</span>
   </button>
 </div>
 
@@ -129,7 +130,7 @@ import TextAnim from "./TextAnim.astro"
   }
 
   btnMenu.addEventListener("click", toggleMenu)
-  
+
   window.addEventListener("hashchange", () => {
     updateNavArrow()
     if (ctnMenu.classList.contains("show-menu")) {

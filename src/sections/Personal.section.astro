@@ -42,11 +42,9 @@ import { SkipBack, SkipForward } from "lucide"
       type="button"
       class="absolute bottom-[-12px] md:bottom-[-112px] left-[-28px] md:left-[-40px] group"
     >
-      <LucideIcon
-        icon={SkipBack}
-        class="size-5 group-hover:fill-foreground"
-      /></button
-    >
+      <LucideIcon icon={SkipBack} class="size-5 group-hover:fill-foreground" />
+      <span class="sr-only">Skip Back</span>
+    </button>
     <button
       id="next"
       type="button"
@@ -55,7 +53,8 @@ import { SkipBack, SkipForward } from "lucide"
       <LucideIcon
         icon={SkipForward}
         class="size-5 group-hover:fill-foreground"
-      /></button
-    >
+      />
+      <span class="sr-only">Skip Forward</span>
+    </button>
   </Carousel>
 </Section>

@@ -9,7 +9,7 @@
       "alt": "Imangelo blog screenshot",
       "height": 1200,
       "width": 800,
-      "src": "/img/imangelo-screenshot.png"
+      "src": "/img/imangelo-screenshot.webp"
     },
     "description": "My personal blog where I write about: [**science**](https://imangelo.dev/el-principio-del-universo), [**reflections**](https://imangelo.dev/las-matematicas-no-son-una-ciencia), [**tutorials**](https://imangelo.dev/como-hacer-un-videojuego-con-pico-8), etc... Small personal project where I create some **Remark** and **Rehype** plugins for the articles. Additionally, I implemented a [**newsletter**](https://imangelo.dev/newsletter) with **Resend**."
   },
@@ -23,7 +23,7 @@
       "alt": "IF7SPORTS web screenshot",
       "height": 1200,
       "width": 800,
-      "src": "/img/if7sports-screenshot.png"
+      "src": "/img/if7sports-screenshot.webp"
     },
     "description": "Migration from **Angular** to **Astro** of the **IF7SPORTS** website. Improvements in SEO and optimization. Implementation of an i18n system in Astro. Here is an article about the migration: [**Presenting our new website**](https://if7sports.com/en/blog/presenting-our-new-website/)."
   },
@@ -37,7 +37,7 @@
       "alt": "Send mobile app screenshot",
       "height": 1200,
       "width": 800,
-      "src": "/img/send-screenshot.png"
+      "src": "/img/send-screenshot.webp"
     },
     "description": "Mobile application to send emails to my newsletter subscribers. To send the emails I call a **netlify function** that uses the **Resend** api. I used **React Emal** to create the templates."
   },
@@ -51,7 +51,7 @@
       "alt": "Understanding Astro web book screenshot",
       "height": 1200,
       "width": 800,
-      "src": "/img/understanding-astro-screenshot-dark.png"
+      "src": "/img/understanding-astro-screenshot-dark.webp"
     },
     "description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP)."
   },
@@ -65,7 +65,7 @@
       "alt": "Pythagorean theorem screenshot",
       "height": 1920,
       "width": 1080,
-      "src": "/img/phytagorean-screenshot.png"
+      "src": "/img/phytagorean-screenshot.webp"
     },
     "description": "A purely visual proof of the Pythagorean theorem."
   }

@@ -32,6 +32,7 @@ p {
 
 @font-face {
   font-family: "Eudoxus Sans";
+  font-display: swap;
   src: url("/fonts/EudoxusSans-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
@@ -39,6 +40,7 @@ p {
 
 @font-face {
   font-family: "Eudoxus Sans";
+  font-display: swap;
   src: url("/fonts/EudoxusSans-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
@@ -46,6 +48,7 @@ p {
 
 @font-face {
   font-family: "Eudoxus Sans";
+  font-display: swap;
   src: url("/fonts/EudoxusSans-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
@@ -53,6 +56,7 @@ p {
 
 @font-face {
   font-family: "Modern Era Mono";
+  font-display: swap;
   src: url("/fonts/ModernEraMono-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
@@ -60,6 +64,7 @@ p {
 
 @font-face {
   font-family: "Modern Era Mono";
+  font-display: swap;
   src: url("/fonts/ModernEraMono-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
@@ -67,7 +72,8 @@ p {
 
 @font-face {
   font-family: "Nevrada Neue";
-  src: url("/fonts/NevradaNeue.otf") format("opentype");
+  font-display: swap;
+  src: local("/fonts/NevradaNeue.otf") format("opentype");
   src: url("/fonts/NevradaNeue.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
@@ -75,5 +81,8 @@ p {
 
 @font-face {
   font-family: "Roboto Flex";
+  font-display: swap;
   src: url("/fonts/RobotoFlex-Variable.ttf") format("truetype");
+  src: url("/fonts/RobotoFlex-Variable.woff2") format("woff2");
+  font-style: normal;
 }

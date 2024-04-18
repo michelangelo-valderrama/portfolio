@@ -11,7 +11,7 @@ interface Props {
 const { audio, title } = Astro.props
 
 const [id] = audio.split(".")
-const img = `img/${id}.png`
+const img = `img/${id}.webp`
 ---
 
 <div
@@ -32,6 +32,8 @@ const img = `img/${id}.png`
       width="600"
       height="600"
       class="size-full aspect-square rounded-xl"
+      decoding="async"
+      loading="lazy"
     />
   </div>
   {/* Audio Controls */}
@@ -59,8 +61,14 @@ const img = `img/${id}.png`
         type="button"
         class="flex items-center justify-center size-8 rounded-full bg-foreground text-background"
       >
-        <LucideIcon play-icon icon={Play} class="size-4 fill-current" />
-        <LucideIcon pause-icon icon={Pause} class="size-4 fill-current" />
+        <div play-icon>
+          <LucideIcon icon={Play} class="size-4 fill-current" />
+          <span class="sr-only">Play</span>
+        </div>
+        <div pause-icon>
+          <LucideIcon icon={Pause} class="size-4 fill-current" />
+          <span class="sr-only">Pause</span>
+        </div>
       </button>
     </div>
   </div>

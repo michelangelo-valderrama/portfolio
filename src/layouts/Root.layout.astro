@@ -37,6 +37,7 @@ const image = `${Astro.site}img/banner.png`
         site: "@VTokyo9",
       }}
     />
+    <link rel="preconnect" href="/fonts/RobotFlex-Variable.ttf" crossorigin />
   </head>
   <body
     class="font-sans text-foreground bg-background h-dvh select-none xs:transition-all"
@@ -46,27 +47,12 @@ const image = `${Astro.site}img/banner.png`
     <main class="h-full p-[--fp]">
       <div
         id="content"
-        class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp] md:snap-proximity md:snap-y"
+        class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp]"
       >
         <slot />
       </div>
     </main>
     <NoiseEffect />
     <KeyNav />
-    {/* Snap prosimity */}
-    <script>
-      if ((navigator as any).userAgentData) {
-        if (
-          (navigator as any).userAgentData.brands.some(
-            (b: any) => b.brand == "Chromium"
-          )
-        ) {
-          console.log("chromium")
-          document
-            .querySelector("#content")!
-            .classList.remove("md:snap-proximity", "md:snap-y")
-        }
-      }
-    </script>
   </body>
 </html>
