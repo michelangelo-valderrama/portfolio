@@ -123,9 +123,9 @@
           heroSection.classList.remove("hidden")
 
           setTimeout(() => {
-            // window.addEventListener("wheel", handleScroll)
             content.style.overflowY = "scroll"
-          }, 100)
+            loadingScreen.remove()
+          }, 500)
         }, 0)
       }
       // updateProgress(progress)
