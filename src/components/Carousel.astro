@@ -1,180 +1,183 @@
 ---
 interface Props {
-  inclination?: number
-  prevTrigger?: string
-  nextTrigger?: string
+	inclination?: number
+	prevTrigger?: string
+	nextTrigger?: string
 }
 
 const {
-  inclination = 15,
-  prevTrigger = "#prev",
-  nextTrigger = "#next",
+	inclination = 15,
+	prevTrigger = '#prev',
+	nextTrigger = '#next'
 } = Astro.props
 ---
 
 <div
-  id="carousel-ctn"
-  class="mx-auto w-[160px] md:w-[200px] h-[350px] relative pt-[40px]"
+	id="carousel-ctn"
+	class="mx-auto w-[160px] md:w-[200px] h-[350px] relative pt-[40px]"
 >
-  <div
-    id="carousel"
-    class="size-full absolute"
-    data-inclination={inclination}
-    data-prev-trigger={prevTrigger}
-    data-next-trigger={nextTrigger}
-  >
-    <div class="carousel__item">
-      <div class="item" data-pos="0" data-num="0">
-        <slot name="1" />
-      </div>
-    </div>
-    <div class="carousel__item">
-      <div class="item" data-pos="1" data-num="1">
-        <slot name="2" />
-      </div>
-    </div>
-    <div class="carousel__item">
-      <div class="item" data-pos="2" data-num="2">
-        <slot name="3" />
-      </div>
-    </div>
-    <div class="carousel__item">
-      <div class="item" data-pos="3" data-num="3">
-        <slot name="4" />
-      </div>
-    </div>
-  </div>
-  <slot />
+	<div
+		id="carousel"
+		class="size-full absolute"
+		data-playing="false"
+		data-inclination={inclination}
+		data-prev-trigger={prevTrigger}
+		data-next-trigger={nextTrigger}
+	>
+		<div class="carousel__item">
+			<div class="item" data-pos="0" data-num="0">
+				<slot name="0" />
+			</div>
+		</div>
+		<div class="carousel__item">
+			<div class="item" data-pos="1" data-num="1">
+				<slot name="1" />
+			</div>
+		</div>
+		<div class="carousel__item">
+			<div class="item" data-pos="2" data-num="2">
+				<slot name="2" />
+			</div>
+		</div>
+		<div class="carousel__item">
+			<div class="item" data-pos="3" data-num="3">
+				<slot name="3" />
+			</div>
+		</div>
+	</div>
+	<slot />
 </div>
 
 <style>
-  #carousel-ctn {
-    perspective: 1000px;
-  }
+	#carousel-ctn {
+		perspective: 1000px;
+	}
 
-  #carousel {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform-style: preserve-3d;
-    transition: transform 500ms;
-    transform: rotateX(-15deg);
-  }
+	#carousel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		transform-style: preserve-3d;
+		transition: transform 500ms;
+		transform: rotateX(-15deg);
+	}
 
-  #carousel div {
-    transform-style: preserve-3d;
-  }
+	#carousel div {
+		transform-style: preserve-3d;
+	}
 
-  .item {
-    display: block;
-    position: absolute;
-    transition: all 500ms;
-    transform: rotateX(15deg);
-  }
+	.item {
+		display: block;
+		position: absolute;
+		transition: all 500ms;
+		transform: rotateX(15deg);
+	}
 
-  .carousel__item:nth-child(1) {
-    transform: rotateY(0deg) translateZ(300px);
-  }
-  .carousel__item:nth-child(2) {
-    transform: rotateY(90deg) translateZ(300px) rotateY(-90deg);
-  }
-  .carousel__item:nth-child(3) {
-    transform: rotateY(180deg) translateZ(300px) rotateY(-180deg);
-  }
-  .carousel__item:nth-child(4) {
-    transform: rotateY(270deg) translateZ(300px) rotateY(-270deg);
-  }
+	.carousel__item:nth-child(1) {
+		transform: rotateY(0deg) translateZ(300px);
+	}
+	.carousel__item:nth-child(2) {
+		transform: rotateY(90deg) translateZ(300px) rotateY(-90deg);
+	}
+	.carousel__item:nth-child(3) {
+		transform: rotateY(180deg) translateZ(300px) rotateY(-180deg);
+	}
+	.carousel__item:nth-child(4) {
+		transform: rotateY(270deg) translateZ(300px) rotateY(-270deg);
+	}
 
-  @media screen and (max-width: 768px) {
-    .carousel__item:nth-child(1) {
-      transform: rotateY(0deg) translateZ(230px);
-    }
-    .carousel__item:nth-child(2) {
-      transform: rotateY(90deg) translateZ(230px) rotateY(-90deg);
-    }
-    .carousel__item:nth-child(3) {
-      transform: rotateY(180deg) translateZ(230px) rotateY(-180deg);
-    }
-    .carousel__item:nth-child(4) {
-      transform: rotateY(270deg) translateZ(230px) rotateY(-270deg);
-    }
-  }
+	@media screen and (max-width: 768px) {
+		.carousel__item:nth-child(1) {
+			transform: rotateY(0deg) translateZ(230px);
+		}
+		.carousel__item:nth-child(2) {
+			transform: rotateY(90deg) translateZ(230px) rotateY(-90deg);
+		}
+		.carousel__item:nth-child(3) {
+			transform: rotateY(180deg) translateZ(230px) rotateY(-180deg);
+		}
+		.carousel__item:nth-child(4) {
+			transform: rotateY(270deg) translateZ(230px) rotateY(-270deg);
+		}
+	}
 
-  .carousel__item .item[data-pos="1"] {
-    filter: blur(4px);
-  }
-  .carousel__item .item[data-pos="3"] {
-    filter: blur(4px);
-  }
-  .carousel__item .item[data-pos="2"] {
-    filter: blur(14px);
-  }
+	.carousel__item .item[data-pos='1'] {
+		filter: blur(4px);
+	}
+	.carousel__item .item[data-pos='3'] {
+		filter: blur(4px);
+	}
+	.carousel__item .item[data-pos='2'] {
+		filter: blur(14px);
+	}
 </style>
 
 <script>
-  const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!
+	import { $, $$ } from '@/lib/utils'
 
-  const carousel = $<HTMLDivElement>("#carousel")
-  const carouselItems = document.querySelectorAll<HTMLDivElement>(".item")
+	const $carousel = $<HTMLDivElement>('#carousel')
+	const $carouselItems = $$<HTMLDivElement>('.item')
 
-  const inclination = +carousel.dataset.inclination!
-  const prevTrigger = carousel.dataset.prevTrigger!
-  const nextTrigger = carousel.dataset.nextTrigger!
+	const inclination = +$carousel.dataset.inclination!
+	const prevTrigger = $carousel.dataset.prevTrigger!
+	const nextTrigger = $carousel.dataset.nextTrigger!
 
-  const prevBtn = $<HTMLButtonElement>(prevTrigger)
-  const nextBtn = $<HTMLButtonElement>(nextTrigger)
+	const $prevBtn = $<HTMLButtonElement>(prevTrigger)
+	const $nextBtn = $<HTMLButtonElement>(nextTrigger)
 
-  let isRotating = false
-  let currDeg = 0
-  let currIndex = 0
+	const event = new CustomEvent('rotate')
 
-  const rotations = [
-    { x: -inclination, z: 0 },
-    { x: 0, z: inclination },
-    { x: inclination, z: 0 },
-    { x: 0, z: -inclination },
-  ]
+	let isRotating = false
+	let currDeg = 0
+	let currIndex = 0
 
-  function rotate(ev: MouseEvent) {
-    if (isRotating) return
-    isRotating = true
+	const rotations = [
+		{ x: -inclination, z: 0 },
+		{ x: 0, z: inclination },
+		{ x: inclination, z: 0 },
+		{ x: 0, z: -inclination }
+	]
 
-    const nextSong = ev.currentTarget === nextBtn ? true : false
+	function rotate(ev: MouseEvent) {
+		if (isRotating) return
+		isRotating = true
 
-    let x, z
+		$carousel.dispatchEvent(event)
 
-    carouselItems.forEach((e) => {
-      const pos = +e.dataset.pos!
-      if (pos === 0) {
-        currIndex = (+e.dataset.num! + 1) % 4
-      }
-    })
+		const nextSong = ev.currentTarget === $nextBtn ? true : false
 
-    if (nextSong) {
-      currDeg -= 90
-      x = rotations[currIndex].x
-      z = rotations[currIndex].z
-    } else {
-      currDeg += 90
-      x = -rotations[currIndex].x
-      z = -rotations[currIndex].z
-    }
+		let x, z
 
-    carousel.style.transform = `rotateY(${currDeg}deg) rotateX(${x}deg) rotateZ(${z}deg)`
-    carouselItems.forEach((e) => {
-      const pos = +e.dataset.pos!
-      const newPos = (nextSong ? pos - 1 : pos + 1) % 4
+		$carouselItems.forEach((e) => {
+			const pos = +e.dataset.pos!
+			if (pos === 0) currIndex = (+e.dataset.num! + 1) % 4
+		})
 
-      e.style.transform = `rotateY(${-currDeg}deg) rotateX(${inclination}deg)`
-      e.dataset.pos = `${newPos < 0 ? 3 : newPos}`
-    })
+		if (nextSong) {
+			currDeg -= 90
+			x = rotations[currIndex].x
+			z = rotations[currIndex].z
+		} else {
+			currDeg += 90
+			x = -rotations[currIndex].x
+			z = -rotations[currIndex].z
+		}
 
-    const skipTimeout = setTimeout(() => {
-      clearInterval(skipTimeout)
-      isRotating = false
-    }, 500)
-  }
+		$carousel.style.transform = `rotateY(${currDeg}deg) rotateX(${x}deg) rotateZ(${z}deg)`
+		$carouselItems.forEach((e) => {
+			const pos = +e.dataset.pos!
+			const newPos = (nextSong ? pos - 1 : pos + 1) % 4
 
-  prevBtn.addEventListener("click", rotate)
-  nextBtn.addEventListener("click", rotate)
+			e.style.transform = `rotateY(${-currDeg}deg) rotateX(${inclination}deg)`
+			e.dataset.pos = `${newPos < 0 ? 3 : newPos}`
+		})
+
+		const skipTimeout = setTimeout(() => {
+			clearInterval(skipTimeout)
+			isRotating = false
+		}, 500)
+	}
+
+	$prevBtn.addEventListener('click', rotate)
+	$nextBtn.addEventListener('click', rotate)
 </script>

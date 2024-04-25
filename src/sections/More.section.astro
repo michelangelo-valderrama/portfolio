@@ -1,34 +1,36 @@
 ---
-import { Download } from "lucide"
-import Section from "@/components/Section.astro"
-import LucideIcon from "@/components/LucideIcon.astro"
-import HeroLink from "@/components/HeroLink.astro"
-import TextAnim from "@/components/TextAnim.astro"
+import { Download } from 'lucide'
+import Section from '@/components/Section.astro'
+import LucideIcon from '@/components/LucideIcon.astro'
+import HeroLink from '@/components/HeroLink.astro'
+import TextAnim from '@/components/TextAnim.astro'
 ---
 
 <Section
-  id="cv"
-  anim
-  fg="0 0% 82%"
-  bg="0 0% 0%"
-  class={`
+	id="cv"
+	anim
+	fg="0 0% 82%"
+	bg="0 0% 0%"
+	class={`
     xs:transition-all xs:duration-500 xs:opacity-0
     bg-[hsl(0_0%_6%)]
     flex flex-col
   `}
 >
-  <h2
-    class="text-center mt-16 sm:mt-20 md:mt-28 lg:mt-32 font-mono text-lg lg:text-xl font-semibold"
-  >
-    <TextAnim trigger>more...</TextAnim>
-  </h2>
-  <div
-    class="uppercase font-serif italic text-6xl xs:text-7xl sm:text-8xl text-center flex flex-col gap-y-2 justify-center items-center flex-1 *:transition *:text-foreground/60 hover:*:text-foreground"
-  >
-    <TextAnim trigger h="5.5rem" d="100ms" class="px-2">
-      <a href="https://www.linkedin.com/in/michelangelo-v-2a71702b1">Linkedin</a
-      >
-    </TextAnim>
+	<h2
+		class="text-center mt-16 sm:mt-20 md:mt-28 lg:mt-32 font-mono text-lg lg:text-xl font-semibold"
+	>
+		<TextAnim trigger>more...</TextAnim>
+	</h2>
+	<div
+		class="uppercase font-serif italic text-6xl xs:text-7xl sm:text-8xl text-center flex flex-col gap-y-2 justify-center items-center flex-1 *:transition *:text-foreground/60 hover:*:text-foreground"
+	>
+		<TextAnim trigger h="5.5rem" d="100ms" class="px-2">
+			<a href="https://www.linkedin.com/in/michelangelo-v-2a71702b1">Linkedin</a
+			>
+		</TextAnim>
+		{
+			/*
     <TextAnim trigger h="5.5rem" d="200ms" class="px-2">
       <HeroLink href="https://imangelo.dev/" class="text-foreground">
         Resume
@@ -39,24 +41,26 @@ import TextAnim from "@/components/TextAnim.astro"
         />
       </HeroLink>
     </TextAnim>
-    <TextAnim trigger h="5.5rem" d="300ms" class="px-2">
-      <a href="https://imangelo.dev" target="_blank" rel="noopener noreferrer"
-        >Blog</a
-      >
-    </TextAnim>
-    <TextAnim trigger h="5.5rem" d="400ms" class="px-2">
-      <a
-        href="https://github.com/michelangelo-valderrama"
-        target="_blank"
-        rel="noopener noreferrer">GitHub</a
-      >
-    </TextAnim>
-  </div>
+    */
+		}
+		<TextAnim trigger h="5.5rem" d="300ms" class="px-2">
+			<a href="https://imangelo.dev" target="_blank" rel="noopener noreferrer"
+				>Blog</a
+			>
+		</TextAnim>
+		<TextAnim trigger h="5.5rem" d="400ms" class="px-2">
+			<a
+				href="https://github.com/michelangelo-valderrama"
+				target="_blank"
+				rel="noopener noreferrer">GitHub</a
+			>
+		</TextAnim>
+	</div>
 </Section>
 
 <style>
-  .in-view [tech-skills-items] {
-    opacity: 1;
-    filter: blur(0);
-  }
+	.in-view [tech-skills-items] {
+		opacity: 1;
+		filter: blur(0);
+	}
 </style>

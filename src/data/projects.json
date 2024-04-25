@@ -1,72 +1,72 @@
 [
-  {
-    "date": "2K24",
-    "stack": ["Astro", "React", "Tailwind CSS", "Resend"],
-    "title": "Personal·Blog",
-    "link": "https://imangelo.dev",
-    "background": "0 0 100",
-    "img": {
-      "alt": "Imangelo blog screenshot",
-      "height": 1200,
-      "width": 800,
-      "src": "/img/imangelo-screenshot.webp"
-    },
-    "description": "My personal blog where I write about: [**science**](https://imangelo.dev/el-principio-del-universo), [**reflections**](https://imangelo.dev/las-matematicas-no-son-una-ciencia), [**tutorials**](https://imangelo.dev/como-hacer-un-videojuego-con-pico-8), etc... Small personal project where I create some **Remark** and **Rehype** plugins for the articles. Additionally, I implemented a [**newsletter**](https://imangelo.dev/newsletter) with **Resend**."
-  },
-  {
-    "date": "2k24",
-    "stack": ["Astro", "Preact", "Tailwind CSS", "Docker"],
-    "title": "IF7SPORTS·WEB",
-    "link": "https://if7sports.com/en",
-    "background": "140 50 50",
-    "img": {
-      "alt": "IF7SPORTS web screenshot",
-      "height": 1200,
-      "width": 800,
-      "src": "/img/if7sports-screenshot.webp"
-    },
-    "description": "Migration from **Angular** to **Astro** of the **IF7SPORTS** website. Improvements in SEO and optimization. Implementation of an i18n system in Astro. Here is an article about the migration: [**Presenting our new website**](https://if7sports.com/en/blog/presenting-our-new-website/)."
-  },
-  {
-    "date": "2K24",
-    "stack": ["React", "Capacitor", "Resend", "Netlify", "Tailwind CSS"],
-    "title": "Send",
-    "link": "https://github.com/michelangelo-valderrama/send-app",
-    "background": "0 0 100",
-    "img": {
-      "alt": "Send mobile app screenshot",
-      "height": 1200,
-      "width": 800,
-      "src": "/img/send-screenshot.webp"
-    },
-    "description": "Mobile application to send emails to my newsletter subscribers. To send the emails I call a **netlify function** that uses the **Resend** api. I used **React Emal** to create the templates."
-  },
-  {
-    "date": "2K24",
-    "stack": ["Astro", "React", "Tailwind CSS"],
-    "title": "ndrstndng·str",
-    "link": "https://understanding-astro-webook.vercel.app/",
-    "background": "0 0 100",
-    "img": {
-      "alt": "Understanding Astro web book screenshot",
-      "height": 1200,
-      "width": 800,
-      "src": "/img/understanding-astro-screenshot-dark.webp"
-    },
-    "description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP)."
-  },
-  {
-    "date": "2022",
-    "stack": ["Python", "Manim"],
-    "title": "Phtgrn·Thrm",
-    "link": "https://github.com/michelangelo-valderrama/python-mini-projects/tree/main/manim-theorem",
-    "background": "9 77 63",
-    "img": {
-      "alt": "Pythagorean theorem screenshot",
-      "height": 1920,
-      "width": 1080,
-      "src": "/img/phytagorean-screenshot.webp"
-    },
-    "description": "A purely visual proof of the Pythagorean theorem."
-  }
+	{
+		"date": "2K24",
+		"stack": ["Astro", "React", "Tailwind CSS", "Resend"],
+		"title": "Personal·Blog",
+		"link": "https://imangelo.dev",
+		"background": "0 0 100",
+		"img": {
+			"alt": "Imangelo blog screenshot",
+			"width": 1200,
+			"height": 800,
+			"src": "/img/imangelo-screenshot.webp"
+		},
+		"description": "My personal blog where I write about: [**science**](https://imangelo.dev/el-principio-del-universo), [**reflections**](https://imangelo.dev/las-matematicas-no-son-una-ciencia), [**tutorials**](https://imangelo.dev/como-hacer-un-videojuego-con-pico-8), etc... Small personal project where I create some **Remark** and **Rehype** plugins for the articles. Additionally, I implemented a [**newsletter**](https://imangelo.dev/newsletter) with **Resend**."
+	},
+	{
+		"date": "2k24",
+		"stack": ["Astro", "Preact", "Tailwind CSS", "Docker"],
+		"title": "IF7SPORTS·WEB",
+		"link": "https://if7sports.com/en",
+		"background": "140 50 50",
+		"img": {
+			"alt": "IF7SPORTS web screenshot",
+			"width": 1200,
+			"height": 800,
+			"src": "/img/if7sports-screenshot.webp"
+		},
+		"description": "Migration from **Angular** to **Astro** of the **IF7SPORTS** website. Improvements in SEO and optimization. Implementation of an i18n system in Astro. Here is an article about the migration: [**Presenting our new website**](https://if7sports.com/en/blog/presenting-our-new-website/)."
+	},
+	{
+		"date": "2K24",
+		"stack": ["React", "Capacitor", "Resend", "Netlify", "Tailwind CSS"],
+		"title": "Send",
+		"link": "https://github.com/michelangelo-valderrama/send-app",
+		"background": "0 0 100",
+		"img": {
+			"alt": "Send mobile app screenshot",
+			"width": 1200,
+			"height": 800,
+			"src": "/img/send-screenshot.webp"
+		},
+		"description": "Mobile application to send emails to my newsletter subscribers. To send the emails I call a **netlify function** that uses the **Resend** api. I used **React Emal** to create the templates."
+	},
+	{
+		"date": "2K24",
+		"stack": ["Astro", "React", "Tailwind CSS"],
+		"title": "ndrstndng·str",
+		"link": "https://understanding-astro-webook.vercel.app/",
+		"background": "0 0 100",
+		"img": {
+			"alt": "Understanding Astro web book screenshot",
+			"width": 1200,
+			"height": 800,
+			"src": "/img/understanding-astro-screenshot-dark.webp"
+		},
+		"description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP)."
+	},
+	{
+		"date": "2022",
+		"stack": ["Python", "Manim"],
+		"title": "Phtgrn·Thrm",
+		"link": "https://github.com/michelangelo-valderrama/python-mini-projects/tree/main/manim-theorem",
+		"background": "9 77 63",
+		"img": {
+			"alt": "Pythagorean theorem screenshot",
+			"width": 1920,
+			"height": 1080,
+			"src": "/img/phytagorean-screenshot.webp"
+		},
+		"description": "A purely visual proof of the Pythagorean theorem."
+	}
 ]

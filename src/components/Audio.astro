@@ -1,147 +1,190 @@
 ---
-import { Play, Pause } from "lucide"
-import LucideIcon from "./LucideIcon.astro"
+import { Play, Pause } from 'lucide'
+import LucideIcon from '@/components/LucideIcon.astro'
 
 interface Props {
-  audio: string
-  title: string
-  class?: string
+	audio: string
+	title: string
+	time?: string
+	class?: string
 }
 
-const { audio, title } = Astro.props
+const { audio, title, time } = Astro.props
 
-const [id] = audio.split(".")
+const [id] = audio.split('.')
 const img = `img/${id}.webp`
 ---
 
 <div
-  class:list={[
-    "flex flex-col gap-y-2 text-[8px] md:text-2xs font-mono w-[160px] md:w-[200px]",
-    Astro.props.class,
-  ]}
+	data-id={id}
+	class:list={[
+		'flex flex-col gap-y-2 text-[8px] md:text-2xs font-mono w-[160px] md:w-[200px]',
+		Astro.props.class
+	]}
 >
-  <audio data-id={id} src={`/audio/${audio}`}></audio>
-  <div class="relative">
-    <span
-      class="absolute top-0 left-0 py-1.5 pl-2 pr-4 bg-background rounded-tl-xl rounded-br-xl"
-      >{title}</span
-    >
-    <img
-      src={img}
-      alt={title}
-      width="600"
-      height="600"
-      class="size-full aspect-square rounded-xl"
-      decoding="async"
-      loading="lazy"
+	<audio data-id={id} src={`/audio/${audio}`}></audio>
+	<div class="relative">
+		<div class="relative z-10 transition duration-500 delay-500" audio-image>
+			<span
+				class="absolute top-0 left-0 py-1.5 pl-2 pr-4 bg-background rounded-tl-xl rounded-br-xl"
+				>{title}</span
+			>
+			<img
+				src={img}
+				alt={`${title} cover`}
+				width="600"
+				height="600"
+				class="size-full aspect-square rounded-md relative"
+				decoding="async"
+				loading="lazy"
+			/>
+		</div>
+		<div
+			audio-vinil
+			class="absolute top-1/2 -translate-y-1/2 z-0 size-[90%] transition-transform duration-500 delay-500"
+		>
+			<img
+				class="relative transition ease-linear duration-500 aspect-square"
+				src="/img/vinyl.webp"
+				alt="Vinil image"
+				width="360"
+				height="360"
+				decoding="async"
+				loading="lazy"
+			/>
+		</div>
+	</div>
+	<div>
+		<div class="flex justify-between text-foreground/80">
+			<span current-time>0:00</span>
+			<span total-time>{time}</span>
+		</div>
+		<input
+      progress-bar
+      type="range"
+      min="0"
+      max="100"
+      step="1"
+      value="0"
+      class={`w-full h-0.5 bg-foreground/50 rounded-full appearance-none cursor-pointer`}
     />
-  </div>
-  {/* Audio Controls */}
-  <div>
-    <div class="flex justify-between mb-1 text-foreground/80">
-      <span data-id={id} current-time>0:00</span>
-      <span data-id={id} total-time>0:00</span>
-    </div>
-    <div class="h-0.5 bg-foreground/50 rounded-full">
-      <div
-        data-id={id}
-        progress-bar
-        class="h-full bg-foreground rounded-full w-0 relative transition-none"
-      >
-        <div class="absolute top-1/2 -right-1 -translate-y-1/2">
-          <div class="size-2.5 rounded-full bg-foreground"></div>
-        </div>
-      </div>
-    </div>
-    <div class="flex justify-center mt-2">
-      <button
-        data-playing="false"
-        data-id={id}
-        play-btn
-        type="button"
-        class="flex items-center justify-center size-8 rounded-full bg-foreground text-background"
-      >
-        <div play-icon>
-          <LucideIcon icon={Play} class="size-4 fill-current" />
-          <span class="sr-only">Play</span>
-        </div>
-        <div pause-icon>
-          <LucideIcon icon={Pause} class="size-4 fill-current" />
-          <span class="sr-only">Pause</span>
-        </div>
-      </button>
-    </div>
-  </div>
+		<div class="flex justify-center mt-1">
+			<button
+				play-btn
+				type="button"
+				class="flex items-center justify-center size-8 rounded-full bg-white text-background"
+			>
+				<div play-icon>
+					<LucideIcon icon={Play} class="size-4 fill-current" />
+					<span class="sr-only">Play</span>
+				</div>
+				<div pause-icon>
+					<LucideIcon icon={Pause} class="size-4 fill-current" />
+					<span class="sr-only">Pause</span>
+				</div>
+			</button>
+		</div>
+	</div>
 </div>
 
 <style>
-  [data-playing="true"] [play-icon] {
-    display: none;
-  }
-  [data-playing="true"] [pause-icon] {
-    display: inline-block;
-  }
-  [data-playing="false"] [play-icon] {
-    display: inline-block;
-  }
-  [data-playing="false"] [pause-icon] {
-    display: none;
-  }
+	:global([data-playing='true']) [play-icon] {
+		display: none;
+	}
+	:global([data-playing='true']) [pause-icon] {
+		display: inline-block;
+	}
+	:global([data-playing='false']) [play-icon] {
+		display: inline-block;
+	}
+	:global([data-playing='false']) [pause-icon] {
+		display: none;
+	}
+
+	:global([data-pos='0']) [audio-image] {
+		transform: translateX(-25%);
+	}
+
+	:global([data-pos='0']) [audio-vinil] {
+		transform: translateY(-50%) translateX(40%);
+	}
 </style>
 
 <script>
-  const audios = document.querySelectorAll<HTMLAudioElement>("audio")!
+	import { $, $$ } from '@/lib/utils'
 
-  function formatTime(time: number) {
-    if (!time) return "0:00"
+	const $carousel = $<HTMLDivElement>('#carousel')
+	const $audios = $$<HTMLAudioElement>('audio')!
 
-    const minutes = Math.floor(time / 60)
-    const seconds = Math.floor(time % 60)
+	function formatTime(time: number) {
+		if (!time) return null
 
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`
-  }
+		const minutes = Math.floor(time / 60)
+		const seconds = Math.floor(time % 60)
 
-  for (const audio of audios) {
-    const audioId = audio.dataset.id!,
-      playBtn = document.querySelector<HTMLButtonElement>(
-        `[data-id="${audioId}"][play-btn]`
-      )!,
-      currentTime = document.querySelector<HTMLSpanElement>(
-        `[data-id="${audioId}"][current-time]`
-      )!,
-      totalTime = document.querySelector<HTMLSpanElement>(
-        `[data-id="${audioId}"][total-time]`
-      )!,
-      progressBar = document.querySelector<HTMLDivElement>(
-        `[data-id="${audioId}"][progress-bar]`
-      )!
+		return `${minutes}:${seconds.toString().padStart(2, '0')}`
+	}
 
-    let isPlaying = false
+	for (const $audio of $audios) {
+		let isPlaying = false
 
-    currentTime.textContent = "0:00"
-    totalTime.textContent = formatTime(audio.duration)
+		const audioId = $audio.dataset.id!,
+			$playBtn = document.querySelector<HTMLButtonElement>(
+				`[data-id="${audioId}"] [play-btn]`
+			)!,
+			$currentTime = document.querySelector<HTMLSpanElement>(
+				`[data-id="${audioId}"] [current-time]`
+			)!,
+			$totalTime = document.querySelector<HTMLSpanElement>(
+				`[data-id="${audioId}"] [total-time]`
+			)!,
+			$progressBar = document.querySelector<HTMLInputElement>(
+				`[data-id="${audioId}"] [progress-bar]`
+			)!,
+			$audioVinil = document.querySelector<HTMLImageElement>(
+				`[data-id="${audioId}"] [audio-vinil] > img`
+			)!
 
-    playBtn.addEventListener("click", () => {
-      if (audio.paused) audio.play()
-      else audio.pause()
+		$currentTime.textContent = '0:00'
+		const totalTime = formatTime($audio.duration)
+		if (totalTime) $totalTime.textContent = totalTime
 
-      isPlaying = !isPlaying
-      playBtn.dataset.playing = `${isPlaying}`
-    })
+		$playBtn.addEventListener('click', () => {
+			if ($audio.paused) $audio.play()
+			else $audio.pause()
 
-    audio.addEventListener("timeupdate", () => {
-      const { currentTime: ct, duration } = audio
+			isPlaying = !isPlaying
+			$carousel.dataset.playing = `${isPlaying}`
+		})
 
-      currentTime.textContent = formatTime(ct)
-      totalTime.textContent = formatTime(duration)
+		$audio.addEventListener('timeupdate', () => {
+			const { currentTime: ct, duration } = $audio
 
-      const progress = (ct / duration) * 100
-      progressBar.style.width = `${progress}%`
-    })
+			$currentTime.textContent = formatTime(ct) ?? '0:00'
+			$totalTime.textContent = formatTime(duration) ?? '0:00'
 
-    audio.addEventListener("ended", () => {
-      isPlaying = false
-      playBtn.dataset.playing = `${isPlaying}`
-    })
-  }
+			const progress = (ct / duration) * 100
+			$progressBar.value = `${progress}`
+
+			$audioVinil.style.transform = `rotate(${(ct % 360) * 100}deg)`
+		})
+
+		$audio.addEventListener('ended', () => {
+			isPlaying = false
+			$carousel.dataset.playing = `${isPlaying}`
+		})
+
+		$carousel.addEventListener('rotate', () => {
+			$audio.pause()
+			$audio.currentTime = 0
+			isPlaying = false
+			$carousel.dataset.playing = `${isPlaying}`
+		})
+
+		$progressBar.addEventListener('input', () => {
+			const { value } = $progressBar
+			const seekTo = (+value / 100) * $audio.duration
+			$audio.currentTime = seekTo
+		})
+	}
 </script>

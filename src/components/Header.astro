@@ -1,59 +1,50 @@
 ---
-import Link from "./Link.astro"
-import MenuBtn from "@/components/MenuBtn.astro"
-import LucideIcon from "./LucideIcon.astro"
-import { ArrowRight } from "lucide"
-import TextAnim from "./TextAnim.astro"
+import { ArrowRight } from 'lucide'
+import Link from '@/components/Link.astro'
+import MenuBtn from '@/components/MenuBtn.astro'
+import LucideIcon from '@/components/LucideIcon.astro'
 ---
 
 <header
-  class="fixed top-[--fp] left-[--fp] right-[--fp] p-4 z-30 uppercase text-[hsl(var(--header-foreground))]"
+	class="fixed top-[--fp] left-[--fp] right-[--fp] p-4 z-30 uppercase text-[hsl(var(--header-foreground))]"
 >
-  <div
-    class="flex items-center xl:items-start justify-between text-xs font-mono"
-  >
-    <p class="text-base font-bold select-none">
-      <TextAnim>[MK24]</TextAnim>
-    </p>
-    <!-- Desktop -->
-    <div class="hidden xl:flex text-xs gap-x-12">
-      <p>
-        <TextAnim>Write me an email</TextAnim>
-        <TextAnim>
-          <Link href="mailto:michelangelovalderrama@gmail.com"
-            >michelangelovalderrama@gmail.com</Link
-          >
-        </TextAnim>
-      </p>
-      <p>
-        <TextAnim>Social:</TextAnim>
-        <TextAnim class="flex gap-x-2">
-          <Link
-            href="https://github.com/michelangelo-valderrama"
-            target="_blank">GTHB</Link
-          >
-          <Link
-            href="https://www.linkedin.com/in/michelangelo-v-2a71702b1"
-            target="_blank">LI</Link
-          >
-          <Link href="https://twitter.com/VTokyo9" target="_blank">TW</Link>
-        </TextAnim>
-      </p>
-    </div>
-    <nav
-      class="hidden xl:block *:flex *:items-center *:justify-end *:gap-x-1.5 relative"
-    >
-      <TextAnim id="nav-arrow" class="absolute -left-5 transition-all">
-        <LucideIcon class="size-3.5" icon={ArrowRight} />
-      </TextAnim>
-      <TextAnim>
-        <a href="/#home">Home</a>
-      </TextAnim>
-      <TextAnim>
-        <a href="/#cv">Rsm</a>
-      </TextAnim>
-    </nav>
-    <!-- Mobile -->
-    <MenuBtn />
-  </div>
+	<div
+		class="flex items-center xl:items-start justify-between text-xs font-mono"
+	>
+		<p class="text-base font-bold select-none">[MK24]</p>
+		<!-- Desktop -->
+		<div class="hidden xl:flex text-xs gap-x-12">
+			<p>
+				Write me an email
+				<Link class="block" href="mailto:michelangelovalderrama@gmail.com"
+					>michelangelovalderrama@gmail.com</Link
+				>
+			</p>
+			<p>
+				Social:
+				<span class="flex gap-x-2">
+					<Link
+						href="https://github.com/michelangelo-valderrama"
+						target="_blank">GTHB</Link
+					>
+					<Link
+						href="https://www.linkedin.com/in/michelangelo-v-2a71702b1"
+						target="_blank">LI</Link
+					>
+					<Link href="https://twitter.com/VTokyo9" target="_blank">TW</Link>
+				</span>
+			</p>
+		</div>
+		<nav
+			class="hidden xl:block *:flex *:items-center *:justify-end *:gap-x-1.5 relative"
+		>
+			<span id="nav-arrow" class="absolute -left-5 transition-all">
+				<LucideIcon class="size-3.5" icon={ArrowRight} />
+			</span>
+			<a href="/#home">Home</a>
+			<a href="/#cv">Rsm</a>
+		</nav>
+		<!-- Mobile -->
+		<MenuBtn />
+	</div>
 </header>

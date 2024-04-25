@@ -1,61 +1,64 @@
 ---
-import type { HTMLAttributes } from "astro/types"
+import type { HTMLAttributes } from 'astro/types'
 
-interface Props extends HTMLAttributes<"span"> {
-  d?: string
-  h?: string
-  s?: string
-  trigger?: boolean
+interface Props extends HTMLAttributes<'span'> {
+	d?: string
+	h?: string
+	s?: string
+	trigger?: boolean
 }
 
-const { d = "0", h = "2rem", s = "1s", trigger = false, ...props } = Astro.props
+const { d = '0', h = '2rem', s = '1s', trigger = false, ...props } = Astro.props
 ---
 
 <span up-text-anim-ctn {...props}>
-  {
-    trigger ? (
-      <span
-        up-text-anim-active
-        style={`top: ${h}; animation-delay: ${d}; animation-duration: ${s};`}
-      >
-        <slot />
-      </span>
-    ) : (
-      <span up-text-anim style={`top: ${h}; animation-delay: ${d};`}>
-        <slot />
-      </span>
-    )
-  }
+	{
+		trigger ? (
+			<span
+				up-text-anim-active
+				style={`top: ${h}; animation-delay: ${d}; animation-duration: ${s};`}
+			>
+				<slot />
+			</span>
+		) : (
+			<span up-text-anim style={`top: ${h}; animation-delay: ${d};`}>
+				<slot />
+			</span>
+		)
+	}
 </span>
 
 <style>
-  /* Up text animation */
-  [up-text-anim-ctn] {
-    overflow: hidden;
-    display: block;
-  }
-  [up-text-anim] {
-    position: relative;
-    top: 2rem;
-    left: 0;
-    animation: up 1250ms forwards;
-  }
-  /* With trigger */
-  [up-text-anim-active] {
-    position: relative;
-    top: 0;
-    left: 0;
-  }
+	@media (min-width: 400px) {
+		/* Up text animation */
+		[up-text-anim-ctn] {
+			overflow: hidden;
+			display: block;
+		}
+		[up-text-anim] {
+			position: relative;
+			top: 2rem;
+			left: 0;
+			animation: up 400ms forwards;
+		}
 
-  /* :global(var(--trigger)) [up-text-anim-active] {
+		/* With trigger */
+		[up-text-anim-active] {
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+		/* :global(var(--trigger)) [up-text-anim-active] {
     animation: up 1s forwards;
     top: 2rem;
     transition: all 1s;
   } */
 
-  @keyframes up {
-    to {
-      top: 0;
-    }
-  }
+		@keyframes up {
+			to {
+				top: 0;
+			}
+		}
+	}
 </style>
