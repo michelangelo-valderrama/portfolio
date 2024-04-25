@@ -1,58 +1,76 @@
 ---
-import { SEO } from "astro-seo"
-import NoiseEffect from "@/components/NoiseEffect.astro"
-import Header from "@/components/Header.astro"
-import PageFrame from "@/components/PageFrame.astro"
-import "@/styles/global.css"
-import KeyNav from "@/components/KeyNav.astro"
+import { SEO } from 'astro-seo'
+import NoiseEffect from '@/components/NoiseEffect.astro'
+import Header from '@/components/Header.astro'
+import PageFrame from '@/components/PageFrame.astro'
+import '@/styles/global.css'
+import KeyNav from '@/components/KeyNav.astro'
 
 const image = `${Astro.site}img/banner.png`
 ---
 
 <!doctype html>
 <html lang="en" class="overscroll-none">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#000" />
-    <SEO
-      title="Michelangelo's Portfolio"
-      description="Michelangelo - Full Stack Developer & passionate about art and science."
-      openGraph={{
-        basic: {
-          title: "Michelangelo's Portfolio",
-          type: "website",
-          image,
-        },
-      }}
-      twitter={{
-        title: "Michelangelo's Portfolio",
-        card: "summary_large_image",
-        creator: "@VTokyo9",
-        image,
-        imageAlt: "Michelangelo's Portfolio",
-        description:
-          "Michelangelo - Full Stack Developer & passionate about art and science.",
-        site: "@VTokyo9",
-      }}
-    />
-    <link rel="preconnect" href="/fonts/RobotFlex-Variable.ttf" crossorigin />
-  </head>
-  <body
-    class="font-sans text-foreground bg-background h-dvh select-none xs:transition-all"
-  >
-    <PageFrame />
-    <Header />
-    <main class="h-full p-[--fp]">
-      <div
-        id="content"
-        class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp]"
-      >
-        <slot />
-      </div>
-    </main>
-    <NoiseEffect />
-    <KeyNav />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+		<meta name="theme-color" content="#000" />
+		<SEO
+			title="Michelangelo's Portfolio"
+			description="Michelangelo - Full Stack Developer & passionate about art and science."
+			openGraph={{
+				basic: {
+					title: "Michelangelo's Portfolio",
+					type: 'website',
+					image
+				}
+			}}
+			twitter={{
+				title: "Michelangelo's Portfolio",
+				card: 'summary_large_image',
+				creator: '@VTokyo9',
+				image,
+				imageAlt: "Michelangelo's Portfolio",
+				description:
+					'Michelangelo - Full Stack Developer & passionate about art and science.',
+				site: '@VTokyo9'
+			}}
+		/>
+		<link
+			rel="preload"
+			href="/fonts/RobotFlex-Variable.ttf"
+			as="font"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/RobotFlex-Variable.woff2"
+			as="font"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/img/imangelo-screenshot.webp"
+			as="image"
+			type="image/webp"
+			crossorigin
+		/>
+	</head>
+	<body
+		class="font-sans text-foreground bg-background h-dvh select-none xs:transition-all"
+	>
+		<PageFrame />
+		<Header />
+		<main class="h-full p-[--fp]">
+			<div
+				id="content"
+				class="relative h-full rounded-2xl overflow-x-hidden space-y-[--fp]"
+			>
+				<slot />
+			</div>
+		</main>
+		<NoiseEffect />
+		<KeyNav />
+	</body>
 </html>
