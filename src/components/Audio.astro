@@ -23,7 +23,7 @@ const img = `img/${id}.webp`
     Astro.props.class
   ]}
 >
-  <audio data-id={id} src={`/audio/${audio}`}></audio>
+  <audio preload="none" data-id={id} src={`/audio/${audio}`}></audio>
   <div class="relative">
     <div class="relative z-10 transition duration-500 delay-500" audio-image>
       <span
