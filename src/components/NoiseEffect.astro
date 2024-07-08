@@ -9,11 +9,13 @@
     frame = 0,
     loopTimeout: number
 
-  const canvas = document.getElementById("canvas-noise") as HTMLCanvasElement
-  const ctx = canvas.getContext("2d")!
+  const canvas = document.getElementById('canvas-noise') as HTMLCanvasElement
+  const ctx = canvas.getContext('2d')!
 
-  init()
-  reset()
+  window.addEventListener('load', () => {
+    init()
+    reset()
+  })
 
   function createNoise() {
     const idata = ctx.createImageData(width, height)
@@ -44,7 +46,7 @@
 
     loopTimeout = window.setTimeout(() => {
       window.requestAnimationFrame(loop)
-    }, 1000 / 25)
+    }, 1000 / 20)
   }
 
   function init() {
@@ -64,13 +66,14 @@
   let resizeThrottle: number
   function reset() {
     window.addEventListener(
-      "resize",
+      'resize',
       () => {
         window.clearTimeout(resizeThrottle)
 
         resizeThrottle = window.setTimeout(() => {
           window.clearTimeout(loopTimeout)
           init()
+          reset()
         }, 200)
       },
       false

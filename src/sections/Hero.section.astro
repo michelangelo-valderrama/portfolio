@@ -4,44 +4,29 @@ import TextAnim from '@/components/TextAnim.astro'
 ---
 
 <Section
-	id="home"
-	anim
-	frame="20 8% 0%"
-	fg="51 22% 69%"
-	bg="20 8% 0%"
-	class={`
+  id="home"
+  anim
+  frame="20 8% 0%"
+  fg="51 22% 69%"
+  bg="20 8% 0%"
+  class={`
     flex justify-center items-center
     xs:transition-all xs:duration-500 xs:opacity-0
     text-foreground
   `}
 >
-	<div class="px-2 uppercase select-none flex items-center justify-center">
-		{
-			/*
-    <div
-      class="*:block absolute top-14 sm:top-20 right-4 font-black font-impact text-base xs:text-lg sm:text-2xl md:text-3xl"
-    >
-      <TextAnim trigger h="3.5rem">ミ</TextAnim>
-      <TextAnim trigger h="3.5rem" d="100ms">ケ</TextAnim>
-      <TextAnim trigger h="3.5rem" d="200ms">ラ</TextAnim>
-      <TextAnim trigger h="3.5rem" d="300ms">ン</TextAnim>
-      <TextAnim trigger h="3.5rem" d="400ms">ジ</TextAnim>
-      <TextAnim trigger h="3.5rem" d="500ms">ェ</TextAnim>
-      <TextAnim trigger h="3.5rem" d="600ms">ロ</TextAnim>
+  <div class="px-2 uppercase select-none flex items-center justify-center">
+    <div class="text-center">
+      <h1
+        class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-serif italic"
+      >
+        <TextAnim trigger class="px-2" h="4rem">Michelangelo</TextAnim>
+      </h1>
+      <p class="text-xs sm:text-base md:text-lg font-bold">
+        <TextAnim trigger d="400ms" h="2.5rem">
+          Full stack developer & web designer
+        </TextAnim>
+      </p>
     </div>
-    */
-		}
-		<div class="text-center">
-			<h1
-				class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-serif italic"
-			>
-				<TextAnim trigger class="px-2" h="4rem">Michelangelo</TextAnim>
-			</h1>
-			<p class="text-xs sm:text-base md:text-lg font-bold">
-				<TextAnim trigger d="400ms" h="2.5rem">
-					Full stack developer & passionate about art and science
-				</TextAnim>
-			</p>
-		</div>
-	</div>
+  </div>
 </Section>

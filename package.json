@@ -14,6 +14,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/roboto-flex": "^5.0.15",
     "astro": "^4.5.9",
     "astro-seo": "^0.8.3",
     "lucide": "^0.363.0",

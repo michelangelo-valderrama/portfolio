@@ -1,0 +1,40 @@
+<div class="slider w-full h-1 bg-foreground/20 rounded-full relative">
+  <div class="slider-bar h-full bg-foreground rounded-full absolute"></div>
+  <div
+    class="slider-ball size-2.5 bg-foreground rounded-full absolute top-1/2 -translate-y-1/2 left-0 cursor-pointer"
+  >
+  </div>
+</div>
+
+<script>
+  import { $, $$ } from '@/lib/utils'
+
+  const sliders = $$('.slider')
+
+  sliders.forEach((slider) => {
+    const ball = slider.querySelector('.slider-ball') as HTMLElement
+    const sliderBar = slider.querySelector('.slider-bar') as HTMLElement
+
+    let isDown = false
+
+    ball.addEventListener('mousedown', () => {
+      isDown = true
+      ball.classList.add('active')
+    })
+
+    window.addEventListener('mouseup', () => {
+      isDown = false
+      ball.classList.remove('active')
+    })
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return
+
+      const x = e.clientX - slider.offsetLeft
+      const percent = (x / slider.offsetWidth) * 100
+
+      ball.style.left = `${percent}%`
+      sliderBar.style.width = `${percent}%`
+    })
+  })
+</script>

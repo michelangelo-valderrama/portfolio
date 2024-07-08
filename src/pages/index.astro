@@ -1,16 +1,16 @@
 ---
-import LoadingScreen from "@/components/LoadingScreen.astro"
-import Root from "@/layouts/Root.layout.astro"
-import Experience from "@/sections/Experience.section.astro"
-import Hero from "@/sections/Hero.section.astro"
-import More from "@/sections/More.section.astro"
-import Personal from "@/sections/Personal.section.astro"
-import Projects from "@/sections/Projects.section.astro"
-import TechSkills from "@/sections/TechSkills.section.astro"
+import LoadingScreen from '@/components/LoadingScreen.astro'
+import Root from '@/layouts/Root.layout.astro'
+import Experience from '@/sections/Experience.section.astro'
+import Hero from '@/sections/Hero.section.astro'
+import More from '@/sections/More.section.astro'
+import Personal from '@/sections/Personal.section.astro'
+import Projects from '@/sections/Projects.section.astro'
+import TechSkills from '@/sections/TechSkills.section.astro'
 ---
 
+<LoadingScreen />
 <Root>
-  <LoadingScreen />
   <Hero />
   <Projects />
   <TechSkills />
@@ -32,34 +32,37 @@ import TechSkills from "@/sections/TechSkills.section.astro"
 </style>
 
 <script>
-  const sections = document.querySelectorAll<HTMLDivElement>("[section-ctn]")
-  const body = document.body
+  function frame() {
+    const sections = document.querySelectorAll<HTMLDivElement>('[section-ctn]')
+    const body = document.body
 
-  const options: IntersectionObserverInit = {
-    root: document.querySelector("#content")!,
-    rootMargin: "0px",
-    threshold: 0.5,
+    const options: IntersectionObserverInit = {
+      root: document.querySelector('#content')!,
+      rootMargin: '0px',
+      threshold: 0.5
+    }
+
+    sections.forEach((section) => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target as HTMLDivElement
+            const { fg, bg, frame, pBg } = target.dataset
+
+            target.classList.add('in-view')
+
+            if (fg) body.style.setProperty('--header-foreground', fg)
+            if (bg) body.style.setProperty('--background', bg)
+            if (frame) body.style.setProperty('--frame', frame)
+            if (pBg) body.style.setProperty('--p-bg', pBg)
+          } else {
+            entry.target.classList.remove('in-view')
+          }
+        })
+      }, options)
+
+      observer.observe(section)
+    })
   }
-
-  sections.forEach((section) => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const { fg, bg, frame, pBg } = (entry.target as HTMLDivElement)
-            .dataset
-
-          entry.target.classList.add("in-view")
-
-          if (fg) body.style.setProperty("--header-foreground", fg)
-          if (bg) body.style.setProperty("--background", bg)
-          if (frame) body.style.setProperty("--frame", frame)
-          if (pBg) body.style.setProperty("--p-bg", pBg)
-        } else {
-          entry.target.classList.remove("in-view")
-        }
-      })
-    }, options)
-
-    observer.observe(section)
-  })
+  window.addEventListener('DOMContentLoaded', frame)
 </script>

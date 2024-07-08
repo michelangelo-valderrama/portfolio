@@ -99,36 +99,33 @@
 </style>
 
 <script>
-  const loadingScreen =
-    document.querySelector<HTMLDivElement>("#loading-screen")!
-  const content = document.querySelector<HTMLDivElement>("#content")!
-  const heroSection = document.querySelector<HTMLDivElement>("#home")!
+  import { $ } from '@/lib/utils'
 
-  content.style.overflowY = "hidden"
-  heroSection.classList.add("hidden")
+  const loadingScreen = $<HTMLDivElement>('#loading-screen')!
+  const content = $<HTMLDivElement>('#content')!
+  const main = $('main')
 
-  document.addEventListener("DOMContentLoaded", () => {
+  content.style.overflowY = 'hidden'
+  main.style.display = 'none'
+
+  document.addEventListener('DOMContentLoaded', () => {
     let progress = 0
     const increment = 20
 
     const updateLoop = setInterval(() => {
-      console.log(progress)
       if (progress >= 100) {
         clearInterval(updateLoop)
 
         setTimeout(() => {
-          console.log("done")
-
-          loadingScreen.classList.add("opacity-0", "pointer-events-none")
-          heroSection.classList.remove("hidden")
+          loadingScreen.classList.add('opacity-0', 'pointer-events-none')
+          main.style.display = ''
 
           setTimeout(() => {
-            content.style.overflowY = "scroll"
+            content.style.overflowY = 'scroll'
             loadingScreen.remove()
           }, 500)
         }, 0)
       }
-      // updateProgress(progress)
       progress += increment
     }, 100)
   })

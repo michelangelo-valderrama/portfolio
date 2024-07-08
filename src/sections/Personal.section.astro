@@ -8,58 +8,60 @@ import { SkipBack, SkipForward } from 'lucide'
 ---
 
 <Section
-	id="personal"
-	anim
-	fg="0 0% 72%"
-	bg="0 0% 0%"
-	class="xs:transition-all xs:duration-500 xs:opacity-0"
+  id="personal"
+  anim
+  fg="0 0% 72%"
+  bg="0 0% 0%"
+  class="xs:transition-all xs:duration-500 xs:opacity-0"
 >
-	<div class="flex flex-col items-center justify-center h-[85%]">
-		<h1
-			class={`
+  <div class="flex flex-col items-center justify-center h-[85%]">
+    <h1
+      class={`
       uppercase text-center font-black mb-4
       text-5xl xs:text-6xl sm:text-7xl md:text-8xl
     `}
-		>
-			<TextAnim trigger h="5.5rem">Personal</TextAnim>
-		</h1>
-		<Carousel>
-			<Audio
-				slot="0"
-				audio="where-is-my-mind.mp3"
-				title="Where Is My Mind - Cover"
-				time="1:10"
-			/>
-			<Audio
-				slot="1"
-				audio="moonlight-sonata.mp3"
-				title="Moonlight Sonata - Cover"
-				time="4:22"
-			/>
-			<Audio slot="2" audio="prisma.mp3" title="Prisma" time="0:45" />
-			<Audio slot="3" audio="mst-mgn.mp3" title="Mst Mgn" time="2:21" />
-			<button
-				id="prev"
-				type="button"
-				class="absolute bottom-[-12px] md:bottom-[-120px] left-[-28px] md:left-[-40px] group"
-			>
-				<LucideIcon
-					icon={SkipBack}
-					class="size-5 group-hover:fill-foreground"
-				/>
-				<span class="sr-only">Skip Back</span>
-			</button>
-			<button
-				id="next"
-				type="button"
-				class="absolute bottom-[-12px] md:bottom-[-120px] right-[-28px] md:right-[-40px] group"
-			>
-				<LucideIcon
-					icon={SkipForward}
-					class="size-5 group-hover:fill-foreground"
-				/>
-				<span class="sr-only">Skip Forward</span>
-			</button>
-		</Carousel>
-	</div>
+    >
+      <TextAnim trigger h="5.5rem">Personal</TextAnim>
+    </h1>
+    <Carousel>
+      <Audio
+        slot="0"
+        audio="where-is-my-mind.mp3"
+        title="Where Is My Mind - Cover"
+        time="1:10"
+      />
+      <Audio
+        slot="1"
+        audio="moonlight-sonata.mp3"
+        title="Moonlight Sonata - Cover"
+        time="4:22"
+      />
+      <Audio slot="2" audio="prisma.mp3" title="Prisma" time="0:45" />
+      <Audio slot="3" audio="mst-mgn.mp3" title="Mst Mgn" time="2:21" />
+      <button
+        id="prev"
+        type="button"
+        class="absolute bottom-[-28px] md:bottom-[-128px] left-[-28px] md:left-[-40px] group"
+				aria-labelledby="skip-back"
+      >
+        <LucideIcon
+          icon={SkipBack}
+          class="size-6 group-hover:fill-foreground"
+        />
+        <span id="skip-back" class="sr-only">Skip Back</span>
+      </button>
+      <button
+        id="next"
+        type="button"
+        class="absolute bottom-[-28px] md:bottom-[-128px] right-[-28px] md:right-[-40px] group"
+        aria-labelledby="skip-forward"
+      >
+        <LucideIcon
+          icon={SkipForward}
+          class="size-6 group-hover:fill-foreground"
+        />
+        <span id="skip-forward" class="sr-only">Skip Forward</span>
+      </button>
+    </Carousel>
+  </div>
 </Section>
