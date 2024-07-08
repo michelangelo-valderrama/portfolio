@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo'
+import LoadingScreen from '@/components/LoadingScreen.astro'
 import NoiseEffect from '@/components/NoiseEffect.astro'
 import Header from '@/components/Header.astro'
 import PageFrame from '@/components/PageFrame.astro'
@@ -48,6 +49,7 @@ const image = `${Astro.site}img/banner.png`
   <body
     class="font-sans text-foreground bg-background h-dvh select-none xs:transition-all"
   >
+    <LoadingScreen />
     <PageFrame />
     <Header />
     <main class="h-full p-[--fp]">
