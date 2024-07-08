@@ -1,6 +1,6 @@
 ---
-import type { HTMLAttributes } from "astro/types"
-interface Props extends HTMLAttributes<"svg"> {}
+import type { HTMLAttributes } from 'astro/types'
+interface Props extends HTMLAttributes<'svg'> {}
 ---
 
 <svg
@@ -10,22 +10,18 @@ interface Props extends HTMLAttributes<"svg"> {}
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   {...Astro.props}
->
-  <g clip-path="url(#clip0_207_401)">
-    <path
-      d="M28.5744 48.7983C27.3089 50.3916 24.7434 49.5186 24.7129 47.4841L24.2673 17.7271H44.2762C47.9001 17.7271 49.9213 21.9129 47.6678 24.7509L28.5744 48.7983Z"
-      fill="currentColor"></path>
-    <path
-      d="M20.4367 0.916359C21.7022 -0.677004 24.2673 0.196005 24.2978 2.23052L24.4934 31.9876H4.73452C1.11062 31.9876 -0.911057 27.8018 1.34293 24.9633L20.4367 0.916359Z"
-      fill="currentColor"></path>
-  </g>
-  <defs>
-    <clipPath id="clip0_207_401">
-      <rect
-        width="48.2301"
-        height="50"
+  ><g clip-path="url(#a)" fill="currentColor"
+    ><path
+      d="M28.574 48.798c-1.265 1.594-3.83.72-3.861-1.314l-.446-29.757h20.01c3.623 0 5.644 4.186 3.39 7.024L28.575 48.798Z"
+    ></path><path
+      d="M20.437.916c1.265-1.593 3.83-.72 3.86 1.315l.196 29.757H4.735c-3.624 0-5.646-4.186-3.392-7.025L20.437.916Z"
+    ></path></g
+  ><defs
+    ><clipPath id="a"
+      ><path
         fill="currentColor"
-        transform="translate(0.38501)"></rect>
-    </clipPath>
-  </defs>
-</svg>
+        transform="translate(.385)"
+        d="M0 0h48.23v50H0z"></path></clipPath
+    ></defs
+  ></svg
+>
