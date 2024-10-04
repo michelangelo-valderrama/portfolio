@@ -4,7 +4,7 @@
 		"stack": ["Astro", "React", "Tailwind CSS", "Resend"],
 		"title": "Personal·Blog",
 		"link": "https://imangelo.dev",
-		"background": "0 0 100",
+		"background": "0 0% 100%",
 		"img": {
 			"alt": "Imangelo blog screenshot",
 			"width": 1200,
@@ -18,7 +18,7 @@
 		"stack": ["Astro", "Preact", "Tailwind CSS", "Docker"],
 		"title": "IF7SPORTS·WEB",
 		"link": "https://if7sports.com/en",
-		"background": "140 50 50",
+		"background": "140 50% 50%",
 		"img": {
 			"alt": "IF7SPORTS web screenshot",
 			"width": 1200,
@@ -32,7 +32,7 @@
 		"stack": ["React", "Capacitor", "Resend", "Netlify", "Tailwind CSS"],
 		"title": "Send",
 		"link": "https://github.com/michelangelo-valderrama/send-app",
-		"background": "0 0 100",
+		"background": "0 0% 100%",
 		"img": {
 			"alt": "Send mobile app screenshot",
 			"width": 1200,
@@ -46,7 +46,7 @@
 		"stack": ["Astro", "React", "Tailwind CSS"],
 		"title": "ndrstndng·str",
 		"link": "https://understanding-astro-webook.vercel.app/",
-		"background": "0 0 100",
+		"background": "0 0% 100%",
 		"img": {
 			"alt": "Understanding Astro web book screenshot",
 			"width": 1200,
@@ -60,7 +60,7 @@
 		"stack": ["Python", "Manim"],
 		"title": "Phtgrn·Thrm",
 		"link": "https://github.com/michelangelo-valderrama/python-mini-projects/tree/main/manim-theorem",
-		"background": "9 77 63",
+		"background": "9 77% 63%",
 		"img": {
 			"alt": "Pythagorean theorem screenshot",
 			"width": 1920,
