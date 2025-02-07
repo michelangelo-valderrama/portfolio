@@ -1,8 +1,8 @@
 ---
-/* import { Download } from 'lucide' */
+import { Download } from 'lucide'
 import Section from '@/components/Section.astro'
-/* import LucideIcon from '@/components/LucideIcon.astro'
-import HeroLink from '@/components/HeroLink.astro' */
+import LucideIcon from '@/components/LucideIcon.astro'
+import HeroLink from '@/components/HeroLink.astro'
 import TextAnim from '@/components/TextAnim.astro'
 ---
 
@@ -29,20 +29,16 @@ import TextAnim from '@/components/TextAnim.astro'
 			<a href="https://www.linkedin.com/in/michelangelo-v-2a71702b1">Linkedin</a
 			>
 		</TextAnim>
-		{
-			/*
-    <TextAnim trigger h="5.5rem" d="200ms" class="px-2">
-      <HeroLink href="https://imangelo.dev/" class="text-foreground">
-        Resume
-        <LucideIcon
-          slot="icon"
-          icon={Download}
-          class="size-10 md:size-16 ml-8 opacity-0 group-hover:opacity-100 transition"
-        />
-      </HeroLink>
-    </TextAnim>
-    */
-		}
+		<TextAnim trigger h="5.5rem" d="200ms" class="px-2">
+			<HeroLink href="https://imangelo.dev/michelangelo-valderrama-csv.pdf" class="text-foreground">
+				Resume
+				<LucideIcon
+					slot="icon"
+					icon={Download}
+					class="size-10 md:size-16 ml-8 opacity-0 group-hover:opacity-100 transition"
+				/>
+			</HeroLink>
+		</TextAnim>
 		<TextAnim trigger h="5.5rem" d="300ms" class="px-2">
 			<a href="https://imangelo.dev" target="_blank" rel="noopener noreferrer"
 				>Blog</a

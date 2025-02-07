@@ -1,173 +1,141 @@
 ---
-import Section from "@/components/Section.astro"
-import Bun from "@/svgs/Bun.svg.astro"
-import Express from "@/svgs/Express.svg.astro"
-import MongoDB from "@/svgs/MongoDB.svg.astro"
-import Nest from "@/svgs/Nest.svg.astro"
-import Node from "@/svgs/Node.svg.astro"
-import PostgreSQL from "@/svgs/PostgreSQL.svg.astro"
-import Python from "@/svgs/Python.svg.astro"
-import Prisma from "@/svgs/Prisma.svg.astro"
-import Postman from "@/svgs/Postman.astro"
-import Jest from "@/svgs/Jest.svg.astro"
-import Mongoose from "@/svgs/Mongoose.svg.astro"
-import React from "@/svgs/React.svg.astro"
-import TailwindCSS from "@/svgs/TailwindCSS.svg.astro"
-import TypeScript from "@/svgs/TypeScript.svg.astro"
-import JavaScript from "@/svgs/JavaScript.svg.astro"
-import HTML from "@/svgs/HTML.svg.astro"
-import CSS from "@/svgs/CSS.svg.astro"
-import Firebase from "@/svgs/Firebase.svg.astro"
-import Supabase from "@/svgs/Supabase.svg.astro"
-import Vercel from "@/svgs/Vercel.svg.astro"
-import Bash from "@/svgs/Bash.svg.astro"
-import Docker from "@/svgs/Docker.svg.astro"
-import AWS from "@/svgs/AWS.svg.astro"
-import Git from "@/svgs/Git.svg.astro"
-import AstroBuild from "@/svgs/AstroBuild.svg.astro"
-import Angular from "@/svgs/Angular.svg.astro"
-import Tech from "@/components/Tech.astro"
-import TextAnim from "@/components/TextAnim.astro"
+import Section from '@/components/Section.astro'
+import Tech from '@/components/Tech.astro'
+import TextAnim from '@/components/TextAnim.astro'
+
+import UIShadcn from '@/svgs/UIShadcn.astro'
+import Express from '@/svgs/Express.svg.astro'
+import MongoDB from '@/svgs/MongoDB.svg.astro'
+import Node from '@/svgs/Node.svg.astro'
+import Mongoose from '@/svgs/Mongoose.svg.astro'
+import React from '@/svgs/React.svg.astro'
+import TailwindCSS from '@/svgs/TailwindCSS.svg.astro'
+import TypeScript from '@/svgs/TypeScript.svg.astro'
+import JavaScript from '@/svgs/JavaScript.svg.astro'
+import HTML from '@/svgs/HTML.svg.astro'
+import CSS from '@/svgs/CSS.svg.astro'
+import Vercel from '@/svgs/Vercel.svg.astro'
+import Docker from '@/svgs/Docker.svg.astro'
+import Git from '@/svgs/Git.svg.astro'
+import AstroBuild from '@/svgs/AstroBuild.svg.astro'
+import Angular from '@/svgs/Angular.svg.astro'
+import Figma from '@/svgs/Figma.svg.astro'
 
 const backend = [
-  {
-    name: "Node.js",
-    icon: Node,
-  },
-  {
-    name: "Express",
-    icon: Express,
-  },
-  {
-    name: "Nest",
-    icon: Nest,
-  },
-  {
-    name: "Prisma",
-    icon: Prisma,
-  },
-  {
-    name: "MongoDB",
-    icon: MongoDB,
-  },
-  {
-    name: "Bun",
-    icon: Bun,
-  },
-  {
-    name: "Python",
-    icon: Python,
-  },
-  {
-    name: "Jest",
-    icon: Jest,
-  },
-  {
-    name: "Mongoose",
-    icon: Mongoose,
-  },
+    {
+        name: 'Node.js',
+        icon: Node
+    },
+    {
+        name: 'Express',
+        icon: Express
+    },
+    {
+        name: 'MongoDB',
+        icon: MongoDB
+    },
+    {
+        name: 'Mongoose',
+        icon: Mongoose
+    }
 ]
 const frontend = [
-  {
-    name: "React",
-    icon: React,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: TailwindCSS,
-  },
-  {
-    name: "TypeScript",
-    icon: TypeScript,
-  },
-  {
-    name: "JavaScript",
-    icon: JavaScript,
-  },
-  {
-    name: "HTML",
-    icon: HTML,
-  },
-  {
-    name: "CSS",
-    icon: CSS,
-  },
-  {
-    name: "Astro",
-    icon: AstroBuild,
-  },
-  {
-    name: "Angular",
-    icon: Angular,
-  },
-  {
-    name: "Firebase",
-    icon: Firebase,
-  },
-  {
-    name: "Vercel",
-    icon: Vercel,
-  },
+    {
+        name: 'React',
+        icon: React
+    },
+    {
+        name: 'ui.shadcn',
+        icon: UIShadcn
+    },
+    {
+        name: 'Tailwind CSS',
+        icon: TailwindCSS
+    },
+    {
+        name: 'TypeScript',
+        icon: TypeScript
+    },
+    {
+        name: 'JavaScript',
+        icon: JavaScript
+    },
+    {
+        name: 'HTML',
+        icon: HTML
+    },
+    {
+        name: 'CSS',
+        icon: CSS
+    },
+    {
+        name: 'Astro',
+        icon: AstroBuild
+    },
+    {
+        name: 'Angular',
+        icon: Angular
+    },
+    {
+        name: 'Figma',
+        icon: Figma
+    }
 ]
-const devops = [
-  {
-    name: "Bash",
-    icon: Bash,
-  },
-  {
-    name: "Docker",
-    icon: Docker,
-  },
-  {
-    name: "AWS",
-    icon: AWS,
-  },
-  {
-    name: "Git",
-    icon: Git,
-  },
+const others = [
+    {
+        name: 'Docker',
+        icon: Docker
+    },
+    {
+        name: 'Git',
+        icon: Git
+    },
+    {
+        name: 'Vercel',
+        icon: Vercel
+    }
 ]
 
-const stack = [...backend, ...frontend, ...devops]
+const stack = [...backend, ...frontend, ...others]
 ---
 
 <Section
-  id="tech-skills"
-  anim
-  frame="0 0% 100%"
-  fg="0 0% 100%"
-  bg="0 0% 0%"
-  class="xs:transition-all xs:duration-500 xs:opacity-0 uppercase flex flex-col"
+    id="tech-skills"
+    anim
+    frame="0 0% 100%"
+    fg="0 0% 100%"
+    bg="0 0% 0%"
+    class="xs:transition-all xs:duration-500 xs:opacity-0 uppercase flex flex-col"
 >
-  <h1
-    class="font-black text-5xl xs:text-6xl sm:text-7xl md:text-8xl mt-20 mb-10 md:mb-0 md:mt-32"
-  >
-    <TextAnim trigger h="5rem">
-      Tech<span class="text-stroke">Skills</span>
-    </TextAnim>
-  </h1>
-  <div
-    tech-skills-items
-    class="opacity-0 blur-sm transition duration-1000 flex-1 overflow-hidden flex flex-col justify-center mb-20 max-w-screen-md mx-auto"
-  >
-    <Tech items={stack} delay={30} translate={0} />
-    <Tech items={stack} delay={70} translate={6} />
-    <Tech items={stack} delay={50} translate={12} />
-  </div>
+    <h1
+        class="font-black text-5xl xs:text-6xl sm:text-7xl md:text-8xl mt-20 mb-10 md:mb-0 md:mt-32"
+    >
+        <TextAnim trigger h="5rem">
+            Tech<span class="text-stroke">Skills</span>
+        </TextAnim>
+    </h1>
+    <div
+        tech-skills-items
+        class="opacity-0 blur-sm transition duration-1000 flex-1 overflow-hidden flex flex-col justify-center mb-20 max-w-screen-md mx-auto"
+    >
+        <Tech items={stack} delay={30} translate={0} />
+        <Tech items={stack} delay={70} translate={6} />
+        <Tech items={stack} delay={50} translate={12} />
+    </div>
 </Section>
 
 <style>
-  .text-stroke {
-    color: transparent;
-    -webkit-text-stroke: 1px hsl(var(--foreground));
-  }
+    .text-stroke {
+        color: transparent;
+        -webkit-text-stroke: 1px hsl(var(--foreground));
+    }
 
-  .active {
-    @apply bg-foreground text-background;
-  }
+    .active {
+        @apply bg-foreground text-background;
+    }
 
-  .in-view [tech-skills-items] {
-    opacity: 1;
-    filter: blur(0);
-  }
+    .in-view [tech-skills-items] {
+        opacity: 1;
+        filter: blur(0);
+    }
 </style>

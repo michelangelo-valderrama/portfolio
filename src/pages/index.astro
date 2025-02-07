@@ -45,7 +45,7 @@ import TechSkills from '@/sections/TechSkills.section.astro'
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const target = entry.target as HTMLDivElement
-            const { fg, bg, frame, pBg } = target.dataset
+            const { fg, bg, frame, pBg, pFg } = target.dataset
 
             target.classList.add('in-view')
 
@@ -53,6 +53,7 @@ import TechSkills from '@/sections/TechSkills.section.astro'
             if (bg) body.style.setProperty('--background', bg)
             if (frame) body.style.setProperty('--frame', frame)
             if (pBg) body.style.setProperty('--p-bg', pBg)
+            if (pFg) body.style.setProperty('--p-fg', pFg)
           } else {
             entry.target.classList.remove('in-view')
           }

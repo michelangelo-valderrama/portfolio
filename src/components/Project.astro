@@ -10,7 +10,8 @@ interface Props extends Project {
 }
 
 const {
-  background = "0 0 0",
+  background = "0 0% 0%",
+  foreground = "0 0% 98%",
   description,
   stack,
   title,
@@ -24,13 +25,14 @@ const {
 <article
   section-ctn
   data-frame="0 0% 0%"
-  data-fg="0 0% 0%"
+  data-fg={foreground}
+  data-p-fg={foreground}
   data-p-bg={background}
-  style="--foreground: 0 0% 0%;"
   class={cn(
     "xs:transition xs:opacity-0 xs:duration-500 flex items-center justify-center mt-16",
     Astro.props.class
   )}
+  style={`--background: ${background}; --foreground: ${foreground}; --border: ${foreground};`}
   {...props}
 >
   <div

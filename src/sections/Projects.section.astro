@@ -5,12 +5,12 @@ import ProjectsMobile from "./ProjectsMobile.section.astro"
 
 <div
   id="projects"
-  style="--background: var(--p-bg); --foreground: 0% 0% 0%;"
+  style="--background: var(--p-bg); --foreground: var(--p-fg);"
   class={`
     bg-background
     text-foreground border-foreground
     rounded-2xl
-    transition-colors duration-300
+    transition-all duration-300
   `}
 >
   <ProjectsDesktop />

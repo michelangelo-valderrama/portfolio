@@ -1,10 +1,11 @@
 [
 	{
-		"date": "2K24",
+		"date": "2K25",
 		"stack": ["Astro", "React", "Tailwind CSS", "Resend"],
 		"title": "Personal·Blog",
 		"link": "https://imangelo.dev",
-		"background": "0 0% 100%",
+		"background": "0 0% 8%",
+		"foreground": "0 0% 98%",
 		"img": {
 			"alt": "Imangelo blog screenshot",
 			"width": 1200,
@@ -15,10 +16,11 @@
 	},
 	{
 		"date": "2k24",
-		"stack": ["Astro", "Preact", "Tailwind CSS", "Docker"],
+		"stack": ["Astro", "React", "Tailwind CSS", "Docker"],
 		"title": "IF7SPORTS·WEB",
 		"link": "https://if7sports.com/en",
 		"background": "140 50% 50%",
+		"foreground": "0 0% 0%",
 		"img": {
 			"alt": "IF7SPORTS web screenshot",
 			"width": 1200,
@@ -29,44 +31,17 @@
 	},
 	{
 		"date": "2K24",
-		"stack": ["React", "Capacitor", "Resend", "Netlify", "Tailwind CSS"],
-		"title": "Send",
-		"link": "https://github.com/michelangelo-valderrama/send-app",
-		"background": "0 0% 100%",
-		"img": {
-			"alt": "Send mobile app screenshot",
-			"width": 1200,
-			"height": 800,
-			"src": "/img/send-screenshot.webp"
-		},
-		"description": "Mobile application to send emails to my newsletter subscribers. To send the emails I call a **netlify function** that uses the **Resend** api. I used **React Emal** to create the templates."
-	},
-	{
-		"date": "2K24",
 		"stack": ["Astro", "React", "Tailwind CSS"],
 		"title": "ndrstndng·str",
 		"link": "https://understanding-astro-webook.vercel.app/",
 		"background": "0 0% 100%",
+		"foreground": "0 0% 0%",
 		"img": {
 			"alt": "Understanding Astro web book screenshot",
 			"width": 1200,
 			"height": 800,
 			"src": "/img/understanding-astro-screenshot-dark.webp"
 		},
-		"description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP)."
-	},
-	{
-		"date": "2022",
-		"stack": ["Python", "Manim"],
-		"title": "Phtgrn·Thrm",
-		"link": "https://github.com/michelangelo-valderrama/python-mini-projects/tree/main/manim-theorem",
-		"background": "9 77% 63%",
-		"img": {
-			"alt": "Pythagorean theorem screenshot",
-			"width": 1920,
-			"height": 1080,
-			"src": "/img/phytagorean-screenshot.webp"
-		},
-		"description": "A purely visual proof of the Pythagorean theorem."
+		"description": "Web version of a book about Astro with a [cool card effect](https://codepen.io/V_Tokyo/pen/eYXwXXP). Now with 5 stars in GitHub."
 	}
 ]

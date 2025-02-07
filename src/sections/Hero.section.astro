@@ -7,8 +7,8 @@ import TextAnim from '@/components/TextAnim.astro'
   id="home"
   anim
   frame="20 8% 0%"
-  fg="51 22% 69%"
-  bg="20 8% 0%"
+  fg="0 0% 4%"
+  bg="0 0% 98%"
   class={`
     flex justify-center items-center
     xs:transition-all xs:duration-500 xs:opacity-0
@@ -18,13 +18,13 @@ import TextAnim from '@/components/TextAnim.astro'
   <div class="px-2 uppercase select-none flex items-center justify-center">
     <div class="text-center">
       <h1
-        class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-serif italic"
+        class="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-serif"
       >
         <TextAnim trigger class="px-2" h="4rem">Michelangelo</TextAnim>
       </h1>
-      <p class="text-xs sm:text-base md:text-lg font-bold">
+      <p class="text-xs sm:text-base md:text-lg">
         <TextAnim trigger d="200ms" h="2.5rem">
-          Full stack developer & web designer
+          Developer & Designer. Thinking about Humans.
         </TextAnim>
       </p>
     </div>
